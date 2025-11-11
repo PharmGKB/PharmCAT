@@ -7,7 +7,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*13"
       ],
@@ -26,7 +26,9 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "rs2279343",
+      "variant": [
+        "rs2279343"
+      ],
       "dips": [
         "*1/*18"
       ],
@@ -45,7 +47,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*34"
       ],
@@ -64,7 +66,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*36"
       ],
@@ -83,7 +85,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*6"
       ],
@@ -102,7 +104,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*7"
       ],
@@ -125,7 +127,7 @@
       "variantsMissing": [
         "rs3758581"
       ],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -140,7 +142,9 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "rs58973490",
+      "variant": [
+        "rs58973490"
+      ],
       "dips": [
         "*1/*2"
       ],
@@ -158,7 +162,8 @@
         "pantoprazole",
         "omeprazole",
         "lansoprazole",
-        "dexlansoprazole"
+        "dexlansoprazole",
+        "mavacamten"
       ]
     },
     "exception_type": "ambiguity",
@@ -172,7 +177,9 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "rs17882687",
+      "variant": [
+        "rs17882687"
+      ],
       "dips": [
         "*1/*35"
       ],
@@ -190,7 +197,8 @@
         "pantoprazole",
         "omeprazole",
         "lansoprazole",
-        "dexlansoprazole"
+        "dexlansoprazole",
+        "mavacamten"
       ]
     },
     "exception_type": "ambiguity",
@@ -204,7 +212,9 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "rs12248560",
+      "variant": [
+        "rs12248560"
+      ],
       "dips": [
         "*1/*4"
       ],
@@ -222,7 +232,8 @@
         "pantoprazole",
         "omeprazole",
         "lansoprazole",
-        "dexlansoprazole"
+        "dexlansoprazole",
+        "mavacamten"
       ]
     },
     "exception_type": "ambiguity",
@@ -240,7 +251,7 @@
       "variantsMissing": [
         "rs28399504"
       ],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -257,7 +268,7 @@
         "*17"
       ],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -272,7 +283,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*71"
       ],
@@ -301,7 +312,7 @@
       "variantsMissing": [
         "rs776746"
       ],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "tacrolimus"
@@ -318,7 +329,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -333,7 +344,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -348,7 +359,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -363,7 +374,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*2"
       ],
@@ -384,7 +395,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "phenytoin",
@@ -402,7 +413,9 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "rs12777823",
+      "variant": [
+        "rs12777823"
+      ],
       "dips": [],
       "drugs": [
         "warfarin"
@@ -412,31 +425,6 @@
     "message": ""
   },
   {
-    "rule_name": "SLCO1B1 *1/*46 warning",
-    "version": "1",
-    "matches": {
-      "gene": "SLCO1B1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": null,
-      "dips": [
-        "*1/*46"
-      ],
-      "drugs": [
-        "simvastatin",
-        "rosuvastatin",
-        "pravastatin",
-        "pitavastatin",
-        "lovastatin",
-        "fluvastatin",
-        "atorvastatin"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is  *1/*46; however, *15/*45 cannot be ruled out without phased data."
-  },
-  {
     "rule_name": "SLCO1B1 *1/*20 warning",
     "version": "1",
     "matches": {
@@ -444,7 +432,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*20"
       ],
@@ -462,56 +450,6 @@
     "message": "The assigned genotype is*1/*20; however, *19/*37 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "SLCO1B1 *1/*12 warning",
-    "version": "1",
-    "matches": {
-      "gene": "SLCO1B1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": null,
-      "dips": [
-        "*1/*12"
-      ],
-      "drugs": [
-        "simvastatin",
-        "rosuvastatin",
-        "pravastatin",
-        "pitavastatin",
-        "lovastatin",
-        "fluvastatin",
-        "atorvastatin"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*12; however, *2/*10 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "SLCO1B1 *1/*13 warning",
-    "version": "1",
-    "matches": {
-      "gene": "SLCO1B1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": null,
-      "dips": [
-        "*1/*13"
-      ],
-      "drugs": [
-        "simvastatin",
-        "rosuvastatin",
-        "pravastatin",
-        "pitavastatin",
-        "lovastatin",
-        "fluvastatin",
-        "atorvastatin"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*13; however, *3/*11 cannot be ruled out without phased data."
-  },
-  {
     "rule_name": "SLCO1B1 *1/*14 warning",
     "version": "1",
     "matches": {
@@ -519,7 +457,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*14"
       ],
@@ -544,7 +482,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*15"
       ],
@@ -569,7 +507,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*25"
       ],
@@ -594,7 +532,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*31"
       ],
@@ -619,7 +557,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*32"
       ],
@@ -644,7 +582,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*40"
       ],
@@ -669,7 +607,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*43"
       ],
@@ -694,7 +632,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "simvastatin",
@@ -717,7 +655,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*3A"
       ],
@@ -738,7 +676,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -753,7 +691,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*80+*28"
       ],
@@ -772,7 +710,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*80+*37"
       ],
@@ -791,7 +729,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -808,7 +746,7 @@
       ],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -823,7 +761,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -838,7 +776,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "warfarin"
@@ -855,7 +793,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "warfarin"
@@ -872,7 +810,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -887,7 +825,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -902,7 +840,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -917,7 +855,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -932,7 +870,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -947,7 +885,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -962,7 +900,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "quetiapine"
@@ -972,23 +910,6 @@
     "message": "The CYP3A4 alleles are determined based on PharmVar CYP3A4 allele definitions. See PharmCAT disclaimer for further information."
   },
   {
-    "rule_name": "irinotecan-DPWG",
-    "version": "2",
-    "matches": {
-      "gene": null,
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": null,
-      "dips": [],
-      "drugs": [
-        "irinotecan"
-      ]
-    },
-    "exception_type": "note",
-    "message": "Alleles determined based on the CPIC UGT1A1 allele definition file due to limited allele definition information in the DPWG UGT1A1 document"
-  },
-  {
     "rule_name": "pcat-call-multimatch",
     "version": "1",
     "matches": {
@@ -996,7 +917,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -1011,7 +932,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -1026,7 +947,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "aminosalicylic acid",
@@ -1076,7 +997,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*37"
       ],
@@ -1095,7 +1016,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*38"
       ],
@@ -1114,7 +1035,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*4"
       ],
@@ -1133,7 +1054,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "A- 202A_376G/B (reference)"
       ],
@@ -1185,7 +1106,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "B (reference)/Mt Sinai"
       ],
@@ -1237,7 +1158,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "B (reference)/Santa Maria"
       ],
@@ -1289,7 +1210,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "Ananindeua/B (reference)"
       ],
@@ -1341,7 +1262,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "B (reference)/Hechi"
       ],
@@ -1393,7 +1314,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "B (reference)/Hermoupolis"
       ],
@@ -1445,7 +1366,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": [
         "desflurane",
@@ -1468,7 +1389,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -1483,7 +1404,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [],
       "drugs": []
     },
@@ -1498,7 +1419,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [],
       "dips": [
         "*1/*53"
       ],
@@ -1523,7 +1444,9 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": null,
+      "variant": [
+        "rs28371686"
+      ],
       "dips": [
         "*1/*36"
       ],
@@ -1541,5 +1464,65 @@
     },
     "exception_type": "ambiguity",
     "message": "The assigned genotype is *1/*36; however, *5/*36 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1/*45 warning",
+    "version": "3",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": [
+        "rs4149056",
+        "rs2306283"
+      ],
+      "dips": [
+        "*1/*45"
+      ],
+      "drugs": [
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*45; however, *15/*45 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP2C19 *1/*34 warning",
+    "version": "3",
+    "matches": {
+      "gene": "CYP2C19",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": [],
+      "dips": [
+        "*1/*34"
+      ],
+      "drugs": [
+        "amitriptyline",
+        "clomipramine",
+        "imipramine",
+        "trimipramine",
+        "doxepin",
+        "sertraline",
+        "clopidogrel",
+        "escitalopram",
+        "citalopram",
+        "voriconazole",
+        "pantoprazole",
+        "omeprazole",
+        "lansoprazole",
+        "dexlansoprazole"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*34; however, *38/*40 cannot be ruled out without phased data."
   }
 ]

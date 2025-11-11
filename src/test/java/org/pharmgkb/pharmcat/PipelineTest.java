@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
@@ -750,9 +749,10 @@ class PipelineTest {
 
     // ambiguity message will not apply in this case because all variants are available for CYP2C19, but one message
     // should appear for the *1 call
+    assertTrue(cyp2c19report.getMessages().size() > 0, "Expecting messages, got none");
     assertEquals(1, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) &&
-            Objects.requireNonNull(m.getMatches().getVariant()).equals("rs58973490"))
+            m.getMatches().getVariants().contains("rs58973490"))
         .count());
 
     testWrapper.testMessageCountForDrug(PrescribingGuidanceSource.CPIC_GUIDELINE, "amitriptyline", 1);
@@ -798,7 +798,7 @@ class PipelineTest {
     // the variant is hom, so the ambiguity message should not apply and, thus, no matching messages
     assertEquals(0, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) &&
-            Objects.requireNonNull(m.getMatches().getVariant()).equals("rs58973490"))
+            m.getMatches().getVariants().contains("rs58973490"))
         .count());
 
     testWrapper.testAnyMatchFromSource("amitriptyline", PrescribingGuidanceSource.CPIC_GUIDELINE);
@@ -1068,7 +1068,7 @@ class PipelineTest {
   }
 
   @Test
-  void testSlco1b1Test5(TestInfo testInfo) throws Exception {
+  void testSlco1b1Test2(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("SLCO1B1", "rs2306283", "A", "G")
@@ -1126,6 +1126,36 @@ class PipelineTest {
     testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
     testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
+
+    testWrapper.testMatchedAnnotations("simvastatin", 3);
+    testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
+    testWrapper.testNoMatchFromSource("simvastatin", PrescribingGuidanceSource.FDA_LABEL);
+    testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.FDA_ASSOC, 1);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.YES);
+  }
+
+  @Test
+  void testSlco1b1Test5(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .variation("SLCO1B1", "rs2306283", "A", "G")   // 0/1
+        .variation("SLCO1B1", "rs4149056", "T", "C")   // 0/1
+        .variation("SLCO1B1", "rs71581941", "C", "T"); // 0/1
+    Path vcfFile = testWrapper.execute();
+
+    List<String> expectedCalls = List.of("*1/*45");
+
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
+
+    // check has warning - requires 2 RSIDs
+    testWrapper.testGeneHasMessage("SLCO1B1", "SLCO1B1 *1/*45 warning");
 
     testWrapper.testMatchedAnnotations("simvastatin", 3);
     testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);

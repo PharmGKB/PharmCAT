@@ -28,7 +28,7 @@ public class MatchLogic implements Comparable<MatchLogic> {
   private final List<String> m_variantsMissing = new ArrayList<>();
   @Expose
   @SerializedName("variant")
-  private String m_variant;
+  private List<String> m_variants = new ArrayList<>();
   @Expose
   @SerializedName("dips")
   private final List<String> m_dips = new ArrayList<>();
@@ -85,12 +85,12 @@ public class MatchLogic implements Comparable<MatchLogic> {
     m_variantsMissing.addAll(variantsMissing);
   }
 
-  public @Nullable String getVariant() {
-    return m_variant;
+  public List<String> getVariants() {
+    return m_variants;
   }
 
-  public void setVariant(@Nullable String variant) {
-    m_variant = StringUtils.stripToNull(variant);
+  public void setVariants(List<String> variants) {
+    m_variants = variants;
   }
 
 
@@ -105,7 +105,7 @@ public class MatchLogic implements Comparable<MatchLogic> {
         .compare(m_hapsMissing, o.getHapsMissing())
         .compare(m_dips, o.getDips())
         .compare(m_drugs, o.getDrugs())
-        .compare(m_variant, o.getVariant())
+        .compare(m_variants, o.getVariants())
         .compare(m_variantsMissing, o.getVariantsMissing())
         .result();
   }

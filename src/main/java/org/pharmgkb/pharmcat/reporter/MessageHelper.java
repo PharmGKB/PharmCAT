@@ -54,7 +54,7 @@ public class MessageHelper {
   /**
    * Public constructor. Will load message data from the file system.
    *
-   * @throws IOException can occur when reading the messages file
+   * @throws IOException can occur when reading messages.json
    */
   public MessageHelper() throws IOException {
     try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_messagesFile))) {
@@ -86,7 +86,7 @@ public class MessageHelper {
   public void addMatchingMessagesTo(GeneReport report) {
     if (!report.isReportable()) {
       if (!report.isNoData()) {
-        // if not reportable but does have data apply only "non-match" rules
+        // if not reportable but has data, apply only "non-match" rules
         m_geneMap.get(report.getGene()).stream()
             .filter(m -> m.getExceptionType().equalsIgnoreCase(MessageAnnotation.TYPE_NONMATCH) && matchesGeneReport(m, report))
             .forEach(report::addMessage);
@@ -119,8 +119,9 @@ public class MessageHelper {
         match.getHapsCalled().stream().allMatch(gene::hasHaplotype);
     boolean passHapMissingCriteria = match.getHapsMissing().isEmpty() ||
         gene.getUncalledHaplotypes().containsAll(match.getHapsMissing());
-    boolean passVariantMatchCriteria = StringUtils.isBlank(match.getVariant()) ||
-        gene.findVariantReport(match.getVariant()).map((v) -> !v.isMissing()).orElse(false);
+    boolean passVariantMatchCriteria = match.getVariants().isEmpty() ||
+        match.getVariants().stream()
+            .allMatch((r) -> gene.findVariantReport(r).map(v -> !v.isMissing()).orElse(false));
     boolean passVariantMissingCriteria = match.getVariantsMissing().isEmpty() ||
         match.getVariantsMissing().stream()
             .allMatch((r) -> gene.findVariantReport(r).map(VariantReport::isMissing).orElse(false));
@@ -131,13 +132,14 @@ public class MessageHelper {
 
     boolean passAmbiguityCriteria = true;
     if (message.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY)) {
-      // ambiguity messages with diplotypes only apply if gene is unphased
+      // ambiguity messages with diplotypes only apply if the gene is unphased
       if (!match.getDips().isEmpty() && gene.isPhased()) {
         passAmbiguityCriteria = false;
       }
       // ambiguity messages with a variant only apply when that variant is het
-      else if (!StringUtils.isBlank(match.getVariant()) &&
-          !gene.findVariantReport(match.getVariant()).map(VariantReport::isHetCall).orElse(false)) {
+      else if (!match.getVariants().isEmpty() &&
+          !match.getVariants().stream()
+              .allMatch((r) -> gene.findVariantReport(r).map(VariantReport::isHetCall).orElse(false))) {
         passAmbiguityCriteria = false;
       }
     }
@@ -203,15 +205,25 @@ public class MessageHelper {
 
   private String computeGenotype(MessageAnnotation msgAnn, ReportContext reportContext) {
     String geneSymbol = Objects.requireNonNull(msgAnn.getMatches().getGene());
-    String rsid = Objects.requireNonNull(msgAnn.getMatches().getVariant());
-
     GeneReport gr = reportContext.getGeneReport(geneSymbol);
+
+    StringBuilder builder = new StringBuilder();
+    for (String rsid : msgAnn.getMatches().getVariants()) {
+      if (!builder.isEmpty()) {
+        builder.append(", ");
+      }
+      builder.append(computeSingleGenotype(gr, rsid));
+    }
+    return builder.toString();
+  }
+
+  private String computeSingleGenotype(@Nullable GeneReport gr, String rsid) {
     if (gr == null) {
       return rsid + ":" + Haplotype.UNKNOWN;
     }
     Optional<String> call = Stream.concat(gr.getVariantReports().stream(), gr.getVariantOfInterestReports().stream())
         .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
-        .map(VariantReport::getCall)
+        .map(vr -> StringUtils.stripToEmpty(vr.getCall()))
         .findFirst();
     if (call.isEmpty() || StringUtils.isBlank(call.get())) {
       return rsid + ":" + Haplotype.UNKNOWN;
@@ -239,7 +251,7 @@ public class MessageHelper {
       return true;
     }
     GeneReport geneReport = reportContext.getGeneReport(gene);
-    // don't apply message if gene has no data
+    // don't apply the message if the gene has no data
     return geneReport != null && !geneReport.isNoData() && geneReport.hasMessage(message.getName());
   }
 }

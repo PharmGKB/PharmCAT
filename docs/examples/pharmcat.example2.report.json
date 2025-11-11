@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example2",
-  "timestamp": "2025-11-06T00:04:50.934Z",
-  "pharmcatVersion": "v3.0.1-78-gc45aacb3",
+  "timestamp": "2025-11-11T06:35:30.678Z",
+  "pharmcatVersion": "v3.0.1-84-g5a30f492",
   "dataVersion": "2025-11-05-00-25",
   "genes": {
     "ABCG2": {
@@ -1819,7 +1819,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [
               "*1/*6"
             ],
@@ -5307,7 +5307,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": [
               "quetiapine"
@@ -6069,7 +6069,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -6677,7 +6677,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -6692,7 +6692,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -8146,7 +8146,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": [
               "aminosalicylic acid",
@@ -11257,7 +11257,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -17762,7 +17762,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": [
               "simvastatin",
@@ -18499,7 +18499,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -19282,7 +19282,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -19502,7 +19502,7 @@
             "hapsCalled": [],
             "hapsMissing": [],
             "variantsMissing": [],
-            "variant": null,
+            "variant": [],
             "dips": [],
             "drugs": []
           },
@@ -20018,7 +20018,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -21099,7 +21099,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -21735,7 +21735,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [
                 "*1/*6"
               ],
@@ -22369,7 +22369,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -22569,7 +22569,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -23902,7 +23902,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -24443,7 +24443,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -24687,7 +24687,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -25242,7 +25242,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -25396,7 +25396,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -25761,7 +25761,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -25911,7 +25911,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -26031,7 +26031,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -26178,7 +26178,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -26392,7 +26392,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -26869,7 +26869,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -27302,7 +27302,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -27764,7 +27764,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -28345,7 +28345,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "warfarin"
@@ -28362,7 +28362,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "warfarin"
@@ -28972,7 +28972,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -29846,7 +29846,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [
                 "*1/*6"
               ],
@@ -30536,25 +30536,7 @@
         "id": "PA450085",
         "source": "DPWG_GUIDELINE",
         "version": "2025-11-05-00-25",
-        "messages": [
-          {
-            "rule_name": "irinotecan-DPWG",
-            "version": "2",
-            "matches": {
-              "gene": null,
-              "hapsCalled": [],
-              "hapsMissing": [],
-              "variantsMissing": [],
-              "variant": null,
-              "dips": [],
-              "drugs": [
-                "irinotecan"
-              ]
-            },
-            "exception_type": "note",
-            "message": "Alleles determined based on the CPIC UGT1A1 allele definition file due to limited allele definition information in the DPWG UGT1A1 document"
-          }
-        ],
+        "messages": [],
         "variants": [],
         "urls": [
           "https://www.clinpgx.org/guidelineAnnotation/PA166104951"
@@ -31466,7 +31448,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -31591,7 +31573,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "quetiapine"
@@ -31742,7 +31724,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -31963,7 +31945,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -33885,7 +33867,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -34375,7 +34357,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -35146,7 +35128,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -35315,7 +35297,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -35426,7 +35408,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -35535,25 +35517,7 @@
         "id": "PA450085",
         "source": "FDA_LABEL",
         "version": "2025-11-05-00-25",
-        "messages": [
-          {
-            "rule_name": "irinotecan-DPWG",
-            "version": "2",
-            "matches": {
-              "gene": null,
-              "hapsCalled": [],
-              "hapsMissing": [],
-              "variantsMissing": [],
-              "variant": null,
-              "dips": [],
-              "drugs": [
-                "irinotecan"
-              ]
-            },
-            "exception_type": "note",
-            "message": "Alleles determined based on the CPIC UGT1A1 allele definition file due to limited allele definition information in the DPWG UGT1A1 document"
-          }
-        ],
+        "messages": [],
         "variants": [],
         "urls": [
           "https://www.clinpgx.org/labelAnnotation/PA166104831"
@@ -36017,7 +35981,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -36158,7 +36122,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -36239,7 +36203,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -36511,7 +36475,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -36592,7 +36556,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -36768,7 +36732,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -36849,7 +36813,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -37557,7 +37521,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -37638,7 +37602,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -37899,7 +37863,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -38606,7 +38570,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -40073,7 +40037,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [
                 "*1/*6"
               ],
@@ -40615,7 +40579,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -40844,25 +40808,7 @@
         "id": "PA450085",
         "source": "FDA_ASSOC",
         "version": "2025-11-05-00-25",
-        "messages": [
-          {
-            "rule_name": "irinotecan-DPWG",
-            "version": "2",
-            "matches": {
-              "gene": null,
-              "hapsCalled": [],
-              "hapsMissing": [],
-              "variantsMissing": [],
-              "variant": null,
-              "dips": [],
-              "drugs": [
-                "irinotecan"
-              ]
-            },
-            "exception_type": "note",
-            "message": "Alleles determined based on the CPIC UGT1A1 allele definition file due to limited allele definition information in the DPWG UGT1A1 document"
-          }
-        ],
+        "messages": [],
         "variants": [],
         "urls": [
           "https://www.clinpgx.org/fdaPgxAssociations#PA166329573"
@@ -41796,7 +41742,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "phenytoin",
@@ -42218,7 +42164,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -42302,7 +42248,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "simvastatin",
@@ -42416,7 +42362,7 @@
               "hapsCalled": [],
               "hapsMissing": [],
               "variantsMissing": [],
-              "variant": null,
+              "variant": [],
               "dips": [],
               "drugs": [
                 "aminosalicylic acid",
@@ -43086,7 +43032,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example2.vcf",
-    "timestamp": "2025-11-06T00:04:48.452Z",
+    "timestamp": "2025-11-11T06:35:29.964Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,

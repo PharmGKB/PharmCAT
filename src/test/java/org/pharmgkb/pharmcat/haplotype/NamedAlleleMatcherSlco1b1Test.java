@@ -26,7 +26,6 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  */
 public class NamedAlleleMatcherSlco1b1Test {
   private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("SLCO1B1_translation.json");
-  @SuppressWarnings("DataFlowIssue")
   private static Env s_env = null;
 
   @BeforeAll

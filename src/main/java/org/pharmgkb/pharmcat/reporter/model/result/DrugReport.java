@@ -59,7 +59,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
 
   public DrugReport(String name, List<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
-    Preconditions.checkArgument(guidelinePackages != null && guidelinePackages.size() > 0);
+    Preconditions.checkArgument(guidelinePackages != null && !guidelinePackages.isEmpty());
     m_drugName = name;
     m_id = guidelinePackages.get(0).getGuideline().getRelatedChemicals().stream()
         .filter((c) -> c.getName().equals(name))
@@ -78,7 +78,7 @@ public class DrugReport implements Comparable<DrugReport> {
       }
 
       GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage, reportContext, name);
-      // link gene report back to drug report
+      // link gene report back to the drug report
       guidelineReport.getGeneReports().forEach((gr) -> gr.addRelatedDrug(this));
       addGuideline(guidelineReport);
     }
@@ -109,7 +109,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
 
   /**
-   * Gets just the symbols of the related genes of the guideline. Calculated from data in the original guideline.
+   * Gets the symbols of the related genes in the guideline. Calculated from data in the original guideline.
    */
   public Collection<String> getRelatedGeneSymbols() {
     return m_guidelines.stream()
@@ -164,7 +164,7 @@ public class DrugReport implements Comparable<DrugReport> {
     // separate the general messages from specific genotype call messages
     messages.forEach(ma -> {
       if (ma.getExceptionType().equals(MessageAnnotation.TYPE_REPORT_AS_GENOTYPE)) {
-        m_reportVariants.add(ma.getMatches().getVariant());
+        m_reportVariants.addAll(ma.getMatches().getVariants());
       }
       else {
         m_messages.add(ma);
@@ -177,7 +177,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   /**
-   * Gets list of variants to display as part of genotype for recommendation.
+   * Gets the list of variants to display as part of the genotype for recommendation.
    */
   public SortedSet<String> getReportVariants() {
     return m_reportVariants;
