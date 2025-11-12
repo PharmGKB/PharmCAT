@@ -39,7 +39,7 @@ public class Phenotyper {
 
   @SerializedName("matcherMetadata")
   @Expose
-  private Metadata m_matcherMetadata;
+  private @Nullable Metadata m_matcherMetadata;
   @Expose
   @SerializedName("geneReports")
   private final SortedMap<String, GeneReport> m_geneReports = new TreeMap<>();
@@ -193,7 +193,7 @@ public class Phenotyper {
   }
 
 
-  public Metadata getMatcherMetadata() {
+  public @Nullable Metadata getMatcherMetadata() {
     return m_matcherMetadata;
   }
 }

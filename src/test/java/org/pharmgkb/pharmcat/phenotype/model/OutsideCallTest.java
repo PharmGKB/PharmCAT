@@ -135,4 +135,14 @@ class OutsideCallTest {
     assertEquals(1, oc.getWarnings().size());
     assertTrue(oc.getWarnings().get(0).startsWith("Undocumented"));
   }
+
+
+  @Test
+  void testNoCall() {
+    OutsideCall oc = new OutsideCall(s_env, "CYP2D6\t.", 1);
+    assertNull(oc.getDiplotype());
+
+    oc = new OutsideCall(s_env, "CYP2D6\t./.", 1);
+    assertNull(oc.getDiplotype());
+  }
 }

@@ -2363,6 +2363,23 @@ class PipelineTest {
     DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
   }
 
+  @Test
+  void testNoCallOutsideCall(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("HLA-B\t.");
+      writer.println("NAT2\t./.");
+    }
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("NAT2");
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
+
+    testWrapper.testNotCalledByMatcher("HLA-B");
+    testWrapper.testNotCalledByMatcher("NAT2");
+  }
+
 
   @Test
   void phaseSetCyp2C9(TestInfo testInfo) throws Exception {

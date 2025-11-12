@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -391,7 +392,7 @@ public class PipelineWrapper {
   void testReportable(String... genes) {
     assertTrue(genes != null && genes.length > 0);
     Arrays.stream(genes)
-        .map(g -> getContext().getGeneReport(g))
+        .map(g -> Objects.requireNonNull(getContext().getGeneReport(g)))
         .forEach(r -> assertTrue(r.isReportable(), r + " is not reportable"));
   }
 
