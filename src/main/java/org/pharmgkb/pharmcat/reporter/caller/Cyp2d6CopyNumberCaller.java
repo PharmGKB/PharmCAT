@@ -8,6 +8,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -27,7 +28,7 @@ public class Cyp2d6CopyNumberCaller {
 
 
   public static void initialize(Env env) {
-    if (m_gteThree.size() > 0) {
+    if (!m_gteThree.isEmpty()) {
       return;
     }
 
@@ -50,10 +51,10 @@ public class Cyp2d6CopyNumberCaller {
   }
 
 
-  public static Diplotype inferDiplotype(GeneReport report, Diplotype diplotype, Env env) {
-    Preconditions.checkArgument(diplotype.getGene().equals(GENE), "Can only be used on CYP2D6");
+  public static @Nullable Diplotype inferDiplotype(GeneReport report, @Nullable Diplotype diplotype, Env env) {
+    Preconditions.checkArgument(report.getGene().equals(GENE), "Can only be used on CYP2D6");
 
-    if (!report.isOutsideCall()) {
+    if (!report.isOutsideCall() || diplotype == null) {
       return diplotype;
     }
 
@@ -79,7 +80,7 @@ public class Cyp2d6CopyNumberCaller {
   }
 
 
-  private static Object[] inferHaplotype(Haplotype haplotype) {
+  private static Object[] inferHaplotype(@Nullable Haplotype haplotype) {
     if (haplotype == null) {
       return new Object[] {false, null};
     }

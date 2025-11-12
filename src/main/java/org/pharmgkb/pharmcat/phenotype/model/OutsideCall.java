@@ -8,7 +8,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
@@ -38,7 +37,6 @@ public class OutsideCall implements Comparable<OutsideCall> {
 
   private final String m_gene;
   private @Nullable String m_diplotype;
-  private List<String> m_diplotypes;
   private @Nullable String m_phenotype = null;
   private @Nullable String m_activityScore = null;
   private final SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -61,6 +59,9 @@ public class OutsideCall implements Comparable<OutsideCall> {
       throw new BadOutsideCallException("Line " + lineNumber + ": No gene specified");
     }
     m_diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS));
+    if (sf_diplotypeSeparator.equals(m_diplotype)) {
+      m_diplotype = null;
+    }
     if (fields.size() >= 3) {
       m_phenotype = PhenotypeUtils.normalize(fields.get(IDX_PHENO).replaceAll(m_gene, ""));
     }
@@ -75,7 +76,7 @@ public class OutsideCall implements Comparable<OutsideCall> {
       throw new BadOutsideCallException("Specify a diplotype, phenotype, or activity score for " + m_gene);
     }
 
-    if (fields.size() == 2 && (m_diplotype == null || m_diplotype.equals(sf_diplotypeSeparator))) {
+    if (fields.size() == 2 && m_diplotype == null) {
       if (StringUtils.isBlank(fields.get(IDX_DIPS))) {
         throw new BadOutsideCallException("Line " + lineNumber + ": No diplotype specified");
       } else {
@@ -84,11 +85,14 @@ public class OutsideCall implements Comparable<OutsideCall> {
     }
 
     if (m_diplotype == null) {
-      m_diplotypes = ImmutableList.of();
       if (env.isActivityScoreGene(m_gene)) {
         m_warnings.add(m_gene + " is not an activity score gene but has outside call with only an " +
             "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.");
       }
+    } else if (m_diplotype.equals(".") || m_diplotype.equals("./.")) {
+      // treat this as a no call
+      // set diplotype to null to match the behavior of no calls from NamedAlleleMatcher
+      m_diplotype = null;
     } else {
       // strip any prefix of the gene symbol
       List<String> alleles = sf_diplotypeSplitter.splitToList(m_diplotype).stream()
@@ -142,28 +146,24 @@ public class OutsideCall implements Comparable<OutsideCall> {
       }
 
       // check if allele name is valid
-      alleles = alleles.stream()
-          .map(a -> {
-            if (!env.isValidNamedAllele(m_gene, a)) {
-              StringBuilder builder = new StringBuilder().append("Undocumented ")
-                  .append(m_gene)
-                  .append(" named ");
-              if (Constants.isVariantGene(m_gene)) {
-                builder.append("variant");
-              } else {
-                builder.append("allele");
-              }
-              builder.append(" in outside call: ")
-                  .append(a);
-              m_warnings.add(builder.toString());
-            }
-            return a;
-          })
-          .toList();
+      alleles.forEach(a -> {
+        if (!env.isValidNamedAllele(m_gene, a)) {
+          StringBuilder builder = new StringBuilder().append("Undocumented ")
+              .append(m_gene)
+              .append(" named ");
+          if (Constants.isVariantGene(m_gene)) {
+            builder.append("variant");
+          } else {
+            builder.append("allele");
+          }
+          builder.append(" in outside call: ")
+              .append(a);
+          m_warnings.add(builder.toString());
+        }
+      });
 
       // re-join alleles to eliminate white space when a gene symbol is used in diplotype
       m_diplotype = String.join(sf_diplotypeSeparator, alleles);
-      m_diplotypes = ImmutableList.of(m_diplotype);
 
       m_haplotypes.add(alleles.get(0));
       if (alleles.size() == 2) {
@@ -200,10 +200,6 @@ public class OutsideCall implements Comparable<OutsideCall> {
 
   public @Nullable String getDiplotype() {
     return m_diplotype;
-  }
-
-  public List<String> getDiplotypes() {
-    return m_diplotypes;
   }
 
   public SortedSet<String> getHaplotypes() {
