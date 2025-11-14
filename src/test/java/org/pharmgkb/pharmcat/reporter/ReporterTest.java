@@ -115,23 +115,23 @@ class ReporterTest {
     // should have no tags for CPIC
     Elements tags = document.select(".cpic-guideline-warfarin .tag");
     assertEquals(0, tags.size());
-    // should NOT have tags for DPWG, the CYP2C9 and VKORC1 diplotypes called are not actionable so no tags are shown
+    // should have tags for DPWG
     tags = document.select(".dpwg-guideline-warfarin .tag");
-    assertEquals(0, tags.size());
+    assertEquals(2, tags.size());
     tags = document.select(".dpwg-guideline-warfarin");
-    assertEquals(1, tags.size());
+    assertEquals(2, tags.size());
 
     Elements phenotype = document.select(".cpic-guideline-warfarin .rx-phenotype");
     assertEquals(0, phenotype.size());
     phenotype = document.select(".dpwg-guideline-warfarin .rx-phenotype");
-    assertEquals(0, phenotype.size());
+    assertEquals(2, phenotype.size());
 
-    // CPIC guidance lookup for warfarin does not use phenotypes so no activity score will be there
+    // CPIC guidance lookup for warfarin does not use phenotype, so no activity score will be there
     Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
-    // none of the DPWG genes for warfarin use activity score
+    // DPWG genes for warfarin use activity score
     activityScore = document.select(".dpwg-guideline-warfarin .rx-activity");
-    assertEquals(0, activityScore.size());
+    assertEquals(2, activityScore.size());
   }
 
   @Test
@@ -170,19 +170,19 @@ class ReporterTest {
     // should have no tags for CPIC
     Elements tags = document.select(".cpic-guideline-warfarin .tag");
     assertEquals(0, tags.size());
-    // should have no tags for DPWG
+    // should have tags for DPWG
     tags = document.select(".dpwg-guideline-warfarin .tag");
-    assertEquals(0, tags.size());
+    assertEquals(2, tags.size());
 
     Elements phenotype = document.select(".cpic-guideline-warfarin .rx-phenotype");
     assertEquals(0, phenotype.size());
     phenotype = document.select(".dpwg-guideline-warfarin .rx-phenotype");
-    assertEquals(0, phenotype.size());
+    assertEquals(2, phenotype.size());
 
     Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
     activityScore = document.select(".dpwg-guideline-warfarin .rx-activity");
-    assertEquals(0, activityScore.size());
+    assertEquals(2, activityScore.size());
   }
 
   private Path printReport(TestInfo testInfo, ReportContext reportContext) throws Exception {

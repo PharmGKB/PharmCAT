@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example",
-  "timestamp": "2025-11-11T06:35:26.509Z",
-  "pharmcatVersion": "v3.0.1-84-g5a30f492",
+  "timestamp": "2025-11-14T22:36:36.135Z",
+  "pharmcatVersion": "v3.1.0-2-g0b250f81",
   "dataVersion": "2025-11-05-00-25",
   "genes": {
     "ABCG2": {
@@ -30459,7 +30459,7 @@
                 "implications": [
                   "The risk of side effects is increased, because the gene variation leads to higher plasma concentrations of the active metabolite nortriptyline and to a lesser extent of amitriptyline."
                 ],
-                "drugRecommendation": "Use 75% of the standard dose and monitor the efficacy and side effects or the plasma concentrations of amitriptyline and nortriptyline to adjust the maintenance dose",
+                "drugRecommendation": "Use 75% of the standard dose and monitor the efficacy and side effects or the plasma concentrations of\namitriptyline and nortriptyline in order to set the maintenance dose",
                 "classification": "Unspecified",
                 "activityScore": {
                   "CYP2D6": "1.0"
@@ -30510,7 +30510,7 @@
                 "highlightedVariants": [],
                 "dosingInformation": true,
                 "alternateDrugAvailable": false,
-                "otherPrescribingGuidance": false,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2D6": "Intermediate Metabolizer"
                 },
@@ -30871,9 +30871,9 @@
             "annotations": [
               {
                 "implications": [
-                  "The guideline does not provide a description of the impact of the _SLCO1B1_ 521 TT genotype on atorvastatin."
+                  "The guideline does not provide a description of the impact of the normal function phenotype on atorvastatin."
                 ],
-                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype",
+                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with normal function.",
                 "classification": "No recommendation",
                 "activityScore": {},
                 "population": null,
@@ -31664,7 +31664,7 @@
                 "implications": [
                   "The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of clomipramine and the active metabolite desmethylclomipramine."
                 ],
-                "drugRecommendation": "Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine.\nFor depression, the therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. A sum of the plasma concentrations of clomipramine and desmethylclomipramine higher than 600 ng/mL is considered toxic.",
+                "drugRecommendation": "Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine.",
                 "classification": "Unspecified",
                 "activityScore": {
                   "CYP2D6": "1.0"
@@ -31715,7 +31715,7 @@
                 "highlightedVariants": [],
                 "dosingInformation": true,
                 "alternateDrugAvailable": false,
-                "otherPrescribingGuidance": false,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2D6": "Intermediate Metabolizer"
                 },
@@ -31959,7 +31959,7 @@
                 "implications": [
                   "The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of doxepin and the active metabolite nordoxepin."
                 ],
-                "drugRecommendation": "Use 80% of the standard dose and monitor the effect and side effects or the plasma concentrations of doxepin and nordoxepin in order to set the maintenance dose. The therapeutic range is 100-250 ng/mL for the sum of doxepin and nordoxepin plasma concentrations. Values higher than 400 ng/mL are considered toxic.",
+                "drugRecommendation": "Use 80% of the standard dose and monitor the effect and side effects or the plasma concentrations of doxepin and nordoxepin in order to set the maintenance dose.",
                 "classification": "Unspecified",
                 "activityScore": {
                   "CYP2D6": "1.0"
@@ -32010,7 +32010,7 @@
                 "highlightedVariants": [],
                 "dosingInformation": true,
                 "alternateDrugAvailable": false,
-                "otherPrescribingGuidance": false,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2D6": "Intermediate Metabolizer"
                 },
@@ -32969,7 +32969,7 @@
                 "implications": [
                   "The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of imipramine and desipramine."
                 ],
-                "drugRecommendation": "Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of imipramine and desipramine in order to set the maintenance dose. The therapeutic range is 150-300 ng/mL for the sum of the imipramine and desipramine plasma concentrations. Values exceeding 500 ng/mL are considered toxic.",
+                "drugRecommendation": "Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of imipramine and desipramine in order to set the maintenance dose.",
                 "classification": "Unspecified",
                 "activityScore": {
                   "CYP2D6": "1.0"
@@ -33020,7 +33020,7 @@
                 "highlightedVariants": [],
                 "dosingInformation": true,
                 "alternateDrugAvailable": false,
-                "otherPrescribingGuidance": false,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2D6": "Intermediate Metabolizer"
                 },
@@ -33717,7 +33717,7 @@
                 "implications": [
                   "The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline."
                 ],
-                "drugRecommendation": "Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose. The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.",
+                "drugRecommendation": "Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose.",
                 "classification": "Unspecified",
                 "activityScore": {
                   "CYP2D6": "1.0"
@@ -33768,7 +33768,7 @@
                 "highlightedVariants": [],
                 "dosingInformation": true,
                 "alternateDrugAvailable": false,
-                "otherPrescribingGuidance": false,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2D6": "Intermediate Metabolizer"
                 },
@@ -34324,7 +34324,75 @@
             "source": "DPWG_GUIDELINE",
             "version": "2025-11-05-00-25",
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166104984",
-            "annotations": []
+            "annotations": [
+              {
+                "implications": [
+                  "The guideline does not provide a description of the impact of a normal metabolizer phenotype on phenytoin."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for phenytoin in normal metabolizers.",
+                "classification": "No recommendation",
+                "activityScore": {
+                  "CYP2C9": "2.0"
+                },
+                "population": null,
+                "genotypes": [
+                  {
+                    "diplotypes": [
+                      {
+                        "allele1": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "allele2": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "gene": "CYP2C9",
+                        "matchScore": 166,
+                        "phenotypes": [
+                          "Normal Metabolizer"
+                        ],
+                        "outsidePhenotype": false,
+                        "outsidePhenotypeMismatch": null,
+                        "activityScore": "2.0",
+                        "outsideActivityScore": false,
+                        "outsideActivityScoreMismatch": null,
+                        "variant": null,
+                        "lookupKey": [
+                          "2.0"
+                        ],
+                        "label": "*1/*1",
+                        "inferred": false,
+                        "inferredSourceDiplotypes": null,
+                        "combination": false,
+                        "diplotypeKey": {
+                          "*1": 2.0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "messages": [],
+                "highlightedVariants": [],
+                "dosingInformation": false,
+                "alternateDrugAvailable": false,
+                "otherPrescribingGuidance": false,
+                "phenotypes": {
+                  "CYP2C9": "Normal Metabolizer"
+                },
+                "lookupKey": [
+                  {
+                    "CYP2C9": "2.0"
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "PA166264881",
@@ -34865,8 +34933,10 @@
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166363221",
             "annotations": [
               {
-                "implications": [],
-                "drugRecommendation": "The guideline does not provide a recommendation for rosuvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype",
+                "implications": [
+                  "The guideline does not provide a description of the impact of the normal function phenotype on rosuvastatin."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for rosuvastatin in patients with normal function.",
                 "classification": "No recommendation",
                 "activityScore": {},
                 "population": null,
@@ -35087,9 +35157,9 @@
             "annotations": [
               {
                 "implications": [
-                  "The guideline does not provide a description of the impact of the SLCO1B1 521 TT genotype on simvastatin."
+                  "The guideline does not provide a description of the impact of the normal function phenotype on simvastatin."
                 ],
-                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype.",
+                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with normal function.",
                 "classification": "No recommendation",
                 "activityScore": {},
                 "population": null,
@@ -35172,7 +35242,75 @@
             "source": "DPWG_GUIDELINE",
             "version": "2025-11-05-00-25",
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166211021",
-            "annotations": []
+            "annotations": [
+              {
+                "implications": [
+                  "The guideline does not provide a description of the impact of a normal metabolizer phenotype on siponimod."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for siponimod in normal metabolizers.",
+                "classification": "No recommendation",
+                "activityScore": {
+                  "CYP2C9": "2.0"
+                },
+                "population": null,
+                "genotypes": [
+                  {
+                    "diplotypes": [
+                      {
+                        "allele1": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "allele2": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "gene": "CYP2C9",
+                        "matchScore": 166,
+                        "phenotypes": [
+                          "Normal Metabolizer"
+                        ],
+                        "outsidePhenotype": false,
+                        "outsidePhenotypeMismatch": null,
+                        "activityScore": "2.0",
+                        "outsideActivityScore": false,
+                        "outsideActivityScoreMismatch": null,
+                        "variant": null,
+                        "lookupKey": [
+                          "2.0"
+                        ],
+                        "label": "*1/*1",
+                        "inferred": false,
+                        "inferredSourceDiplotypes": null,
+                        "combination": false,
+                        "diplotypeKey": {
+                          "*1": 2.0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "messages": [],
+                "highlightedVariants": [],
+                "dosingInformation": false,
+                "alternateDrugAvailable": false,
+                "otherPrescribingGuidance": false,
+                "phenotypes": {
+                  "CYP2C9": "Normal Metabolizer"
+                },
+                "lookupKey": [
+                  {
+                    "CYP2C9": "2.0"
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -36003,7 +36141,75 @@
             "source": "DPWG_GUIDELINE",
             "version": "2025-11-05-00-25",
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166182842",
-            "annotations": []
+            "annotations": [
+              {
+                "implications": [
+                  "The guideline does not provide a description of the impact of a normal metabolizer phenotype on warfarin."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for warfarin in normal metabolizers.",
+                "classification": "No recommendation",
+                "activityScore": {
+                  "CYP2C9": "2.0"
+                },
+                "population": null,
+                "genotypes": [
+                  {
+                    "diplotypes": [
+                      {
+                        "allele1": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "allele2": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "gene": "CYP2C9",
+                        "matchScore": 166,
+                        "phenotypes": [
+                          "Normal Metabolizer"
+                        ],
+                        "outsidePhenotype": false,
+                        "outsidePhenotypeMismatch": null,
+                        "activityScore": "2.0",
+                        "outsideActivityScore": false,
+                        "outsideActivityScoreMismatch": null,
+                        "variant": null,
+                        "lookupKey": [
+                          "2.0"
+                        ],
+                        "label": "*1/*1",
+                        "inferred": false,
+                        "inferredSourceDiplotypes": null,
+                        "combination": false,
+                        "diplotypeKey": {
+                          "*1": 2.0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "messages": [],
+                "highlightedVariants": [],
+                "dosingInformation": false,
+                "alternateDrugAvailable": false,
+                "otherPrescribingGuidance": false,
+                "phenotypes": {
+                  "CYP2C9": "Normal Metabolizer"
+                },
+                "lookupKey": [
+                  {
+                    "CYP2C9": "2.0"
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "PA166182841",
@@ -46485,7 +46691,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "2025-11-11T06:35:25.758Z",
+    "timestamp": "2025-11-14T22:36:34.883Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,
