@@ -235,16 +235,19 @@ public class GeneReport implements Comparable<GeneReport> {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
     Preconditions.checkState(m_gene.equals(call.getGene()));
 
-    Diplotype diplotype = null;
-    if (call.getDiplotype() != null) {
-      diplotype = new Diplotype(call, env);
+    if (!call.isNoCall()) {
+      Diplotype diplotype = new Diplotype(call, env);
       m_sourceDiplotypes.add(diplotype);
-    }
-    if (isLowestFunctionGene(m_gene)) {
-      m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(call, env));
-    } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
-      m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env));
-    } else if (diplotype != null) {
+      if (isLowestFunctionGene(m_gene)) {
+        m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(call, env));
+      } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
+        m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env));
+      } else {
+        m_recommendationDiplotypes.add(diplotype);
+      }
+    } else {
+      Diplotype diplotype = DiplotypeFactory.makeUnknownDiplotype(call.getGene(), env);
+      m_sourceDiplotypes.add(diplotype);
       m_recommendationDiplotypes.add(diplotype);
     }
   }

@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -51,11 +52,12 @@ public class Cyp2d6CopyNumberCaller {
   }
 
 
-  public static @Nullable Diplotype inferDiplotype(GeneReport report, @Nullable Diplotype diplotype, Env env) {
+  public static Diplotype inferDiplotype(GeneReport report, @Nullable Diplotype diplotype, Env env) {
     Preconditions.checkArgument(report.getGene().equals(GENE), "Can only be used on CYP2D6");
+    Preconditions.checkArgument(report.isOutsideCall());
 
-    if (!report.isOutsideCall() || diplotype == null) {
-      return diplotype;
+    if (diplotype == null) {
+      return DiplotypeFactory.makeUnknownDiplotype(report.getGene(), env);
     }
 
     if (diplotype.isPhenotypeOnly() || diplotype.isOutsideActivityScore()) {

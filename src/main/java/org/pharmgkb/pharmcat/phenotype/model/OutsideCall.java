@@ -220,6 +220,11 @@ public class OutsideCall implements Comparable<OutsideCall> {
   }
 
 
+  public boolean isNoCall() {
+    return m_diplotype == null && m_phenotype == null && m_activityScore == null;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (!(o instanceof OutsideCall oc)) {
