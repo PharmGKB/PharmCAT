@@ -3,10 +3,12 @@ package org.pharmgkb.pharmcat.reporter.format.html;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
@@ -30,10 +32,10 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 public class Recommendation implements Comparable<Recommendation> {
   private final Env m_env;
   private final String m_drug;
-  private Report m_cpicReport;
-  private Report m_dpwgReport;
-  private Report m_fdaReport;
-  private Report m_fdaPgxAssocReport;
+  private @Nullable Report m_cpicReport;
+  private @Nullable Report m_dpwgReport;
+  private @Nullable Report m_fdaReport;
+  private @Nullable Report m_fdaPgxAssocReport;
   private boolean m_hasInferred;
   private boolean m_hasDpydInferred;
   private final Set<MessageAnnotation> m_messages = new LinkedHashSet<>();
@@ -132,10 +134,10 @@ public class Recommendation implements Comparable<Recommendation> {
       }
     }
     if (callMultiMatch) {
-      m_messages.add(m_env.getMessage(MessageHelper.MSG_MULTI_CALL));
+      m_messages.add(Objects.requireNonNull(m_env.getMessage(MessageHelper.MSG_MULTI_CALL)));
     }
     if (scoreMultimatch) {
-      m_messages.add(m_env.getMessage(MessageHelper.MSG_MULTI_SCORE));
+      m_messages.add(Objects.requireNonNull(m_env.getMessage(MessageHelper.MSG_MULTI_SCORE)));
     }
     for (String gene : mismatchDiplotypes.keySet()) {
       StringBuilder builder = new StringBuilder()
@@ -197,19 +199,19 @@ public class Recommendation implements Comparable<Recommendation> {
     return reports;
   }
 
-  public Report getCpicReport() {
+  public @Nullable Report getCpicReport() {
     return m_cpicReport;
   }
 
-  public Report getDpwgReport() {
+  public @Nullable Report getDpwgReport() {
     return m_dpwgReport;
   }
 
-  public Report getFdaReport() {
+  public @Nullable Report getFdaReport() {
     return m_fdaReport;
   }
 
-  public Report getFdaPgxAssocReport() {
+  public @Nullable Report getFdaPgxAssocReport() {
     return m_fdaPgxAssocReport;
   }
 

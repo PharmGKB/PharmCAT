@@ -134,8 +134,6 @@ public class CallsOnlyFormat extends AbstractFormat {
 
     String sampleId = null;
     SortedMap<String, String> sampleProps = null;
-    // older versions of reports do not have metadata
-    //noinspection ConstantValue
     if (reportContext.getMatcherMetadata() != null) {
       sampleId = reportContext.getMatcherMetadata().getSampleId();
       if (reportContext.getMatcherMetadata().getSampleProps() != null &&

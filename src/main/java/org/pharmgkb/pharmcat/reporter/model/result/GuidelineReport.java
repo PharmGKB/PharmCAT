@@ -54,7 +54,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   public GuidelineReport(GuidelinePackage guidelinePackage, ReportContext reportContext, String drugName) {
     m_id = guidelinePackage.getGuideline().getId();
     m_name = guidelinePackage.getGuideline().getName();
-    m_source = PrescribingGuidanceSource.typeFor(guidelinePackage.getGuideline());
+    m_source = Objects.requireNonNull(PrescribingGuidanceSource.typeFor(guidelinePackage.getGuideline()));
     m_version = reportContext.getDataVersion();
     m_url = guidelinePackage.getUrl();
     initializeGenes(guidelinePackage.getGenes(), reportContext);
@@ -147,14 +147,13 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     for (Genotype genotype : m_recommendationGenotypes) {
       boolean matchedDiplotype = false;
       for (RecommendationAnnotation rec : guidelinePackage.getRecommendations()) {
-        if (rec != null && rec.appliesToDrug(drugName) && rec.matchesDiplotype(genotype)) {
+        if (rec.appliesToDrug(drugName) && rec.matchesDiplotype(genotype)) {
           matchedGenotypes.put(rec, genotype);
           matchedDiplotype = true;
         }
       }
       if (!matchedDiplotype) {
         guidelinePackage.getRecommendations().stream()
-            .filter(Objects::nonNull)
             .filter(rec -> rec.appliesToDrug(drugName))
             .filter(rec -> rec.matchesGenotype(genotype))
             .forEach(rec -> matchedGenotypes.put(rec, genotype));
