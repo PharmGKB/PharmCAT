@@ -39,6 +39,40 @@ All technical requirements and documentation are available on [PharmCAT.org](htt
 
 PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG013077).
 
+## Quickstart for New Users (Beginner-Friendly)
+
+This section provides a short, practical starting point for someone using PharmCAT for the first time.
+
+### 1. Required software
+
+Before running PharmCAT, please ensure the following dependencies are installed and available in your system PATH:
+
+- Java 17 or newer (Java 17 recommended)
+- Python 3.10 or newer
+- bcftools ≥ 1.18 and htslib ≥ 1.18 (for bgzip)
+
+For full installation documentation, visit https://pharmcat.clinpgx.org
+
+### 2. Download PharmCAT
+
+Download either the standalone JAR file or the full pipeline bundle from the Releases page:  
+https://github.com/PharmGKB/PharmCAT/releases
+
+Place the downloaded files in your working directory (e.g., `~/pharmcat/`).
+
+### 3. Obtain an example VCF file
+
+If you do not have personal sequencing data, you can download example datasets from:  
+https://github.com/PharmGKB/PharmCAT-tutorial
+
+### 4. Run PharmCAT (minimum example)
+
+From a terminal inside your working directory:
+
+```bash
+java -jar pharmcat-<version>-all.jar -vcf /path/to/input.vcf -o /path/to/results
+
+
 
 ## Contact
 
