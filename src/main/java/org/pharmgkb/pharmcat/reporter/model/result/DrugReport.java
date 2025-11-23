@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -59,6 +60,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
 
   public DrugReport(String name, List<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
+    //noinspection ConstantValue
     Preconditions.checkArgument(guidelinePackages != null && !guidelinePackages.isEmpty());
     m_drugName = name;
     m_id = guidelinePackages.get(0).getGuideline().getRelatedChemicals().stream()
@@ -71,7 +73,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
     // DPWG drug can have multiple guideline reports
     for (GuidelinePackage guidelinePackage : guidelinePackages) {
-      m_source = PrescribingGuidanceSource.typeFor(guidelinePackage.getGuideline());
+      m_source = Objects.requireNonNull(PrescribingGuidanceSource.typeFor(guidelinePackage.getGuideline()));
       m_urls.add(guidelinePackage.getUrl());
       if (guidelinePackage.getCitations() != null) {
         m_citations.addAll(guidelinePackage.getCitations());

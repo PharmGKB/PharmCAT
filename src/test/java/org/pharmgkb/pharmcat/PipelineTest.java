@@ -1008,7 +1008,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("ABCG2", "SLCO1B1");
     testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*2");
 
-    testWrapper.testMatchedAnnotations("rosuvastatin", 1);
+    testWrapper.testMatchedAnnotations("rosuvastatin", 2);
 
     // no dpyd - should not have DPYD warning
     Document document = readHtmlReport(vcfFile);
@@ -1083,7 +1083,7 @@ class PipelineTest {
     testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("simvastatin", 1);
+    testWrapper.testMatchedAnnotations("simvastatin", 2);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.YES_NO_MATCH);
@@ -1642,9 +1642,9 @@ class PipelineTest {
     // *58:01 guideline
     testWrapper.testMatchedAnnotations("allopurinol", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     // *15:02 guideline (along with CYP2C9)
-    testWrapper.testMatchedAnnotations("phenytoin", 5);
+    testWrapper.testMatchedAnnotations("phenytoin", 6);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
-    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 2);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_LABEL, 1);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_ASSOC, 1);
   }
@@ -1669,9 +1669,9 @@ class PipelineTest {
 
     testWrapper.testMatchedAnnotations("abacavir", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     testWrapper.testMatchedAnnotations("allopurinol", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
-    testWrapper.testMatchedAnnotations("phenytoin", 5);
+    testWrapper.testMatchedAnnotations("phenytoin", 6);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
-    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 2);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_LABEL, 1);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_ASSOC, 1);
 
@@ -1873,9 +1873,9 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34", "*33/*36");
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*1", "*34");
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*33", "*36");
-    testWrapper.testMatchedAnnotations("efavirenz", 3);
+    testWrapper.testMatchedAnnotations("efavirenz", 4);
     testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
-    testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.DPWG_GUIDELINE, 2);
   }
 
 

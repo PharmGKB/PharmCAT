@@ -1,4 +1,4 @@
-PharmCAT v3.0.1-84-g5a30f492
+PharmCAT v3.1.0-2-g0b250f81
 Gene	Source Diplotype	Phenotype	Activity Score	Haplotype 1	Haplotype 1 Function	Haplotype 1 Activity Value	Haplotype 2	Haplotype 2 Function	Haplotype 2 Activity Value	Outside Call	Match Score	Missing positions	Recommendation Lookup Diplotype	Recommendation Lookup Phenotype	Recommendation Lookup Activity Score
 RYR1	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		Reference	Normal function		no	626	no	Reference/Reference	Uncertain Susceptibility	
 VKORC1	rs9923231 reference (C)/rs9923231 reference (C)	-1639 GG		rs9923231 reference (C)	Normal coumarin sensitivity		rs9923231 reference (C)	Normal coumarin sensitivity		no	2	no	rs9923231 reference (C)/rs9923231 reference (C)	-1639 GG	

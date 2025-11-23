@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "2025-11-11T06:35:25.758Z",
+    "timestamp": "2025-11-14T22:36:34.883Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,

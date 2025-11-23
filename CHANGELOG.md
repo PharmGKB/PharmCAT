@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/PharmGKB/PharmCAT/compare/v3.1.0...v3.1.1) (2025-11-19)
+
+### Bug Fixes
+
+* **data:** update data for DPWG recommendations ([ced94ca](https://github.com/PharmGKB/PharmCAT/commit/ced94ca04ee1a67000b1dec312c7d73fb57c510c))
+* **namedAlleleMatcher:** support no call from outside calls ([eef9fe4](https://github.com/PharmGKB/PharmCAT/commit/eef9fe4f8ca8f5d91e3cba4b36becfab0fd83978)), closes [#204](https://github.com/PharmGKB/PharmCAT/issues/204)
+
 ## [3.1.0](https://github.com/PharmGKB/PharmCAT/compare/v3.0.1...v3.1.0) (2025-11-11)
 
 ### Features

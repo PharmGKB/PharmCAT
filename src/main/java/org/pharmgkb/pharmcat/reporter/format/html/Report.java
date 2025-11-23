@@ -26,8 +26,8 @@ public class Report {
   private final List<String> m_urls;
   private final SortedSet<GuidelineReport> m_guidelines;
   private boolean m_notCalled;
-  private String m_uncalledGenes;
-  private SortedSet<Diplotype> m_unmatchedDiplotypes;
+  private @Nullable String m_uncalledGenes;
+  private @Nullable SortedSet<Diplotype> m_unmatchedDiplotypes;
   private boolean m_unmatchedInferred;
   private boolean m_unmatchedDpydInferred;
 

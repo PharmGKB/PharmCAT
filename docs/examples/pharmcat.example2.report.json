@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example2",
-  "timestamp": "2025-11-11T06:35:30.678Z",
-  "pharmcatVersion": "v3.0.1-84-g5a30f492",
+  "timestamp": "2025-11-14T22:36:43.069Z",
+  "pharmcatVersion": "v3.1.0-2-g0b250f81",
   "dataVersion": "2025-11-05-00-25",
   "genes": {
     "ABCG2": {
@@ -29011,9 +29011,9 @@
             "annotations": [
               {
                 "implications": [
-                  "The guideline does not provide a description of the impact of the _SLCO1B1_ 521 TT genotype on atorvastatin."
+                  "The guideline does not provide a description of the impact of the normal function phenotype on atorvastatin."
                 ],
-                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype",
+                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with normal function.",
                 "classification": "No recommendation",
                 "activityScore": {},
                 "population": null,
@@ -29751,7 +29751,7 @@
                 "highlightedVariants": [],
                 "dosingInformation": false,
                 "alternateDrugAvailable": true,
-                "otherPrescribingGuidance": false,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2C19": "Poor Metabolizer"
                 },
@@ -30508,8 +30508,8 @@
                 "messages": [],
                 "highlightedVariants": [],
                 "dosingInformation": true,
-                "alternateDrugAvailable": false,
-                "otherPrescribingGuidance": false,
+                "alternateDrugAvailable": true,
+                "otherPrescribingGuidance": true,
                 "phenotypes": {
                   "CYP2C19": "Poor Metabolizer"
                 },
@@ -31487,7 +31487,75 @@
             "source": "DPWG_GUIDELINE",
             "version": "2025-11-05-00-25",
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166104984",
-            "annotations": []
+            "annotations": [
+              {
+                "implications": [
+                  "The guideline does not provide a description of the impact of a normal metabolizer phenotype on phenytoin."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for phenytoin in normal metabolizers.",
+                "classification": "No recommendation",
+                "activityScore": {
+                  "CYP2C9": "2.0"
+                },
+                "population": null,
+                "genotypes": [
+                  {
+                    "diplotypes": [
+                      {
+                        "allele1": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "allele2": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "gene": "CYP2C9",
+                        "matchScore": 166,
+                        "phenotypes": [
+                          "Normal Metabolizer"
+                        ],
+                        "outsidePhenotype": false,
+                        "outsidePhenotypeMismatch": null,
+                        "activityScore": "2.0",
+                        "outsideActivityScore": false,
+                        "outsideActivityScoreMismatch": null,
+                        "variant": null,
+                        "lookupKey": [
+                          "2.0"
+                        ],
+                        "label": "*1/*1",
+                        "inferred": false,
+                        "inferredSourceDiplotypes": null,
+                        "combination": false,
+                        "diplotypeKey": {
+                          "*1": 2.0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "messages": [],
+                "highlightedVariants": [],
+                "dosingInformation": false,
+                "alternateDrugAvailable": false,
+                "otherPrescribingGuidance": false,
+                "phenotypes": {
+                  "CYP2C9": "Normal Metabolizer"
+                },
+                "lookupKey": [
+                  {
+                    "CYP2C9": "2.0"
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "PA166264881",
@@ -31762,8 +31830,10 @@
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166363221",
             "annotations": [
               {
-                "implications": [],
-                "drugRecommendation": "The guideline does not provide a recommendation for rosuvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype",
+                "implications": [
+                  "The guideline does not provide a description of the impact of the normal function phenotype on rosuvastatin."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for rosuvastatin in patients with normal function.",
                 "classification": "No recommendation",
                 "activityScore": {},
                 "population": null,
@@ -31984,9 +32054,9 @@
             "annotations": [
               {
                 "implications": [
-                  "The guideline does not provide a description of the impact of the SLCO1B1 521 TT genotype on simvastatin."
+                  "The guideline does not provide a description of the impact of the normal function phenotype on simvastatin."
                 ],
-                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype.",
+                "drugRecommendation": "The guideline does not provide a recommendation for atorvastatin in patients with normal function.",
                 "classification": "No recommendation",
                 "activityScore": {},
                 "population": null,
@@ -32069,7 +32139,75 @@
             "source": "DPWG_GUIDELINE",
             "version": "2025-11-05-00-25",
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166211021",
-            "annotations": []
+            "annotations": [
+              {
+                "implications": [
+                  "The guideline does not provide a description of the impact of a normal metabolizer phenotype on siponimod."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for siponimod in normal metabolizers.",
+                "classification": "No recommendation",
+                "activityScore": {
+                  "CYP2C9": "2.0"
+                },
+                "population": null,
+                "genotypes": [
+                  {
+                    "diplotypes": [
+                      {
+                        "allele1": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "allele2": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "gene": "CYP2C9",
+                        "matchScore": 166,
+                        "phenotypes": [
+                          "Normal Metabolizer"
+                        ],
+                        "outsidePhenotype": false,
+                        "outsidePhenotypeMismatch": null,
+                        "activityScore": "2.0",
+                        "outsideActivityScore": false,
+                        "outsideActivityScoreMismatch": null,
+                        "variant": null,
+                        "lookupKey": [
+                          "2.0"
+                        ],
+                        "label": "*1/*1",
+                        "inferred": false,
+                        "inferredSourceDiplotypes": null,
+                        "combination": false,
+                        "diplotypeKey": {
+                          "*1": 2.0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "messages": [],
+                "highlightedVariants": [],
+                "dosingInformation": false,
+                "alternateDrugAvailable": false,
+                "otherPrescribingGuidance": false,
+                "phenotypes": {
+                  "CYP2C9": "Normal Metabolizer"
+                },
+                "lookupKey": [
+                  {
+                    "CYP2C9": "2.0"
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -32702,7 +32840,75 @@
             "source": "DPWG_GUIDELINE",
             "version": "2025-11-05-00-25",
             "url": "https://www.clinpgx.org/guidelineAnnotation/PA166182842",
-            "annotations": []
+            "annotations": [
+              {
+                "implications": [
+                  "The guideline does not provide a description of the impact of a normal metabolizer phenotype on warfarin."
+                ],
+                "drugRecommendation": "The guideline does not provide a recommendation for warfarin in normal metabolizers.",
+                "classification": "No recommendation",
+                "activityScore": {
+                  "CYP2C9": "2.0"
+                },
+                "population": null,
+                "genotypes": [
+                  {
+                    "diplotypes": [
+                      {
+                        "allele1": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "allele2": {
+                          "gene": "CYP2C9",
+                          "name": "*1",
+                          "function": "Normal function",
+                          "reference": true,
+                          "activityValue": "1.0"
+                        },
+                        "gene": "CYP2C9",
+                        "matchScore": 166,
+                        "phenotypes": [
+                          "Normal Metabolizer"
+                        ],
+                        "outsidePhenotype": false,
+                        "outsidePhenotypeMismatch": null,
+                        "activityScore": "2.0",
+                        "outsideActivityScore": false,
+                        "outsideActivityScoreMismatch": null,
+                        "variant": null,
+                        "lookupKey": [
+                          "2.0"
+                        ],
+                        "label": "*1/*1",
+                        "inferred": false,
+                        "inferredSourceDiplotypes": null,
+                        "combination": false,
+                        "diplotypeKey": {
+                          "*1": 2.0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "messages": [],
+                "highlightedVariants": [],
+                "dosingInformation": false,
+                "alternateDrugAvailable": false,
+                "otherPrescribingGuidance": false,
+                "phenotypes": {
+                  "CYP2C9": "Normal Metabolizer"
+                },
+                "lookupKey": [
+                  {
+                    "CYP2C9": "2.0"
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "PA166182841",
@@ -43032,7 +43238,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example2.vcf",
-    "timestamp": "2025-11-11T06:35:29.964Z",
+    "timestamp": "2025-11-14T22:36:41.962Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,

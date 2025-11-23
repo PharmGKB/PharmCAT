@@ -151,6 +151,11 @@ public class Phenotyper {
   }
 
 
+  /**
+   * Gets the {@link GeneReport}s that have no data.
+   *
+   * @since 3.0
+   */
   public SortedSet<GeneReport> getUnannotatedGeneCalls() {
     return m_unannotatedGeneCalls;
   }
@@ -193,6 +198,12 @@ public class Phenotyper {
   }
 
 
+  /**
+   * Gets the {@link Metadata} for the {@link NamedAlleleMatcher} results that were ingested.
+   *
+   * @since 3.0
+   * @return null if {@link NamedAlleleMatcher} was not run (or reading pre-3.0 result file)
+   */
   public @Nullable Metadata getMatcherMetadata() {
     return m_matcherMetadata;
   }

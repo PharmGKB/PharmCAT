@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.reporter.RecommendationUtils;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
@@ -84,7 +85,7 @@ public class RecommendationAnnotation implements Comparable<RecommendationAnnota
   }
 
 
-  public OntologyTerm getClassification() {
+  public @Nullable OntologyTerm getClassification() {
     return classification;
   }
 
