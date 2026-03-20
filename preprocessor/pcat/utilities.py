@@ -879,14 +879,15 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
 def _is_phased(gt_field) -> bool | None:
     """
     Determines the phasing status of a position.
-    If any GT fields have a '/', this means at least one sample is unphased.
+    Returns False if any sample is unphased (contains '/'),
+    True if all samples are phased, None if gt_field is empty.
     """
+    if not gt_field:
+        return None
     for x in gt_field:
         if '/' in x:
             return False
-        else:
-            return True
-    return None
+    return True
 
 
 def _is_haploid(gt_field) -> bool:
@@ -1094,7 +1095,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 out_f.write('\t'.join(fields) + '\n')
                                 # elimination: remove the dictionary item so that the variant won't be matched again
                                 if input_chr_pos in ref_pos_dynamic:
-                                    ref_pos_dynamic[input_chr_pos].pop(input_ref_alt)
+                                    ref_pos_dynamic[input_chr_pos].pop(input_ref_alt, None)
                                     # remove a position if all of its alts are present in the input
                                     if ref_pos_dynamic[input_chr_pos] == {}:
                                         del ref_pos_dynamic[input_chr_pos]
@@ -1117,7 +1118,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 
                                         # for hom ref SNPs, remove the position from the dict for record
                                         if input_chr_pos in ref_pos_dynamic:
-                                            ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
+                                            ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]), None)
                                             # remove a position if all of its alts are present in the input
                                             if ref_pos_dynamic[input_chr_pos] == {}:
                                                 del ref_pos_dynamic[input_chr_pos]
