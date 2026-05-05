@@ -215,9 +215,9 @@ def validate_java(min_version: Optional[str] = None):
 
     if java_version is not None:
         # check that the minimum version requirement is met
-        rez = re.search(r'version "(\d+(\.\d+)*)"', str(version_message), re.MULTILINE)
+        rez = re.search(r'(?:version "(\d+[\d.]*)[\d.\-\w]*"|openjdk (\d+[\d.]*)[\d.\-\w]*)', str(version_message), re.MULTILINE)
         if rez is not None:
-            tool_version = rez.group(1)
+            tool_version = rez.group(1) or rez.group(2)
             if version.parse(tool_version) < version.parse(java_version):
                 raise ReportableException("Error: Please use Java %s or higher." % java_version)
         else:
@@ -1027,15 +1027,15 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         if input_chr_pos in ref_pos_static:
                             '''
                             match REF and ALT alleles
-                            
+
                             SNPs:
                                 1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
-                                2. Matching REF and ALT=. or <*>: homozygous reference SNPs, retain, 
+                                2. Matching REF and ALT=. or <*>: homozygous reference SNPs, retain,
                                     update rsID and FORMAT/PGx gene name
                                 3. Matching REF and mismatching ALT
                                     3.1. There is another matching ALT: retain it in the same line
                                     3.2. There is no other matching ALT: label "FILTER/PCATxALT"
-                            INDELs        
+                            INDELs
                                 1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
                                 2. Matching REF and mismatching ALT: retain as non-PGx record
                                 3. Matching REF and ALT=<*>: uncertain nucleotide changes, warn and ignore
