@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -59,6 +61,28 @@ class NamedAlleleTest {
     String seq = "1:C;2:C;3:C;4:C;";
     Pattern p = Pattern.compile("1:C;2:.?;3:.?;4:[CT];");
     assertTrue(p.matcher(seq).matches());
+  }
+
+
+  @Test
+  void testDirectMatch() {
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
+    VariantLocus var4 = new VariantLocus("chr1", 4, "g.4T>A");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
+    String[] alleles = new String[] { "C", "Y", "CAT or CATAT", null };
+    NamedAllele haplotype = new NamedAllele("*1", "*1", alleles, alleles, false);
+    haplotype.initialize(variants);
+
+    assertTrue(haplotype.matches(variants, new String[] { "C", "T", "CATAT", "A" }));
+    assertTrue(haplotype.matches(variants, new String[] { "C", "C", "CAT", "G" }));
+    assertFalse(haplotype.matches(variants, new String[] { "A", "T", "CATAT", "A" }));
+    assertFalse(haplotype.matches(variants, new String[] { "C", "A", "CATAT", "A" }));
+    assertFalse(haplotype.matches(variants, new String[] { "C", "T", "G", "A" }));
+    VariantLocus unknown = new VariantLocus("chr1", 5, "g.5T>A");
+    assertThrows(IllegalArgumentException.class,
+        () -> haplotype.matches(new VariantLocus[] { var1, unknown }, new String[] { "C", "A" }));
   }
 
 

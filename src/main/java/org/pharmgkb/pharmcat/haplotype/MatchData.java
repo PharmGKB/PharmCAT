@@ -63,7 +63,7 @@ public class MatchData {
   @Expose
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
-  private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
+  private final Map<String, String[]> m_sequenceAlleleCache = new HashMap<>();
   @Expose
   @SerializedName("missingRequiredPositions")
   private final List<String> m_missingRequiredPositions = new ArrayList<>();
@@ -447,25 +447,30 @@ public class MatchData {
    * Utility method to cache allele lookups in sequences.
    */
   public String getAllele(String sequence, int idx) {
-    Map<Object, Object> seqMap = m_sequenceAlleleCache.computeIfAbsent(sequence, s -> {
-      Map<Object, Object> m = new HashMap<>();
-      m.put("all", s.split(";"));
-      return m;
-    });
-
-    String allele = (String)seqMap.get(idx);
-    if (allele == null) {
-      allele = ((String[])seqMap.get("all"))[idx].split(":")[1];
-      seqMap.put(idx, allele);
-    }
-    return allele;
+    return getSequenceAlleles(sequence)[idx];
   }
 
   public @Nullable String getAllele(String sequence, long vcfPosition) {
-    if (!m_vcfPositionIndex.containsKey(vcfPosition)) {
+    Integer idx = m_vcfPositionIndex.get(vcfPosition);
+    if (idx == null) {
       return null;
     }
-    return getAllele(sequence, m_vcfPositionIndex.get(vcfPosition));
+    return getSequenceAlleles(sequence)[idx];
+  }
+
+  String[] getSequenceAlleles(String sequence) {
+    return m_sequenceAlleleCache.computeIfAbsent(sequence, s -> {
+      String[] alleles = new String[m_positions.length];
+      for (String positionAllele : s.split(";")) {
+        int delimiter = positionAllele.indexOf(':');
+        long position = Long.parseLong(positionAllele.substring(0, delimiter));
+        Integer idx = m_vcfPositionIndex.get(position);
+        if (idx != null) {
+          alleles[idx] = positionAllele.substring(delimiter + 1);
+        }
+      }
+      return alleles;
+    });
   }
 
 
@@ -474,11 +479,12 @@ public class MatchData {
    */
   protected SortedSet<HaplotypeMatch> comparePermutations() {
     Set<HaplotypeMatch> haplotypeMatches = getHaplotypes().stream()
-        .map(HaplotypeMatch::new)
+        .map(h -> new HaplotypeMatch(h, m_positions))
         .collect(Collectors.toSet());
     for (String p : getPermutations()) {
+      String[] sequenceAlleles = getSequenceAlleles(p);
       for (HaplotypeMatch hm : haplotypeMatches) {
-        hm.match(p);
+        hm.match(p, m_positions, sequenceAlleles);
       }
     }
     return haplotypeMatches.stream()

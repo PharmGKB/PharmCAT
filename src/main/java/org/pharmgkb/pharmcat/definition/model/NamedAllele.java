@@ -177,6 +177,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     m_wobbleIndices = new TreeSet<>();
     m_wobblePositions = new TreeSet<>();
     m_corePositions = new TreeSet<>();
+    m_permutations = null;
     m_score = 0;
     for (int x = 0; x < refVariants.length; x += 1) {
       m_alleleMap.put(refVariants[x], m_alleles[x]);
@@ -194,7 +195,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
       }
     }
     m_score -= m_numPartials;
-    calculatePermutations(refVariants);
     m_isInitialized = true;
   }
 
@@ -320,6 +320,19 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_alleles;
   }
 
+  /**
+   * Gets allele values in the order of the specified positions.
+   */
+  public @Nullable String[] getAlleles(VariantLocus[] positions) {
+    Preconditions.checkNotNull(positions);
+    @Nullable String[] alleles = new String[positions.length];
+    for (int x = 0; x < positions.length; x += 1) {
+      // Resolve through the initialized numeric position map so an unknown locus cannot become a wildcard.
+      alleles[x] = getAllele(positions[x].getPosition());
+    }
+    return alleles;
+  }
+
   public @Nullable String getAllele(int idx) {
     return m_alleles[idx];
   }
@@ -328,6 +341,9 @@ public class NamedAllele implements Comparable<NamedAllele> {
     if (!m_isInitialized || m_alleleMap == null) {
       throw new IllegalStateException("This NamedAllele has not been initialized");
     }
+    if (!m_alleleMap.containsKey(variantLocus)) {
+      throw new IllegalArgumentException("Unknown position: " + variantLocus);
+    }
     return m_alleleMap.get(variantLocus);
   }
 
@@ -335,7 +351,11 @@ public class NamedAllele implements Comparable<NamedAllele> {
     if (!m_isInitialized || m_positionToLocusMap == null) {
       throw new IllegalStateException("This NamedAllele has not been initialized");
     }
-    return getAllele(Objects.requireNonNull(m_positionToLocusMap.get(position)));
+    VariantLocus variantLocus = m_positionToLocusMap.get(position);
+    if (variantLocus == null) {
+      throw new IllegalArgumentException("Unknown position: " + position);
+    }
+    return getAllele(variantLocus);
   }
 
   public @Nullable String[] getCpicAlleles() {
@@ -427,10 +447,63 @@ public class NamedAllele implements Comparable<NamedAllele> {
   //-- permutation code --//
 
   public Pattern getPermutations() {
-    if (!m_isInitialized || m_permutations == null) {
+    if (!m_isInitialized || m_alleleMap == null) {
       throw new IllegalStateException("This NamedAllele has not been initialized");
     }
+    if (m_permutations == null) {
+      calculatePermutations(m_alleleMap.keySet().toArray(new VariantLocus[0]));
+    }
     return m_permutations;
+  }
+
+
+  /**
+   * Checks whether the supplied alleles match this named allele at the specified positions.
+   *
+   * @param positions positions corresponding to {@code observedAlleles}
+   * @param observedAlleles sample alleles in the same order as {@code positions}
+   */
+  public boolean matches(VariantLocus[] positions, @Nullable String[] observedAlleles) {
+    Preconditions.checkNotNull(positions);
+    Preconditions.checkNotNull(observedAlleles);
+    Preconditions.checkArgument(positions.length == observedAlleles.length,
+        "Mismatched positions and observed alleles");
+    return matches(getAlleles(positions), observedAlleles);
+  }
+
+
+  public boolean matches(@Nullable String[] expectedAlleles, @Nullable String[] observedAlleles) {
+    Preconditions.checkNotNull(expectedAlleles);
+    Preconditions.checkNotNull(observedAlleles);
+    Preconditions.checkArgument(expectedAlleles.length == observedAlleles.length,
+        "Mismatched expected and observed alleles");
+    for (int x = 0; x < expectedAlleles.length; x += 1) {
+      if (!matchesAllele(expectedAlleles[x], observedAlleles[x])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  private boolean matchesAllele(@Nullable String expected, @Nullable String observed) {
+    if (expected == null) {
+      return true;
+    }
+    if (observed == null) {
+      return false;
+    }
+    if (expected.contains(TextConstants.REPEAT_WOBBLE_DELIMITER)) {
+      return Arrays.asList(expected.split(TextConstants.REPEAT_WOBBLE_DELIMITER)).contains(observed);
+    }
+    if (expected.length() == 1) {
+      Iupac iupac = Iupac.lookup(expected);
+      if (iupac.isAmbiguity()) {
+        return iupac.getBases().contains(observed);
+      }
+      return iupac.getRegex().equals(observed);
+    }
+    return expected.equals(observed);
   }
 
 
