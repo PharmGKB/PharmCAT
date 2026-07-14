@@ -269,6 +269,9 @@ public class Pipeline implements Callable<PipelineResult> {
       if (m_runMatcher) {
         NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(m_env, m_env.getDefinitionReader(),
             m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
+        if (m_verbose) {
+          namedAlleleMatcher.verbose();
+        }
         if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }

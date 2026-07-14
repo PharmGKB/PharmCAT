@@ -1,9 +1,15 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
@@ -11,6 +17,7 @@ import org.pharmgkb.parser.vcf.VcfFormatException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +28,43 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Mark Woon
  */
 class VcfReaderTest {
+
+  @Test
+  void testIgnoredPositionLogLevel() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-ignored.vcf");
+
+    Logger logger = (Logger)LoggerFactory.getLogger(VcfReader.class);
+    Level originalLevel = logger.getLevel();
+    boolean originalAdditive = logger.isAdditive();
+    ListAppender<ILoggingEvent> appender = new ListAppender<>();
+    appender.start();
+    logger.setLevel(Level.DEBUG);
+    logger.setAdditive(false);
+    logger.addAppender(appender);
+    try {
+      readVcf(definitionReader, vcfFile, false);
+      assertTrue(appender.list.stream().anyMatch(e -> e.getLevel() == Level.DEBUG &&
+          e.getFormattedMessage().equals("Ignoring chr10:94940000")));
+
+      appender.list.clear();
+      readVcf(definitionReader, vcfFile, true);
+      assertTrue(appender.list.stream().anyMatch(e -> e.getLevel() == Level.WARN &&
+          e.getFormattedMessage().equals("Ignoring chr10:94940000")));
+    } finally {
+      logger.detachAppender(appender);
+      logger.setAdditive(originalAdditive);
+      logger.setLevel(originalLevel);
+      appender.stop();
+    }
+  }
+
+  private void readVcf(DefinitionReader definitionReader, Path vcfFile, boolean verbose) throws Exception {
+    try (BufferedReader reader = Files.newBufferedReader(vcfFile)) {
+      new VcfReader(definitionReader, reader, null, false, verbose);
+    }
+  }
 
   @Test
   void testCompressed() throws Exception {

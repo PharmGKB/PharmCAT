@@ -60,6 +60,7 @@ public class NamedAlleleMatcher {
   private final boolean m_topCandidateOnly;
   private final boolean m_callCyp2d6;
   private boolean m_printWarnings;
+  private boolean m_verbose;
 
 
   /**
@@ -90,6 +91,12 @@ public class NamedAlleleMatcher {
 
   public NamedAlleleMatcher printWarnings() {
     m_printWarnings = true;
+    return this;
+  }
+
+
+  public NamedAlleleMatcher verbose() {
+    m_verbose = true;
     return this;
   }
 
@@ -149,8 +156,11 @@ public class NamedAlleleMatcher {
         findCombinations = cliHelper.hasOption("combinations");
       }
       NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(new Env(), definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
-              .printWarnings();
+          new NamedAlleleMatcher(new Env(), definitionReader, findCombinations, topCandidateOnly, callCyp2d6);
+      if (cliHelper.isVerbose()) {
+        namedAlleleMatcher.verbose();
+      }
+      namedAlleleMatcher.printWarnings();
       Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null, null);
 
       Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", BaseConfig.MATCHER_SUFFIX + ".json");
@@ -192,7 +202,7 @@ public class NamedAlleleMatcher {
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
   public Result call(VcfFile vcfFile, @Nullable String sampleId, @Nullable Path sampleMetadataFile) throws IOException {
-    VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId, m_findCombinations);
+    VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId, m_findCombinations, m_verbose);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap(), vcfReader.getSampleId(), sampleMetadataFile);

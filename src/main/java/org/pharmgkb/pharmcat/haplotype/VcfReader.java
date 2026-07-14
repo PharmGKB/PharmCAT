@@ -60,6 +60,7 @@ public class VcfReader implements VcfLineParser {
   private final @Nullable ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private final @Nullable ImmutableMap<String, String> m_locationsByGene;
   private final boolean m_findCombinations;
+  private final boolean m_verbose;
   private @Nullable String m_sampleId;
   private int m_sampleIdx = -1;
   private @Nullable VcfMetadata m_vcfMetadata;
@@ -81,10 +82,17 @@ public class VcfReader implements VcfLineParser {
    */
   public VcfReader(DefinitionReader definitionReader, BufferedReader vcfReader, @Nullable String sampleId,
       boolean findCombinations) throws IOException, ParseException {
+    this(definitionReader, vcfReader, sampleId, findCombinations, false);
+  }
+
+
+  public VcfReader(DefinitionReader definitionReader, BufferedReader vcfReader, @Nullable String sampleId,
+      boolean findCombinations, boolean verbose) throws IOException, ParseException {
     m_locationsOfInterest = definitionReader.getLocationsOfInterest();
     m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = sampleId;
     m_findCombinations = findCombinations;
+    m_verbose = verbose;
     read(vcfReader);
   }
 
@@ -100,6 +108,7 @@ public class VcfReader implements VcfLineParser {
     m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = null;
     m_findCombinations = false;
+    m_verbose = false;
     read(vcfFile);
   }
 
@@ -124,6 +133,7 @@ public class VcfReader implements VcfLineParser {
     m_locationsByGene = null;
     m_sampleId = sampleId;
     m_findCombinations = false;
+    m_verbose = false;
     read(vcfFile);
   }
 
@@ -282,7 +292,11 @@ public class VcfReader implements VcfLineParser {
     if (m_locationsOfInterest != null) {
       varLoc = m_locationsOfInterest.get(chrPos);
       if (varLoc == null) {
-        sf_logger.warn("Ignoring {}", chrPos);
+        if (m_verbose) {
+          sf_logger.warn("Ignoring {}", chrPos);
+        } else {
+          sf_logger.debug("Ignoring {}", chrPos);
+        }
         return;
       }
       if (!position.getRef().equals(varLoc.getRef())) {
