@@ -35,7 +35,8 @@ jobs:
       # format the Release Body and send it via the Ghost Admin API
       - name: Post Draft to Ghost
         run: |
-          RELEASE_TITLE="$(jq -r '.release.name // .release.tag_name' "$GITHUB_EVENT_PATH") Released"
+          PCAT_VERSION=$(jq -r '.release.name // .release.tag_name' "$GITHUB_EVENT_PATH")
+          RELEASE_TITLE="PharmCAT $PCAT_VERSION Released"
 
           node <<'NODE'
           const fs = require('fs');
@@ -78,7 +79,7 @@ jobs:
             breaks: false
           });
           const html = [
-            '<p>We are excited to announce our latest release!</p>',
+            '<p>We are excited to announce our <a href="https://github.com/PharmGKB/PharmCAT/releases/tag/$PCAT_VERSION">latest release</a>!</p>',
             '<h3>Changelog</h3>',
             marked.parse(demotedReleaseBody)
           ].join('\n');
