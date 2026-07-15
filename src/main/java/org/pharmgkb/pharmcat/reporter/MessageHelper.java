@@ -72,8 +72,12 @@ public class MessageHelper {
     }
   }
 
-  public @Nullable MessageAnnotation getMessage(String key) {
-    return m_staticMap.get(key);
+  public MessageAnnotation getMessage(String key) {
+    MessageAnnotation msg = m_staticMap.get(key);
+    if (msg == null) {
+      throw new IllegalArgumentException("Message not found: " + key);
+    }
+    return msg;
   }
 
 

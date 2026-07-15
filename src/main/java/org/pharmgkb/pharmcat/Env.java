@@ -153,7 +153,7 @@ public class Env {
     return m_messageHelper;
   }
 
-  public @Nullable MessageAnnotation getMessage(String key) {
+  public MessageAnnotation getMessage(String key) {
     return m_messageHelper.getMessage(key);
   }
 
