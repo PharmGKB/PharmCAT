@@ -66,7 +66,7 @@ public class DiplotypeMatcher {
     }
 
     List<DiplotypeMatch> pairs;
-    if (m_dataset.getPermutations().size() == 1) {
+    if (m_dataset.getPermutationCount() == 1) {
       pairs = determineHomozygousPairs(matches);
     } else {
       // find matched pairs
@@ -141,7 +141,7 @@ public class DiplotypeMatcher {
    */
   private List<DiplotypeMatch> determineHomozygousPairs(SortedSet<BaseMatch> haplotypeMatches) {
 
-    String seq = m_dataset.getPermutations().iterator().next();
+    String seq = m_dataset.getPermutationData().iterator().next().getSequence();
     List<DiplotypeMatch> matches = new ArrayList<>();
     if (haplotypeMatches.size() == 1) {
       // matched a single haplotype: need to return that as either homozygous diplotype or haploid

@@ -359,8 +359,8 @@ public class DpydHapB3Matcher {
     Preconditions.checkState(m_hasHapB3Variants && !m_hasNonHapB3Variants);
 
     List<BaseMatch> haps = new ArrayList<>();
-    for (String seq : matchData.getPermutations()) {
-      haps.add(callPhasedHapB3(seq, matchData, null));
+    for (SamplePermutation permutation : matchData.getPermutationData()) {
+      haps.add(callPhasedHapB3(permutation, matchData, null));
     }
 
     SortedSet<DiplotypeMatch> finalMatches = new TreeSet<>();
@@ -376,15 +376,31 @@ public class DpydHapB3Matcher {
    * Call HapB3 for a phased sequence.
    */
   private BaseMatch callPhasedHapB3(String seq, MatchData matchData, @Nullable BaseMatch baseMatch) {
-    String allele = matchData.getAllele(seq, m_hapB3IntronLocus.getPosition());
+    return callPhasedHapB3(matchData.getAllele(seq, m_hapB3IntronLocus.getPosition()),
+        matchData.getAllele(seq, m_hapB3ExonLocus.getPosition()), matchData, baseMatch);
+  }
+
+
+  /**
+   * Call HapB3 for a phased sequence.
+   */
+  private BaseMatch callPhasedHapB3(SamplePermutation permutation, MatchData matchData,
+      @Nullable BaseMatch baseMatch) {
+    return callPhasedHapB3(matchData.getAllele(permutation, m_hapB3IntronLocus.getPosition()),
+        matchData.getAllele(permutation, m_hapB3ExonLocus.getPosition()), matchData, baseMatch);
+  }
+
+
+  private BaseMatch callPhasedHapB3(@Nullable String intronAllele, @Nullable String exonAllele,
+      MatchData matchData, @Nullable BaseMatch baseMatch) {
     boolean hasIntronLocus = false;
     boolean hasIntron = false;
-    if (allele != null && !allele.equals(".")) {
+    if (intronAllele != null && !intronAllele.equals(".")) {
       hasIntronLocus = true;
-      hasIntron = !m_hapB3IntronLocus.getRef().equals(allele);
+      hasIntron = !m_hapB3IntronLocus.getRef().equals(intronAllele);
     }
-    allele = matchData.getAllele(seq, m_hapB3ExonLocus.getPosition());
-    boolean hasExon = allele != null && !allele.equals(".") && !m_hapB3ExonLocus.getRef().equals(allele);
+    boolean hasExon = exonAllele != null && !exonAllele.equals(".") &&
+        !m_hapB3ExonLocus.getRef().equals(exonAllele);
 
     if (hasIntron) {
       if (hasExon) {

@@ -53,14 +53,14 @@ public class CombinationMatcher {
   public SortedSet<BaseMatch> compute(MatchData matchData) {
 
     SortedSet<BaseMatch> matches = new TreeSet<>();
-    for (String seq : matchData.getPermutations()) {
+    for (SamplePermutation permutation : matchData.getPermutationData()) {
       // generate allele map
       SortedMap<Long, String> alleleMap = new TreeMap<>();
       VariantLocus[] refVariants = matchData.getPositions();
       SortedSet<Long> varPositions = new TreeSet<>();
       for (int x = 0; x < refVariants.length; x += 1) {
         long pos = refVariants[x].getPosition();
-        String allele = matchData.getAllele(seq, x);
+        String allele = matchData.getAllele(permutation, pos);
         alleleMap.put(pos, allele);
         if (!refVariants[x].getRef().equals(allele)) {
           varPositions.add(pos);
@@ -89,17 +89,17 @@ public class CombinationMatcher {
         Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, coveredHaps);
         if (partialNames.isEmpty()) {
           HaplotypeMatch simpleMatch = new HaplotypeMatch(hap);
-          simpleMatch.addSequence(seq);
+          simpleMatch.addSequence(permutation.getSequence());
           matches.add(simpleMatch);
         } else {
-          matches.add(new CombinationMatch(refVariants, seq, List.of(hap), partialNames));
+          matches.add(new CombinationMatch(refVariants, permutation.getSequence(), List.of(hap), partialNames));
         }
 
       } else {
         List<SortedSet<NamedAllele>> combos = computeViableCombinations(coveredHaps);
         for (SortedSet<NamedAllele> combo : combos) {
           Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, combo);
-          matches.add(new CombinationMatch(refVariants, seq, combo, partialNames));
+          matches.add(new CombinationMatch(refVariants, permutation.getSequence(), combo, partialNames));
         }
       }
     }

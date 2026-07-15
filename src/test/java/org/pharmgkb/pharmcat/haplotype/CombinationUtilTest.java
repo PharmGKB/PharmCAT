@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.jupiter.api.Test;
@@ -33,11 +34,12 @@ class CombinationUtilTest {
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(
-        "1:T;2:A;3:C;4:C;",
-        "1:T;2:A;3:C;4:G;",
-        "1:T;2:T;3:C;4:C;",
-        "1:T;2:T;3:C;4:G;"
+        "1:T;2:A;3:C;4:C",
+        "1:T;2:A;3:C;4:G",
+        "1:T;2:T;3:C;4:C",
+        "1:T;2:T;3:C;4:G"
         );
+    assertStructuredPermutations(expectedPermutations, alleles);
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     assertEquals(expectedPermutations.size(), permutations.size());
     for (String p : permutations) {
@@ -56,9 +58,10 @@ class CombinationUtilTest {
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(
-        "1:T;2:A;3:C;4:C;",
-        "1:T;2:T;3:C;4:G;"
+        "1:T;2:A;3:C;4:C",
+        "1:T;2:T;3:C;4:G"
     );
+    assertStructuredPermutations(expectedPermutations, alleles);
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     assertEquals(expectedPermutations.size(), permutations.size());
     for (String p : permutations) {
@@ -78,11 +81,12 @@ class CombinationUtilTest {
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(
-        "1:T;2:A;3:C;4:C;",
-        "1:T;2:T;3:C;4:G;",
-        "1:T;2:A;3:C;4:G;",
-        "1:T;2:T;3:C;4:C;"
+        "1:T;2:A;3:C;4:C",
+        "1:T;2:T;3:C;4:G",
+        "1:T;2:A;3:C;4:G",
+        "1:T;2:T;3:C;4:C"
     );
+    assertStructuredPermutations(expectedPermutations, alleles);
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     System.out.println(permutations);
     assertEquals(expectedPermutations.size(), permutations.size());
@@ -104,19 +108,20 @@ class CombinationUtilTest {
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(
-        "1:T;2:A;3:G;4:C;5:C;",
-        "1:T;2:A;3:C;4:C;5:C;",
+        "1:T;2:A;3:G;4:C;5:C",
+        "1:T;2:A;3:C;4:C;5:C",
 
-        "1:T;2:A;3:G;4:C;5:G;",
-        "1:T;2:A;3:C;4:C;5:G;",
+        "1:T;2:A;3:G;4:C;5:G",
+        "1:T;2:A;3:C;4:C;5:G",
 
-        "1:C;2:T;3:G;4:C;5:C;",
-        "1:C;2:T;3:C;4:C;5:C;",
+        "1:C;2:T;3:G;4:C;5:C",
+        "1:C;2:T;3:C;4:C;5:C",
 
-        "1:C;2:T;3:G;4:C;5:G;",
-        "1:C;2:T;3:C;4:C;5:G;"
+        "1:C;2:T;3:G;4:C;5:G",
+        "1:C;2:T;3:C;4:C;5:G"
 
         );
+    assertStructuredPermutations(expectedPermutations, alleles);
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     permutations.forEach(System.out::println);
     assertEquals(expectedPermutations.size(), permutations.size());
@@ -166,5 +171,15 @@ class CombinationUtilTest {
       assertTrue(expectedPairs.remove(p));
     }
     assertEquals(0, expectedPairs.size());
+  }
+
+
+  private static void assertStructuredPermutations(Set<String> expected, List<SampleAllele> alleles) {
+    Set<String> stringPermutations = CombinationUtil.generatePermutations(alleles);
+    Set<String> structured = CombinationUtil.generatePermutationData(alleles).stream()
+        .map(SamplePermutation::getSequence)
+        .collect(Collectors.toSet());
+    assertEquals(expected, stringPermutations);
+    assertEquals(stringPermutations, structured);
   }
 }

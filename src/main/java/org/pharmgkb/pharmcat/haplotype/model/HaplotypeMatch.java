@@ -41,15 +41,10 @@ public class HaplotypeMatch extends BaseMatch {
   }
 
 
-  public boolean match(String seq, VariantLocus[] positions, String[] sequenceAlleles) {
-    @Nullable String[] expectedAlleles = m_expectedAlleles;
-    if (expectedAlleles == null) {
-      expectedAlleles = getHaplotype().getAlleles(positions);
+  public boolean matches(String[] sequenceAlleles) {
+    if (m_expectedAlleles == null) {
+      throw new IllegalStateException("No expected alleles were initialized for this match");
     }
-    if (getHaplotype().matches(expectedAlleles, sequenceAlleles)) {
-      addSequence(seq);
-      return true;
-    }
-    return false;
+    return getHaplotype().matches(m_expectedAlleles, sequenceAlleles);
   }
 }

@@ -31,8 +31,12 @@ public class MatchData {
   private final boolean m_isHaploid;
   /** Positions at which data is available for sample. */
   private final VariantLocus[] m_positions;
+  /** Positions in the order used by internal sample permutations. */
+  private final VariantLocus[] m_permutationPositions;
   /** Maps VCF position to the index of the matching VariantLocus in the m_positions array. */
   private final SortedMap<Long, Integer> m_vcfPositionIndex = new TreeMap<>();
+  /** Maps VCF position to the index used by internal sample permutations. */
+  private final Map<Long, Integer> m_permutationPositionIndex = new HashMap<>();
   @Expose
   @SerializedName("missingPositions")
   private final SortedSet<VariantLocus> m_missingPositions = new TreeSet<>();
@@ -45,7 +49,8 @@ public class MatchData {
   @SerializedName("treatUndocumentedVariationsAsReference")
   private boolean m_treatUndocumentedVariationsAsReference;
   private @Nullable SortedSet<NamedAllele> m_haplotypes;
-  private @Nullable Set<String> m_permutations;
+  private @Nullable Set<SamplePermutation> m_permutations;
+  private @Nullable Set<String> m_encodedPermutations;
   @Expose
   @SerializedName("phased")
   private final boolean m_isPhased;
@@ -116,6 +121,10 @@ public class MatchData {
     m_positions = positions.toArray(new VariantLocus[0]);
     for (int x = 0; x < m_positions.length; x += 1) {
       m_vcfPositionIndex.put(m_positions[x].getPosition(), x);
+    }
+    m_permutationPositions = Arrays.stream(m_positions).sorted().toArray(VariantLocus[]::new);
+    for (int x = 0; x < m_permutationPositions.length; x += 1) {
+      m_permutationPositionIndex.put(m_permutationPositions[x].getPosition(), x);
     }
     if (extraPositions != null) {
       for (VariantLocus vl : extraPositions) {
@@ -320,7 +329,24 @@ public class MatchData {
     if (m_permutations == null) {
       throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
     }
+    if (m_encodedPermutations == null) {
+      m_encodedPermutations = new HashSet<>();
+      for (SamplePermutation permutation : m_permutations) {
+        m_encodedPermutations.add(permutation.getSequence());
+      }
+    }
+    return m_encodedPermutations;
+  }
+
+  Set<SamplePermutation> getPermutationData() {
+    if (m_permutations == null) {
+      throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
+    }
     return m_permutations;
+  }
+
+  int getPermutationCount() {
+    return getPermutationData().size();
   }
 
   /**
@@ -328,11 +354,12 @@ public class MatchData {
    */
   void generateSamplePermutations() {
 
-    m_permutations = CombinationUtil.generatePermutations(
+    m_permutations = CombinationUtil.generatePermutationData(
         m_sampleMap.values().stream()
             .sorted()
             .toList()
     );
+    m_encodedPermutations = null;
     m_isEffectivelyPhased = m_permutations.size() <= 2;
   }
 
@@ -458,6 +485,14 @@ public class MatchData {
     return getSequenceAlleles(sequence)[idx];
   }
 
+  @Nullable String getAllele(SamplePermutation permutation, long vcfPosition) {
+    Integer idx = m_permutationPositionIndex.get(vcfPosition);
+    if (idx == null) {
+      return null;
+    }
+    return permutation.getAlleles()[idx];
+  }
+
   String[] getSequenceAlleles(String sequence) {
     return m_sequenceAlleleCache.computeIfAbsent(sequence, s -> {
       String[] alleles = new String[m_positions.length];
@@ -479,12 +514,15 @@ public class MatchData {
    */
   protected SortedSet<HaplotypeMatch> comparePermutations() {
     Set<HaplotypeMatch> haplotypeMatches = getHaplotypes().stream()
-        .map(h -> new HaplotypeMatch(h, m_positions))
+        .map(h -> new HaplotypeMatch(h, m_permutationPositions))
         .collect(Collectors.toSet());
-    for (String p : getPermutations()) {
-      String[] sequenceAlleles = getSequenceAlleles(p);
+    // Internal matching uses allele arrays sorted by VCF position; encode strings only for matched output.
+    for (SamplePermutation permutation : getPermutationData()) {
+      String[] sequenceAlleles = permutation.getAlleles();
       for (HaplotypeMatch hm : haplotypeMatches) {
-        hm.match(p, m_positions, sequenceAlleles);
+        if (hm.matches(sequenceAlleles)) {
+          hm.addSequence(permutation.getSequence());
+        }
       }
     }
     return haplotypeMatches.stream()

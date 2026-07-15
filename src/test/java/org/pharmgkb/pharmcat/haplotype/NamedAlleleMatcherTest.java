@@ -229,10 +229,10 @@ public class NamedAlleleMatcherTest {
 
     // get all permutations of sample at positions of interest
     Set<String> permutations = Sets.newHashSet(
-        "1:C;2:C;4:TG;",
-        "1:C;2:CT;4:TG;",
-        "1:T;2:C;4:T;",
-        "1:T;2:CT;4:T;"
+        "1:C;2:C;4:TG",
+        "1:C;2:CT;4:TG",
+        "1:T;2:C;4:T",
+        "1:T;2:CT;4:T"
     );
     data.generateSamplePermutations();
     assertThat(data.getPermutations(), equalTo(permutations));

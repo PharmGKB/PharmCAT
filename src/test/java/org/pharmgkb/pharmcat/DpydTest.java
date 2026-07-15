@@ -652,6 +652,7 @@ class DpydTest {
    */
   @Test
   void phaseSet_lowFunctionsOnSameStrand(TestInfo testInfo) throws Exception {
+    // Covers phased HapB3 merging while consuming structured sample permutations directly.
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .phased()
@@ -697,6 +698,7 @@ class DpydTest {
 
   @Test
   void hapB3AndIntronicC(TestInfo testInfo) throws Exception {
+    // Covers adding a phased HapB3 call to the reference using structured permutations directly.
 
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
     testWrapper.getVcfBuilder()

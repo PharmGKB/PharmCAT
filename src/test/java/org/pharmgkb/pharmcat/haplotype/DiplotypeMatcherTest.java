@@ -201,25 +201,26 @@ class DiplotypeMatcherTest {
     VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
     VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
     VariantLocus var4 = new VariantLocus("chr1", 4, "g.3T>A");
-    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
+    // Keep definition positions out of order to exercise position-sorted internal permutation matching.
+    VariantLocus[] variants = new VariantLocus[] { var3, var1, var4, var2 };
 
-    String[] alleles = new String[] { "T", "A", "C", "C" };
+    String[] alleles = new String[] { "C", "T", "C", "A" };
     NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
     hap1.initialize(variants);
 
-    alleles = new String[] { null, "T", "C", null };
+    alleles = new String[] { "C", null, null, "T" };
     NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false);
     hap2.initialize(variants);
 
-    alleles = new String[] { null, null, "GG", null };
+    alleles = new String[] { "GG", null, null, null };
     NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
     hap3.initialize(variants);
 
     Set<String> permutations = Sets.newHashSet(
-        "1:T;2:A;3:C;4:C;",
-        "1:T;2:A;3:C;4:G;",
-        "1:T;2:T;3:C;4:C;",
-        "1:T;2:T;3:C;4:G;"
+        "1:T;2:A;3:C;4:C",
+        "1:T;2:A;3:C;4:G",
+        "1:T;2:T;3:C;4:C",
+        "1:T;2:T;3:C;4:G"
     );
     SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
     sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T"), "0/0"));
