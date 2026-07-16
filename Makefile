@@ -74,6 +74,7 @@ docker-test:
 scriptPkg:
 	rm -rf build/preprocessor
 	mkdir -p build/preprocessor
+	touch build/preprocessor/.pharmcat_preprocessor_pkg
 	cp -f preprocessor/requirements.txt build/preprocessor
 	cp -f preprocessor/pharmcat_vcf_preprocessor build/preprocessor
 	cp -f preprocessor/pharmcat_pipeline build/preprocessor
@@ -93,9 +94,13 @@ pipelinePkg:
 	${GRADLE_CMD} shadowJar --no-daemon
 	rm -rf build/pipeline
 	mkdir -p build/pipeline
+	touch build/pipeline/.pharmcat_pipeline_pkg
 	cp -f bin/pharmcat build/pipeline
 	cp -f bin/calc_allele_freqs build/calc_allele_freqs
 	cp -f build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pipeline/pharmcat.jar
+	echo "distribution=pipeline" > distribution.properties
+	jar uf build/pipeline/pharmcat.jar distribution.properties
+	rm distribution.properties
 	cp -f preprocessor/requirements.txt build/pipeline
 	cp -f preprocessor/pharmcat_vcf_preprocessor build/pipeline
 	cp -f preprocessor/pharmcat_pipeline build/pipeline

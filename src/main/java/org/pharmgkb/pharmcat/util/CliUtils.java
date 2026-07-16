@@ -7,6 +7,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 import org.apache.commons.io.FilenameUtils;
@@ -35,7 +36,7 @@ public class CliUtils {
 
 
   /**
-   * Gets the currently tagged version based on the Jar manifest, the current git repo tag, or a generic 
+   * Gets the currently tagged version based on the Jar manifest, the current git repo tag, or a generic
    * "development" version as a fallback when neither of those is available.
    *
    * @return a String of the PharmCAT version
@@ -75,6 +76,18 @@ public class CliUtils {
     }
   }
 
+  public static @Nullable String getDistribution() {
+    try (InputStream input = PharmCAT.class.getClassLoader().getResourceAsStream("distribution.properties")) {
+      if (input == null) {
+        return null;
+      }
+      Properties prop = new Properties();
+      prop.load(input);
+      return prop.getProperty("distribution");
+    } catch (IOException ex) {
+      return null;
+    }
+  }
 
   public static Path getOutputDir(CliHelper cliHelper, Path inputFile) throws IOException {
     if (cliHelper.hasOption("o")) {

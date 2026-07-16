@@ -87,6 +87,7 @@ RUN pip3 install -r requirements.txt && \
 COPY src/main/config/bashrc /root/.bashrc
 
 # add pharmcat scripts
+RUN touch .pharmcat_docker_pkg
 COPY preprocessor/pharmcat_vcf_preprocessor \
      preprocessor/pharmcat_pipeline \
      bin/pharmcat \
@@ -95,7 +96,10 @@ COPY preprocessor/pharmcat_vcf_preprocessor \
      pharmcat_positions.vcf* \
      pharmcat_regions.bed \
      ./
-RUN mkdir pcat
+RUN echo "distribution=docker" > distribution.properties && \
+    jar uf pharmcat.jar distribution.properties && \
+    rm -f distribution.properties && \
+    mkdir pcat
 COPY preprocessor/pcat/*.py \
      preprocessor/pcat/*.tsv \
      pcat/
