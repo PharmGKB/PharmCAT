@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -226,6 +227,48 @@ class DiplotypeMatcherTest {
 
     boolean viable = (boolean)method.invoke(new DiplotypeMatcher(s_env, dataset), "1:A", "1:A");
     assertFalse(viable);
+  }
+
+
+  @Test
+  void testStructuredScoringWithWobble() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1C>T");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2A>G");
+    var1.setRef("C");
+    var2.setRef("A");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    String[] alleles = new String[] { "C", "A" };
+    NamedAllele ref = new NamedAllele("*1", "*1", alleles, alleles, true);
+    ref.initialize(variants);
+
+    alleles = new String[] { "Y", null };
+    NamedAllele wobble = new NamedAllele("*2", "*2", alleles, alleles, false);
+    wobble.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "C", "C", false,
+        Lists.newArrayList("C", "T"), "0/0"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "A", "A", false,
+        Lists.newArrayList("A", "G"), "0/0"));
+
+    MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, wobble)), false);
+    dataset.generateSamplePermutations();
+
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(s_env, dataset)
+        .compute(false, false);
+    Map<String, Integer> scores = matches.stream()
+        .collect(Collectors.toMap(DiplotypeMatch::getName, DiplotypeMatch::getScore));
+    assertEquals(4, scores.get("*1/*1"));
+    assertEquals(2, scores.get("*1/*2"));
+    assertEquals(0, scores.get("*2/*2"));
+
+    SortedSet<DiplotypeMatch> topMatches = new DiplotypeMatcher(s_env, dataset)
+        .compute(false, true);
+    assertEquals(1, topMatches.size());
+    assertEquals("*1/*1", topMatches.first().getName());
   }
 
 

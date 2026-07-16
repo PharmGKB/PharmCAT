@@ -16,6 +16,8 @@ import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -110,16 +112,60 @@ public class DiplotypeMatcher {
     if (m2 != null) {
       if (m1.getName().equals(m2.getName())) {
         isHomozygous = true;
-        m2Score = m2.getHaplotype().scoreForSample(m_dataset, sequenceForBaseMatch(m2, new String[] { seqPair[1] }));
+        m2Score = scoreForBaseMatch(m2, new String[] { seqPair[1] });
       } else {
-        m2Score = m2.getHaplotype().scoreForSample(m_dataset, sequenceForBaseMatch(m2, seqPair));
+        m2Score = scoreForBaseMatch(m2, seqPair);
       }
     }
     if (isHomozygous) {
-      return m1.getHaplotype().scoreForSample(m_dataset, sequenceForBaseMatch(m1, new String[] {seqPair[0] })) + m2Score;
+      return scoreForBaseMatch(m1, new String[] {seqPair[0] }) + m2Score;
     } else {
-      return m1.getHaplotype().scoreForSample(m_dataset, sequenceForBaseMatch(m1, seqPair)) + m2Score;
+      return scoreForBaseMatch(m1, seqPair) + m2Score;
     }
+  }
+
+  private int scoreForBaseMatch(BaseMatch hapMatch, String[] seqPair) {
+    Set<String> sequences = sequenceForBaseMatch(hapMatch, seqPair);
+    List<SamplePermutation> permutations = new ArrayList<>(sequences.size());
+    for (String sequence : sequences) {
+      SamplePermutation permutation = hapMatch.getSequencePermutation(sequence);
+      if (permutation == null) {
+        return hapMatch.getHaplotype().scoreForSample(m_dataset, sequences);
+      }
+      permutations.add(permutation);
+    }
+    return scoreForSample(hapMatch.getHaplotype(), permutations);
+  }
+
+  private int scoreForSample(NamedAllele haplotype, List<SamplePermutation> permutations) {
+    if (haplotype.getWobblePositions().isEmpty()) {
+      return haplotype.getScore();
+    }
+    int score = haplotype.getScore();
+    for (Long position : haplotype.getWobblePositions()) {
+      VariantLocus vl = getPosition(position);
+      int numRefs = 0;
+      for (SamplePermutation permutation : permutations) {
+        String allele = m_dataset.getAllele(permutation, position);
+        if (Objects.equals(allele, vl.getRef())) {
+          numRefs += 1;
+        }
+      }
+      // if all alleles at position are ref, don't score this wobble
+      if (numRefs == permutations.size()) {
+        score -= 1;
+      }
+    }
+    return score;
+  }
+
+  private VariantLocus getPosition(long position) {
+    for (VariantLocus vl : m_dataset.getPositions()) {
+      if (vl.getPosition() == position) {
+        return vl;
+      }
+    }
+    throw new IllegalArgumentException("Unknown position: " + position);
   }
 
   private Set<String> sequenceForBaseMatch(BaseMatch hapMatch, String[] seqPair) {
