@@ -174,6 +174,20 @@ class CombinationUtilTest {
   }
 
 
+  @Test
+  void testSamplePermutationAllelesAreDefensiveCopy() {
+
+    SamplePermutation permutation = new SamplePermutation(new String[] { "A" }, new long[] { 1 });
+    assertEquals("1:A", permutation.getSequence());
+
+    String[] alleles = permutation.getAlleles();
+    alleles[0] = "T";
+
+    assertEquals("1:A", permutation.getSequence());
+    assertEquals("A", permutation.getAlleles()[0]);
+  }
+
+
   private static void assertStructuredPermutations(Set<String> expected, List<SampleAllele> alleles) {
     Set<String> stringPermutations = CombinationUtil.generatePermutations(alleles);
     Set<String> structured = CombinationUtil.generatePermutationData(alleles).stream()

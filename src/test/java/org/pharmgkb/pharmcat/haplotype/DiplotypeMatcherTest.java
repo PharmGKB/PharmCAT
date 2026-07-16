@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,6 +30,8 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -160,6 +163,72 @@ class DiplotypeMatcherTest {
   }
 
 
+  @Test
+  void testStructuredComplementCheckWithNullAllele() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    var1.setRef("A");
+    var2.setRef("C");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    String[] alleles = new String[] { "A", "C" };
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
+    hap1.initialize(variants);
+
+    alleles = new String[] { null, "T" };
+    NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false);
+    hap2.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "A", null, false,
+        Lists.newArrayList("A"), "0"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "C", "T", false,
+        Lists.newArrayList("C", "T"), "0/1"));
+
+    MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2)), false);
+    dataset.generateSamplePermutations();
+
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(s_env, dataset)
+        .compute(false, false);
+
+    assertEquals(1, matches.size());
+    assertEquals("*1/*2", matches.first().getName());
+  }
+
+
+  @Test
+  void testLegacyComplementCheckWithMissingSequencePosition() throws Exception {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    var1.setRef("A");
+    var2.setRef("C");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    String[] alleles = new String[] { "A", "C" };
+    NamedAllele hap = new NamedAllele("*1", "*1", alleles, alleles, true);
+    hap.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "A", "A", false,
+        Lists.newArrayList("A"), "0/0"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "C", "T", false,
+        Lists.newArrayList("C", "T"), "0/1"));
+
+    MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap)), false);
+    dataset.generateSamplePermutations();
+
+    Method method = DiplotypeMatcher.class.getDeclaredMethod("isViableComplement", String.class, String.class);
+    method.setAccessible(true);
+
+    boolean viable = (boolean)method.invoke(new DiplotypeMatcher(s_env, dataset), "1:A", "1:A");
+    assertFalse(viable);
+  }
+
+
   private SortedSet<DiplotypeMatch> computeHaplotypes(SortedSet<SampleAllele> alleles) {
 
     SortedMap<String, SampleAllele> sampleAlleleMap = alleles.stream()
@@ -235,6 +304,11 @@ class DiplotypeMatcherTest {
 
     SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
     assertEquals(2, matches.size());
+    for (HaplotypeMatch match : matches) {
+      for (String sequence : match.getSequences()) {
+        assertNotNull(match.getSequencePermutation(sequence));
+      }
+    }
     Iterator<HaplotypeMatch> it = matches.iterator();
     assertEquals(hap1, it.next().getHaplotype());
     assertEquals(hap2, it.next().getHaplotype());
@@ -293,5 +367,46 @@ class DiplotypeMatcherTest {
 
     dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(tAllele)), false);
     assertEquals(0, dataset.comparePermutations().size());
+  }
+
+
+  @Test
+  void testCombinationSimpleMatchRetainsStructuredPermutation() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    var1.setRef("A");
+    var2.setRef("C");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    String[] alleles = new String[] { "A", "C" };
+    NamedAllele ref = new NamedAllele("*1", "*1", alleles, alleles, true);
+    ref.initialize(variants);
+
+    alleles = new String[] { "G", null };
+    NamedAllele hap = new NamedAllele("*2", "*2", alleles, alleles, false);
+    hap.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "G", "G", false,
+        Lists.newArrayList("A", "G"), "1/1"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "C", "C", false,
+        Lists.newArrayList("C"), "0/0"));
+
+    MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, hap)), true);
+    dataset.generateSamplePermutations();
+
+    SortedSet<HaplotypeMatch> matches = new CombinationMatcher(s_env.getDefinitionReader().getDefinitionFile("CYP2B6"),
+        false).compute(dataset).stream()
+        .map(m -> (HaplotypeMatch)m)
+        .collect(Collectors.toCollection(TreeSet::new));
+
+    assertEquals(1, matches.size());
+    HaplotypeMatch match = matches.first();
+    assertEquals("*2", match.getName());
+    for (String sequence : match.getSequences()) {
+      assertNotNull(match.getSequencePermutation(sequence));
+    }
   }
 }

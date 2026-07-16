@@ -7,7 +7,7 @@ import org.jspecify.annotations.Nullable;
 /**
  * A sample haplotype permutation represented by its alleles at each position.
  */
-final class SamplePermutation {
+public final class SamplePermutation {
   private final long[] m_positions;
   private final @Nullable String[] m_alleles;
   private @Nullable String m_sequence;
@@ -19,12 +19,24 @@ final class SamplePermutation {
   }
 
 
-  @Nullable String[] getAlleles() {
+  /**
+   * Gets a copy of alleles in position order.
+   * The internal array must remain immutable because it is used for equality, hashing, and lazy sequence generation.
+   */
+  public @Nullable String[] getAlleles() {
+    return Arrays.copyOf(m_alleles, m_alleles.length);
+  }
+
+  /**
+   * Package-private raw array access for matcher hot paths.
+   * Do not expose this outside the haplotype package; callers must not mutate the returned array.
+   */
+  @Nullable String[] getAllelesForMatching() {
     return m_alleles;
   }
 
 
-  String getSequence() {
+  public String getSequence() {
     if (m_sequence == null) {
       StringBuilder builder = new StringBuilder();
       for (int x = 0; x < m_positions.length; x += 1) {

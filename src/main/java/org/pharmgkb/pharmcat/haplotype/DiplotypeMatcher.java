@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -242,7 +243,15 @@ public class DiplotypeMatcher {
     Set<String[]> sequencePairs = new HashSet<>();
     for (String seq1 : hm1.getSequences()) {
       for (String seq2 : hm2.getSequences()) {
-        if (isViableComplement(seq1, seq2)) {
+        SamplePermutation permutation1 = hm1.getSequencePermutation(seq1);
+        SamplePermutation permutation2 = hm2.getSequencePermutation(seq2);
+        boolean viable;
+        if (permutation1 != null && permutation2 != null) {
+          viable = isViableComplement(permutation1, permutation2);
+        } else {
+          viable = isViableComplement(seq1, seq2);
+        }
+        if (viable) {
           sequencePairs.add(new String[] { seq1, seq2 });
         }
       }
@@ -262,12 +271,38 @@ public class DiplotypeMatcher {
       SampleAllele sampleAllele = m_dataset.getSampleAllele(m_dataset.getPositions()[x].getPosition());
       if (sampleAllele.isHomozygous()) {
         // expecting homozygous
-        if (!a1.equals(a2)) {
+        if (!Objects.equals(a1, a2)) {
           return false;
         }
       } else {
         // expecting heterozygous
-        if (a1.equals(a2)) {
+        if (Objects.equals(a1, a2)) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  /**
+   * Checks whether two structured permutations are complementary based on sample alleles.
+   */
+  private boolean isViableComplement(SamplePermutation permutation1, SamplePermutation permutation2) {
+
+    for (int x = 0; x < m_dataset.getPositions().length; x += 1) {
+      long position = m_dataset.getPositions()[x].getPosition();
+      String a1 = m_dataset.getAllele(permutation1, position);
+      String a2 = m_dataset.getAllele(permutation2, position);
+      SampleAllele sampleAllele = m_dataset.getSampleAllele(position);
+      if (sampleAllele.isHomozygous()) {
+        // expecting homozygous
+        if (!Objects.equals(a1, a2)) {
+          return false;
+        }
+      } else {
+        // expecting heterozygous
+        if (Objects.equals(a1, a2)) {
           return false;
         }
       }

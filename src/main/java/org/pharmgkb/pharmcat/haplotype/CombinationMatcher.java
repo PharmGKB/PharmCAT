@@ -90,7 +90,7 @@ public class CombinationMatcher {
         Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, coveredHaps);
         if (partialNames.isEmpty()) {
           HaplotypeMatch simpleMatch = new HaplotypeMatch(hap);
-          simpleMatch.addSequence(permutation.getSequence());
+          simpleMatch.addSequence(permutation);
           matches.add(simpleMatch);
         } else {
           matches.add(new CombinationMatch(refVariants, permutation.getSequence(), List.of(hap), partialNames));

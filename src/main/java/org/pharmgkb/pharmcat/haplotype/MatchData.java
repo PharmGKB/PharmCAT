@@ -497,7 +497,7 @@ public class MatchData {
     if (idx == null) {
       return null;
     }
-    return permutation.getAlleles()[idx];
+    return permutation.getAllelesForMatching()[idx];
   }
 
   String[] getSequenceAlleles(String sequence) {
@@ -523,7 +523,7 @@ public class MatchData {
     initializeCandidateIndex();
     @Nullable HaplotypeMatch[] matches = new HaplotypeMatch[Objects.requireNonNull(m_haplotypeIndex).size()];
     for (SamplePermutation permutation : getPermutations()) {
-      @Nullable String[] sequenceAlleles = permutation.getAlleles();
+      @Nullable String[] sequenceAlleles = permutation.getAllelesForMatching();
       BitSet candidates = new BitSet(m_haplotypeIndex.size());
       candidates.set(0, m_haplotypeIndex.size());
       for (int x = 0; x < sequenceAlleles.length; x += 1) {
@@ -537,7 +537,8 @@ public class MatchData {
         if (matches[x] == null) {
           matches[x] = new HaplotypeMatch(m_haplotypeIndex.get(x));
         }
-        matches[x].addSequence(permutation.getSequence());
+        //noinspection DataFlowIssue
+        matches[x].addSequence(permutation);
       }
     }
     return Arrays.stream(matches)
@@ -564,6 +565,8 @@ public class MatchData {
 
   private BitSet getCompatibleHaplotypes(int positionIndex, @Nullable String observedAllele) {
     assert m_candidateIndex != null;
+    assert m_haplotypeIndex != null;
+    assert m_haplotypeAlleles != null;
     Map<String, BitSet> candidatesByAllele = m_candidateIndex.get(positionIndex);
     return candidatesByAllele.computeIfAbsent(observedAllele, allele -> {
       BitSet compatibleHaplotypes = new BitSet(m_haplotypeIndex.size());

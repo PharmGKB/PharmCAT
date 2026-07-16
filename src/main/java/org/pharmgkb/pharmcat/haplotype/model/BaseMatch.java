@@ -1,8 +1,10 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -10,8 +12,10 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.jspecify.annotations.Nullable;
 import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.haplotype.SamplePermutation;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
@@ -30,6 +34,7 @@ public class BaseMatch implements Comparable<BaseMatch> {
   @Expose
   @SerializedName("sequences")
   private final SortedSet<String> m_sequences = new TreeSet<>();
+  private final Map<String, SamplePermutation> m_sequencePermutations = new HashMap<>();
 
 
   public String getName() {
@@ -58,8 +63,21 @@ public class BaseMatch implements Comparable<BaseMatch> {
     return m_sequences;
   }
 
+  /**
+   * Adds a legacy or synthetic encoded sequence when no structured permutation is available.
+   */
   public void addSequence(String seq) {
     m_sequences.add(seq);
+  }
+
+  public void addSequence(SamplePermutation permutation) {
+    String seq = permutation.getSequence();
+    addSequence(seq);
+    m_sequencePermutations.put(seq, permutation);
+  }
+
+  public @Nullable SamplePermutation getSequencePermutation(String seq) {
+    return m_sequencePermutations.get(seq);
   }
 
 
