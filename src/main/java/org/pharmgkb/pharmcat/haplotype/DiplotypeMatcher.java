@@ -34,10 +34,21 @@ public class DiplotypeMatcher {
   private final MatchData m_dataset;
   private final DefinitionFile m_definitionFile;
   private final boolean m_unphasedPriorityMode;
+  private final VariantLocus[] m_positions;
+  private final long[] m_vcfPositions;
+  private final boolean[] m_isHomozygous;
 
 
   public DiplotypeMatcher(Env env, MatchData dataset) {
     m_dataset = dataset;
+    m_positions = dataset.getPositions();
+    m_vcfPositions = new long[m_positions.length];
+    m_isHomozygous = new boolean[m_positions.length];
+    for (int x = 0; x < m_positions.length; x += 1) {
+      long position = m_positions[x].getPosition();
+      m_vcfPositions[x] = position;
+      m_isHomozygous[x] = dataset.getSampleAllele(position).isHomozygous();
+    }
     m_definitionFile = env.getDefinitionReader().getDefinitionFile(dataset.getGene());
     DefinitionExemption exemption = env.getDefinitionReader().getExemption(dataset.getGene());
     m_unphasedPriorityMode = !dataset.isEffectivelyPhased() &&
@@ -160,7 +171,7 @@ public class DiplotypeMatcher {
   }
 
   private VariantLocus getPosition(long position) {
-    for (VariantLocus vl : m_dataset.getPositions()) {
+    for (VariantLocus vl : m_positions) {
       if (vl.getPosition() == position) {
         return vl;
       }
@@ -311,11 +322,10 @@ public class DiplotypeMatcher {
    */
   private boolean isViableComplement(String sequence1, String sequence2) {
 
-    for (int x = 0; x < m_dataset.getPositions().length; x += 1) {
+    for (int x = 0; x < m_positions.length; x += 1) {
       String a1 = m_dataset.getAllele(sequence1, x);
       String a2 = m_dataset.getAllele(sequence2, x);
-      SampleAllele sampleAllele = m_dataset.getSampleAllele(m_dataset.getPositions()[x].getPosition());
-      if (sampleAllele.isHomozygous()) {
+      if (m_isHomozygous[x]) {
         // expecting homozygous
         if (!Objects.equals(a1, a2)) {
           return false;
@@ -336,12 +346,11 @@ public class DiplotypeMatcher {
    */
   private boolean isViableComplement(SamplePermutation permutation1, SamplePermutation permutation2) {
 
-    for (int x = 0; x < m_dataset.getPositions().length; x += 1) {
-      long position = m_dataset.getPositions()[x].getPosition();
+    for (int x = 0; x < m_positions.length; x += 1) {
+      long position = m_vcfPositions[x];
       String a1 = m_dataset.getAllele(permutation1, position);
       String a2 = m_dataset.getAllele(permutation2, position);
-      SampleAllele sampleAllele = m_dataset.getSampleAllele(position);
-      if (sampleAllele.isHomozygous()) {
+      if (m_isHomozygous[x]) {
         // expecting homozygous
         if (!Objects.equals(a1, a2)) {
           return false;
