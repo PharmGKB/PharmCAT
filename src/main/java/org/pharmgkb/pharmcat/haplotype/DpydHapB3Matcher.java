@@ -359,7 +359,7 @@ public class DpydHapB3Matcher {
     Preconditions.checkState(m_hasHapB3Variants && !m_hasNonHapB3Variants);
 
     List<BaseMatch> haps = new ArrayList<>();
-    for (SamplePermutation permutation : matchData.getPermutationData()) {
+    for (SamplePermutation permutation : matchData.getPermutations()) {
       haps.add(callPhasedHapB3(permutation, matchData, null));
     }
 

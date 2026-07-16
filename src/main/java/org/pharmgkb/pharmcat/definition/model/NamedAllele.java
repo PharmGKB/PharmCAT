@@ -81,11 +81,11 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Primary constructor.
    * Use this when reading in allele definitions.
    */
-  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles, boolean isReference) {
+  public NamedAllele(String id, String name, @Nullable String[] alleles, String[] cpicAlleles, boolean isReference) {
     this(id, name, alleles, cpicAlleles, Collections.emptySortedSet(), isReference, 0, 0);
   }
 
-  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles,
+  public NamedAllele(String id, String name, @Nullable String[] alleles, String[] cpicAlleles,
       SortedSet<VariantLocus> missingPositions, boolean isReference) {
     this(id, name, alleles, cpicAlleles, missingPositions, isReference, 0, 0);
   }
@@ -93,7 +93,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   /**
    * Constructor for duplicating/modifying a {@link NamedAllele}.
    */
-  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles,
+  public NamedAllele(String id, String name, @Nullable String[] alleles, String[] cpicAlleles,
       SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
@@ -327,8 +327,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     Preconditions.checkNotNull(positions);
     @Nullable String[] alleles = new String[positions.length];
     for (int x = 0; x < positions.length; x += 1) {
-      // Resolve through the initialized numeric position map so an unknown locus cannot become a wildcard.
-      alleles[x] = getAllele(positions[x].getPosition());
+      alleles[x] = getAllele(positions[x]);
     }
     return alleles;
   }
@@ -486,7 +485,10 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
 
-  private boolean matchesAllele(@Nullable String expected, @Nullable String observed) {
+  /**
+   * Checks whether an expected allele definition is compatible with an observed allele.
+   */
+  public boolean matchesAllele(@Nullable String expected, @Nullable String observed) {
     if (expected == null) {
       return true;
     }

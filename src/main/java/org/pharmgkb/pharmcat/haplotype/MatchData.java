@@ -69,6 +69,9 @@ public class MatchData {
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
   private final Map<String, String[]> m_sequenceAlleleCache = new HashMap<>();
+  private @Nullable List<NamedAllele> m_haplotypeIndex;
+  private @Nullable List<@Nullable String[]> m_haplotypeAlleles;
+  private @Nullable List<Map<String, BitSet>> m_candidateIndex;
   @Expose
   @SerializedName("missingRequiredPositions")
   private final List<String> m_missingRequiredPositions = new ArrayList<>();
@@ -182,6 +185,8 @@ public class MatchData {
    * This will also reorganize haplotypes to deal with samples that have missing alleles.
    */
   void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations) {
+
+    clearCandidateIndex();
 
     if (m_missingPositions.isEmpty()) {
       if (findCombinations) {
@@ -302,6 +307,7 @@ public class MatchData {
     }
 
     m_haplotypes = updatedHaplotypes;
+    clearCandidateIndex();
   }
 
 
@@ -325,7 +331,18 @@ public class MatchData {
   /**
    * Gets all permutations of sample alleles at positions of interest.
    */
-  public Set<String> getPermutations() {
+  Set<SamplePermutation> getPermutations() {
+    if (m_permutations == null) {
+      throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
+    }
+    return m_permutations;
+  }
+
+  int getPermutationCount() {
+    return getPermutations().size();
+  }
+
+  public Set<String> getPermutationStrings() {
     if (m_permutations == null) {
       throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
     }
@@ -338,16 +355,6 @@ public class MatchData {
     return m_encodedPermutations;
   }
 
-  Set<SamplePermutation> getPermutationData() {
-    if (m_permutations == null) {
-      throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
-    }
-    return m_permutations;
-  }
-
-  int getPermutationCount() {
-    return getPermutationData().size();
-  }
 
   /**
    * Generate all permutations of sample alleles at positions of interest.
@@ -513,21 +520,67 @@ public class MatchData {
    * Compares a sample's allele permutations to haplotype definitions and return matches.
    */
   protected SortedSet<HaplotypeMatch> comparePermutations() {
-    Set<HaplotypeMatch> haplotypeMatches = getHaplotypes().stream()
-        .map(h -> new HaplotypeMatch(h, m_permutationPositions))
-        .collect(Collectors.toSet());
-    // Internal matching uses allele arrays sorted by VCF position; encode strings only for matched output.
-    for (SamplePermutation permutation : getPermutationData()) {
-      String[] sequenceAlleles = permutation.getAlleles();
-      for (HaplotypeMatch hm : haplotypeMatches) {
-        if (hm.matches(sequenceAlleles)) {
-          hm.addSequence(permutation.getSequence());
+    initializeCandidateIndex();
+    @Nullable HaplotypeMatch[] matches = new HaplotypeMatch[Objects.requireNonNull(m_haplotypeIndex).size()];
+    for (SamplePermutation permutation : getPermutations()) {
+      @Nullable String[] sequenceAlleles = permutation.getAlleles();
+      BitSet candidates = new BitSet(m_haplotypeIndex.size());
+      candidates.set(0, m_haplotypeIndex.size());
+      for (int x = 0; x < sequenceAlleles.length; x += 1) {
+        BitSet compatibleHaplotypes = getCompatibleHaplotypes(x, sequenceAlleles[x]);
+        candidates.and(compatibleHaplotypes);
+        if (candidates.isEmpty()) {
+          break;
         }
       }
+      for (int x = candidates.nextSetBit(0); x >= 0; x = candidates.nextSetBit(x + 1)) {
+        if (matches[x] == null) {
+          matches[x] = new HaplotypeMatch(m_haplotypeIndex.get(x));
+        }
+        matches[x].addSequence(permutation.getSequence());
+      }
     }
-    return haplotypeMatches.stream()
-        .filter(h -> !h.getSequences().isEmpty())
+    return Arrays.stream(matches)
+        .filter(Objects::nonNull)
         .collect(Collectors.toCollection(TreeSet::new));
+  }
+
+
+  private void initializeCandidateIndex() {
+    if (m_haplotypeIndex != null) {
+      return;
+    }
+    m_haplotypeIndex = new ArrayList<>(getHaplotypes());
+    m_haplotypeAlleles = new ArrayList<>(m_haplotypeIndex.size());
+    for (NamedAllele haplotype : m_haplotypeIndex) {
+      m_haplotypeAlleles.add(haplotype.getAlleles(m_permutationPositions));
+    }
+    m_candidateIndex = new ArrayList<>(m_permutationPositions.length);
+    for (int x = 0; x < m_permutationPositions.length; x += 1) {
+      m_candidateIndex.add(new HashMap<>());
+    }
+  }
+
+
+  private BitSet getCompatibleHaplotypes(int positionIndex, @Nullable String observedAllele) {
+    assert m_candidateIndex != null;
+    Map<String, BitSet> candidatesByAllele = m_candidateIndex.get(positionIndex);
+    return candidatesByAllele.computeIfAbsent(observedAllele, allele -> {
+      BitSet compatibleHaplotypes = new BitSet(m_haplotypeIndex.size());
+      for (int x = 0; x < m_haplotypeIndex.size(); x += 1) {
+        if (m_haplotypeIndex.get(x).matchesAllele(m_haplotypeAlleles.get(x)[positionIndex], allele)) {
+          compatibleHaplotypes.set(x);
+        }
+      }
+      return compatibleHaplotypes;
+    });
+  }
+
+
+  private void clearCandidateIndex() {
+    m_haplotypeIndex = null;
+    m_haplotypeAlleles = null;
+    m_candidateIndex = null;
   }
 
 

@@ -231,12 +231,67 @@ class DiplotypeMatcherTest {
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
     dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)), false);
     dataset.generateSamplePermutations();
-    assertThat(dataset.getPermutations(), equalTo(permutations));
+    assertThat(dataset.getPermutationStrings(), equalTo(permutations));
 
     SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
     assertEquals(2, matches.size());
     Iterator<HaplotypeMatch> it = matches.iterator();
     assertEquals(hap1, it.next().getHaplotype());
     assertEquals(hap2, it.next().getHaplotype());
+  }
+
+
+  @Test
+  void testComparePermutationsWithAmbiguousAndRepeatAlleles() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    NamedAllele ambiguous = new NamedAllele("*1", "*1", new String[] { "Y", null },
+        new String[] { "Y", null }, false);
+    ambiguous.initialize(variants);
+    NamedAllele repeat = new NamedAllele("*2", "*2", new String[] { null, "CAT or CATAT" },
+        new String[] { null, "CAT or CATAT" }, false);
+    repeat.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "C", "T", false,
+        Lists.newArrayList("C", "T"), "0/1"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "CAT", "CATAT", false,
+        Lists.newArrayList("CAT", "CATAT"), "0/1"));
+
+    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(ambiguous, repeat)), false);
+    dataset.generateSamplePermutations();
+
+    SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
+    assertEquals(2, matches.size());
+    Iterator<HaplotypeMatch> it = matches.iterator();
+    assertEquals(ambiguous, it.next().getHaplotype());
+    assertEquals(repeat, it.next().getHaplotype());
+  }
+
+
+  @Test
+  void testComparePermutationsAfterRemarshallingHaplotypes() {
+
+    VariantLocus variant = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus[] variants = new VariantLocus[] { variant };
+    NamedAllele cAllele = new NamedAllele("1", "*1", new String[] { "C" }, new String[] { "C" }, false);
+    cAllele.initialize(variants);
+    NamedAllele tAllele = new NamedAllele("2", "*2", new String[] { "T" }, new String[] { "T" }, false);
+    tAllele.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "C", "C", false,
+        Lists.newArrayList("C", "T"), "0/0"));
+    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(cAllele)), false);
+    dataset.generateSamplePermutations();
+    assertEquals(cAllele, dataset.comparePermutations().first().getHaplotype());
+
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(tAllele)), false);
+    assertEquals(0, dataset.comparePermutations().size());
   }
 }

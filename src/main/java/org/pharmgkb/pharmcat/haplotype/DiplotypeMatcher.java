@@ -141,7 +141,7 @@ public class DiplotypeMatcher {
    */
   private List<DiplotypeMatch> determineHomozygousPairs(SortedSet<BaseMatch> haplotypeMatches) {
 
-    String seq = m_dataset.getPermutationData().iterator().next().getSequence();
+    String seq = m_dataset.getPermutations().iterator().next().getSequence();
     List<DiplotypeMatch> matches = new ArrayList<>();
     if (haplotypeMatches.size() == 1) {
       // matched a single haplotype: need to return that as either homozygous diplotype or haploid

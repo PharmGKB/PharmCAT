@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.*;
 import com.google.common.base.Splitter;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -53,16 +54,16 @@ public class CombinationMatcher {
   public SortedSet<BaseMatch> compute(MatchData matchData) {
 
     SortedSet<BaseMatch> matches = new TreeSet<>();
-    for (SamplePermutation permutation : matchData.getPermutationData()) {
+    for (SamplePermutation permutation : matchData.getPermutations()) {
       // generate allele map
-      SortedMap<Long, String> alleleMap = new TreeMap<>();
+      SortedMap<Long, @Nullable String> alleleMap = new TreeMap<>();
       VariantLocus[] refVariants = matchData.getPositions();
       SortedSet<Long> varPositions = new TreeSet<>();
-      for (int x = 0; x < refVariants.length; x += 1) {
-        long pos = refVariants[x].getPosition();
+      for (VariantLocus refVariant : refVariants) {
+        long pos = refVariant.getPosition();
         String allele = matchData.getAllele(permutation, pos);
         alleleMap.put(pos, allele);
-        if (!refVariants[x].getRef().equals(allele)) {
+        if (!refVariant.getRef().equals(allele)) {
           varPositions.add(pos);
         }
       }
@@ -178,7 +179,7 @@ public class CombinationMatcher {
   /**
    * Checks if a sample has all the alleles for the specified {@code namedAllele}.
    */
-  private boolean sampleHasNamedAllele(Map<Long, String> alleleMap, NamedAllele namedAllele) {
+  private boolean sampleHasNamedAllele(Map<Long, @Nullable String> alleleMap, NamedAllele namedAllele) {
 
     for (long pos : namedAllele.getCorePositions()) {
       String sampleAllele = alleleMap.get(pos);

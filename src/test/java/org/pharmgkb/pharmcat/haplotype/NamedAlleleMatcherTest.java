@@ -235,7 +235,7 @@ public class NamedAlleleMatcherTest {
         "1:T;2:CT;4:T"
     );
     data.generateSamplePermutations();
-    assertThat(data.getPermutations(), equalTo(permutations));
+    assertThat(data.getPermutationStrings(), equalTo(permutations));
 
     SortedSet<DiplotypeMatch> pairs = new DiplotypeMatcher(s_env, data)
         .compute(false, false);
