@@ -124,14 +124,18 @@ for namedAllele in namedAlleles:
                 sys.exit("ERROR: named allele '%s' invalid deletion #%d '%s'" % (refNamedAllele['name'], i + 1, a))
             namedAllele['_mindef'][i] = '.'
         else:
-            if a.startswith('ins'):
-                if refNamedAllele['_mindef'][i] != '.':
-                    sys.exit("ERROR: named allele '%s' invalid insertion #%d '%s'" % (refNamedAllele['name'], i + 1, a))
-                a = a[3:]
-            # if ins
-            if any((s not in util.symbolBases) for s in a):
-                sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedAllele['name'], i + 1, a))
-            namedAllele['_mindef'][i] = a
+            alleleOptions = a.split(' or ')
+            for optionIndex, option in enumerate(alleleOptions):
+                if option.startswith('ins'):
+                    if refNamedAllele['_mindef'][i] != '.':
+                        sys.exit("ERROR: named allele '%s' invalid insertion #%d '%s'" % (refNamedAllele['name'], i + 1, option))
+                    option = option[3:]
+                    alleleOptions[optionIndex] = option
+                # if ins
+                if any((s not in util.symbolBases) for s in option):
+                    sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedAllele['name'], i + 1, option))
+            # for option
+            namedAllele['_mindef'][i] = ' or '.join(alleleOptions)
         # if del/ins/swap
     # for i,a in _mindef
 # for namedallele

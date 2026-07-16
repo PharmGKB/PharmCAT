@@ -124,7 +124,7 @@ def expandSymbol(symbol):
 
 def expandString(string, limit=None):
     """
-    Takes a string of one or more basepairs or IUPAC codes and returns an iterator over
+    Takes a string of one or more base pairs or IUPAC codes and returns an iterator over
     each possible actual basepair string after combinatorically expanding each symbol.
     "A" -> "A" ; "AC" -> "AC" ; "AM" -> "AA","AC" ; "MR" -> "AA","AG","CA","CG" ; ...
     """
@@ -136,13 +136,20 @@ def expandString(string, limit=None):
 
 def expandAlleles(alleles, limit=None):
     """
-    Takes an iterable of (index,string) pairs, for example defining a named gene allele,
-    and returns an iterator over each possible actual genotype after combinatorically
-    expanding each string (basepair(s) or IUPAC code(s)) at each index.
+    Takes an iterable of (index,string) pairs (e.g., defining a named gene allele), and returns an iterator over each
+    possible actual genotype after combinatorically expanding each string (basepair(s), IUPAC code(s), or alternatives
+    separated by " or ") at each index.
     ((1,"A"),(2,"C")) -> ((1,"A"),(2,"C")) ; ((1,"A"),(2,"M")) -> ((1,"A"),(2,"A")),((1,"A"),(2,"C")) ; ...
     """
     return itertools.islice(
-        itertools.product(*(tuple((i, expansion) for expansion in expandString(string)) for i, string in alleles)),
+        itertools.product(*(
+            tuple(
+                (i, expansion)
+                for option in string.split(' or ')
+                for expansion in expandString(option)
+            )
+            for i, string in alleles
+        )),
         0, limit, 1
     )
 # expandAlleles()
