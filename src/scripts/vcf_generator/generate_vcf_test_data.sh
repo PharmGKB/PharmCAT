@@ -32,7 +32,7 @@ shift "$((OPTIND -1))"
 
 
 
-# cd to location of script
+# cd to location of this script
 cd "$(dirname $0)"
 
 if [ -z ${PHARMCAT_DATA_DIR+x} ]; then

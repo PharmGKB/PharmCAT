@@ -52,7 +52,7 @@ def parseVCF(vcf):
 
     vcfRef=collections.defaultdict(list)
 
-    pxpattern=re.compile('PX=(\w+)')
+    pxpattern=re.compile('PX=(\\w+)')
     with open(vcf) as vcffile:
         reader = csv.DictReader(itertools.islice(vcffile,start,None), delimiter='\t')
         for row in reader:
