@@ -452,4 +452,41 @@ class DiplotypeMatcherTest {
       assertNotNull(match.getSequencePermutation(sequence));
     }
   }
+
+
+  @Test
+  void testCombinationCandidateIndexWithWobbleCorePosition() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1C>T");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2A>G");
+    var1.setRef("C");
+    var2.setRef("A");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    String[] alleles = new String[] { "C", "A" };
+    NamedAllele ref = new NamedAllele("*1", "*1", alleles, alleles, true);
+    ref.initialize(variants);
+
+    alleles = new String[] { "Y", null };
+    NamedAllele wobble = new NamedAllele("*2", "*2", alleles, alleles, false);
+    wobble.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "T", "T", false,
+        Lists.newArrayList("C", "T"), "1/1"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "A", "A", false,
+        Lists.newArrayList("A", "G"), "0/0"));
+
+    MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, wobble)), true);
+    dataset.generateSamplePermutations();
+
+    SortedSet<HaplotypeMatch> matches = new CombinationMatcher(s_env.getDefinitionReader().getDefinitionFile("CYP2B6"),
+        false).compute(dataset).stream()
+        .map(m -> (HaplotypeMatch)m)
+        .collect(Collectors.toCollection(TreeSet::new));
+
+    assertEquals(1, matches.size());
+    assertEquals("*2", matches.first().getName());
+  }
 }

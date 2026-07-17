@@ -54,6 +54,7 @@ public class CombinationMatcher {
   public SortedSet<BaseMatch> compute(MatchData matchData) {
 
     SortedSet<BaseMatch> matches = new TreeSet<>();
+    CandidateIndex candidateIndex = new CandidateIndex(matchData.getHaplotypes());
     for (SamplePermutation permutation : matchData.getPermutations()) {
       // generate allele map
       SortedMap<Long, @Nullable String> alleleMap = new TreeMap<>();
@@ -70,8 +71,8 @@ public class CombinationMatcher {
 
       // get all possible haplotype matches
       SortedSet<NamedAllele> coveredHaps = new TreeSet<>();
-      for (NamedAllele hap : matchData.getHaplotypes()) {
-        if (!hap.isReference() && sampleHasNamedAllele(alleleMap, hap)) {
+      for (NamedAllele hap : candidateIndex.getCandidates(alleleMap)) {
+        if (sampleHasNamedAllele(alleleMap, hap)) {
           coveredHaps.add(hap);
         }
       }
@@ -196,5 +197,63 @@ public class CombinationMatcher {
       }
     }
     return true;
+  }
+
+  private static class CandidateIndex {
+    private final Map<Long, Map<String, SortedSet<NamedAllele>>> m_exactCandidates = new HashMap<>();
+    private final Map<Long, List<WobbleCandidate>> m_wobbleCandidates = new HashMap<>();
+    private final SortedSet<NamedAllele> m_alwaysCheckCandidates = new TreeSet<>();
+
+    CandidateIndex(SortedSet<NamedAllele> haplotypes) {
+      for (NamedAllele hap : haplotypes) {
+        if (hap.isReference()) {
+          continue;
+        }
+        if (hap.getCorePositions().isEmpty()) {
+          m_alwaysCheckCandidates.add(hap);
+          continue;
+        }
+        long position = hap.getCorePositions().first();
+        String allele = Objects.requireNonNull(hap.getAllele(position));
+        if (hap.isWobble(position)) {
+          m_wobbleCandidates.computeIfAbsent(position, p -> new ArrayList<>())
+              .add(new WobbleCandidate(hap, allele));
+        } else {
+          m_exactCandidates.computeIfAbsent(position, p -> new HashMap<>())
+              .computeIfAbsent(allele, a -> new TreeSet<>())
+              .add(hap);
+        }
+      }
+    }
+
+    SortedSet<NamedAllele> getCandidates(Map<Long, @Nullable String> alleleMap) {
+      SortedSet<NamedAllele> candidates = new TreeSet<>(m_alwaysCheckCandidates);
+      for (Long position : alleleMap.keySet()) {
+        String allele = alleleMap.get(position);
+        Map<String, SortedSet<NamedAllele>> exactCandidates = m_exactCandidates.get(position);
+        if (exactCandidates != null) {
+          SortedSet<NamedAllele> exactMatches = exactCandidates.get(allele);
+          if (exactMatches != null) {
+            candidates.addAll(exactMatches);
+          }
+        }
+        List<WobbleCandidate> wobbleCandidates = m_wobbleCandidates.get(position);
+        if (wobbleCandidates != null && allele != null) {
+          for (WobbleCandidate candidate : wobbleCandidates) {
+            if (candidate.matches(allele)) {
+              candidates.add(candidate.haplotype());
+            }
+          }
+        }
+      }
+      return candidates;
+    }
+  }
+
+  private record WobbleCandidate(NamedAllele haplotype, String allele) {
+
+    boolean matches(String sampleAllele) {
+      return Iupac.lookup(allele).getBases().contains(sampleAllele);
+    }
   }
 }
