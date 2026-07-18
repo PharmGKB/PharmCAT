@@ -36,7 +36,12 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 
 
 /**
- * This is the main entry point for matching {@link NamedAllele}s.
+ * Orchestrates named-allele calling for every gene in a sample.
+ *
+ * <p>This class selects the calling strategy and prepares per-gene {@link MatchData}. The actual single-strand
+ * haplotype matching is performed by {@link MatchData#comparePermutations()}, and {@link DiplotypeMatcher} pairs and
+ * scores those strand matches. Standard genes use reference-defaulted exact matching with an optional combination
+ * fallback. Lowest-function genes use the ordered fallback strategy documented in {@link #callLowestFunctionGene}.</p>
  *
  * @author Mark Woon
  */
@@ -226,7 +231,7 @@ public class NamedAlleleMatcher {
                 .forEach(msg -> System.out.println("\t" + msg));
           });
     }
-    // call haplotypes
+    // Keep genes sequential: ResultBuilder and warning/result ordering are shared across calls.
     for (String gene : m_definitionReader.getGenes()) {
       if (!m_callCyp2d6 && gene.equals("CYP2D6")) {
         continue;
@@ -314,15 +319,15 @@ public class NamedAlleleMatcher {
 
 
   /**
-   * Calls diplotype based on the lowest-function algorithm:
+   * Calls a gene using the lowest-function fallback strategy. The order is significant:
    * <ul>
-   *   <li>Only attempt diplotype match if effectively phased</li>
-   *   <li>
-   *     If no exact match or not effectively phased, only look for potential haplotypes
-   *     (try to match all permutations to any potential haplotype without assuming reference)
-   *   </li>
+   *   <li>Try an exact diplotype when the sample is effectively phased.</li>
+   *   <li>Try combinations and partial alleles when phasing or phase sets can constrain the strands.</li>
+   *   <li>Retry combinations without partial alleles to identify viable named-allele evidence.</li>
+   *   <li>Fall back to reporting possible haplotypes without assuming reference.</li>
    * </ul>
-   *
+   * DPYD follows the same ladder with HapB3 removed from general matching and merged back by
+   * {@link DpydHapB3Matcher}.
    */
   private void callLowestFunctionGene(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap,
       ResultBuilder resultBuilder) {
@@ -345,7 +350,7 @@ public class NamedAlleleMatcher {
       }
     }
 
-    // try for diplotypes if effectively phased
+    // Stage 1: exact diplotypes are meaningful only when the two strands are sufficiently constrained.
     if (origData.isEffectivelyPhased()) {
       // look for exact matches (use topCandidateOnly = false because looking for exact match)
       SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, workingData, m_timing)
@@ -373,7 +378,7 @@ public class NamedAlleleMatcher {
       }
     }
 
-    // try for diplotypes with combinations
+    // Stage 2: allow combinations and synthetic partial alleles when phase information can constrain the result.
     if (origData.isEffectivelyPhased() || origData.isUsingPhaseSets()) {
       MatchData comboData;
       if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
@@ -407,7 +412,8 @@ public class NamedAlleleMatcher {
       }
     }
 
-    // try combinations
+    // Stage 3: retry combinations without partials. For unresolved data, these matches are retained as evidence for
+    // homozygous named alleles before the final direct-haplotype fallback.
     MatchData comboData;
     if (dpydHapB3Matcher != null) {
       comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
@@ -520,7 +526,7 @@ public class NamedAlleleMatcher {
 
 
   /**
-   * Initializes data required to call a diplotype.
+   * Selects the standard allele definitions and initializes data required to call a diplotype.
    *
    * @param alleleMap map of {@link SampleAllele}s from VCF
    * @param assumeReference true if missing alleles in {@link NamedAllele}s should be treated as reference.
@@ -537,43 +543,13 @@ public class NamedAlleleMatcher {
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     MatcherTimings.print(m_timing, context, "definition lookup", stageStart);
-
-    SortedSet<VariantLocus> extraPositions = null;
-    if (exemption != null) {
-      extraPositions = exemption.getExtraPositions();
-    }
-
-    // grab SampleAlleles for all positions related to the current gene
-    stageStart = MatcherTimings.start(m_timing);
-    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, exemption);
-    MatcherTimings.print(m_timing, context, "construct MatchData", stageStart);
-    if (data.getNumSampleAlleles() == 0) {
-      MatcherTimings.print(m_timing, context, "total", totalStart);
-      return data;
-    }
-
-    // handle missing positions (if any)
-    stageStart = MatcherTimings.start(m_timing);
-    data.marshallHaplotypes(gene, alleles, findCombinations);
-    MatcherTimings.print(m_timing, context, "marshallHaplotypes", stageStart);
-
-    if (assumeReference) {
-      // fill in blanks in named alleles based on the reference named allele
-      stageStart = MatcherTimings.start(m_timing);
-      data.defaultMissingAllelesToReference();
-      MatcherTimings.print(m_timing, context, "defaultMissingAllelesToReference", stageStart);
-    }
-
-    stageStart = MatcherTimings.start(m_timing);
-    data.generateSamplePermutations();
-    MatcherTimings.print(m_timing, context, "generateSamplePermutations", stageStart);
-    MatcherTimings.print(m_timing, context, "total", totalStart);
-    return data;
+    return prepareMatchData(sampleId, alleleMap, gene, alleles, allPositions, exemption, assumeReference,
+        findCombinations, context, totalStart);
   }
 
 
   /**
-   * Removes HapB3 NamedAlleles from {@link MatchData}.
+   * Selects DPYD definitions without HapB3 before running the shared MatchData preparation pipeline.
    */
   private MatchData initializeDpydCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap,
       boolean assumeReference, boolean findCombinations) {
@@ -592,13 +568,27 @@ public class NamedAlleleMatcher {
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     MatcherTimings.print(m_timing, context, "definition lookup", stageStart);
 
+    return prepareMatchData(sampleId, alleleMap, gene, alleles, allPositions, exemption, assumeReference,
+        findCombinations, context, totalStart);
+  }
+
+
+  /**
+   * Runs the common per-gene preparation pipeline after the caller has selected the applicable allele definitions.
+   * The order is intentional: sample-specific marshalling must precede reference defaulting, and both must precede
+   * permutation matching.
+   */
+  private MatchData prepareMatchData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+      SortedSet<NamedAllele> alleles, VariantLocus[] allPositions, @Nullable DefinitionExemption exemption,
+      boolean assumeReference, boolean findCombinations, String context, long totalStart) {
+
     SortedSet<VariantLocus> extraPositions = null;
     if (exemption != null) {
       extraPositions = exemption.getExtraPositions();
     }
 
-    // grab SampleAlleles for all positions related to the current gene
-    stageStart = MatcherTimings.start(m_timing);
+    // Restrict the global VCF allele map to positions used by this gene.
+    long stageStart = MatcherTimings.start(m_timing);
     MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, exemption);
     MatcherTimings.print(m_timing, context, "construct MatchData", stageStart);
     if (data.getNumSampleAlleles() == 0) {

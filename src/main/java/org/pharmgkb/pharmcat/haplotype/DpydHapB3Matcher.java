@@ -26,7 +26,10 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
 /**
- * This class handles DPYD's special algorithm for dealing with the HapB3 named allele.
+ * Handles DPYD's special algorithm for reconciling HapB3 intronic and exonic evidence.
+ *
+ * <p>{@link NamedAlleleMatcher} excludes HapB3 definitions from general DPYD matching when HapB3 evidence is present,
+ * then uses this class to merge the HapB3 call back into phased diplotypes or final unphased haplotype results.</p>
  *
  * @author Mark Woon
  */
@@ -42,6 +45,7 @@ public class DpydHapB3Matcher {
   public static final long HAPB3_INTRONIC_POSITION = 97579893;
 
   private final Env m_env;
+  /** Original DPYD call data, including HapB3 positions and sample-adjusted definitions. */
   private final MatchData m_origData;
   private final SortedMap<String, SampleAllele> m_alleleMap;
   // calculated in constructor
@@ -102,6 +106,8 @@ public class DpydHapB3Matcher {
       }
     }
 
+    // Use the full definition set. m_origData may have filtered HapB3 after sample-specific marshalling when the
+    // sample is missing a HapB3 position.
     NamedAllele hapB3Allele = m_env.getDefinitionReader().getHaplotypes(sf_gene).stream()
         .filter(na -> na.getName().equals(HAPB3_ALLELE))
         .findAny()
@@ -519,6 +525,9 @@ public class DpydHapB3Matcher {
   }
 
 
+  /**
+   * Builds an operation-scoped name index. MatchData can be remarshalled, so this must not become a persistent cache.
+   */
   private Map<String, NamedAllele> indexHaplotypes(MatchData matchData) {
     Map<String, NamedAllele> haplotypesByName = new HashMap<>();
     for (NamedAllele haplotype : matchData.getHaplotypes()) {

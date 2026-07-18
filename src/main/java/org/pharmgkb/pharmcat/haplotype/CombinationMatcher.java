@@ -12,7 +12,10 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 /**
- * This class helps with combination matches.
+ * Matches a sample strand to non-overlapping combinations of named alleles and optional partial alleles.
+ *
+ * <p>This is the research/lowest-function path, not the standard exact matcher. A small core-position index removes
+ * impossible named alleles before {@link #sampleHasNamedAllele(Map, NamedAllele)} performs the complete check.</p>
  *
  * @author Mark Woon
  */
@@ -69,7 +72,7 @@ public class CombinationMatcher {
         }
       }
 
-      // get all possible haplotype matches
+      // The index is only a gate. Always run the full core-position check on every candidate it returns.
       SortedSet<NamedAllele> coveredHaps = new TreeSet<>();
       for (NamedAllele hap : candidateIndex.getCandidates(alleleMap)) {
         if (sampleHasNamedAllele(alleleMap, hap)) {
@@ -199,6 +202,13 @@ public class CombinationMatcher {
     return true;
   }
 
+  /**
+   * Gates each non-reference haplotype on its first core position.
+   *
+   * <p>The gate may return false positives because it checks only one position; that is intentional and is corrected
+   * by {@link CombinationMatcher#sampleHasNamedAllele(Map, NamedAllele)}. It must not return false negatives: exact
+   * and wobble gates therefore use the same observed position and allele semantics as the full check.</p>
+   */
   private static class CandidateIndex {
     private final Map<Long, Map<String, SortedSet<NamedAllele>>> m_exactCandidates = new HashMap<>();
     private final Map<Long, List<WobbleCandidate>> m_wobbleCandidates = new HashMap<>();

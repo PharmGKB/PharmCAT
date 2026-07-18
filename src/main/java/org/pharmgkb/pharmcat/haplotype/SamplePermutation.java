@@ -5,7 +5,10 @@ import org.jspecify.annotations.Nullable;
 
 
 /**
- * A sample haplotype permutation represented by its alleles at each position.
+ * One possible single-strand interpretation of the sample genotype.
+ *
+ * <p>Positions and alleles are parallel arrays in numeric position order. Matching uses the arrays directly; the
+ * encoded sequence is created lazily only for stable result ordering and compatibility with legacy match paths.</p>
  */
 public final class SamplePermutation {
   private final long[] m_positions;

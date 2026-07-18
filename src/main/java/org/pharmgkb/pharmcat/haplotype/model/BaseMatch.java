@@ -34,6 +34,10 @@ public class BaseMatch implements Comparable<BaseMatch> {
   @Expose
   @SerializedName("sequences")
   private final SortedSet<String> m_sequences = new TreeSet<>();
+  /**
+   * Structured metadata is optional because synthetic combination and reconstructed DPYD matches may only have
+   * strings.
+   */
   private final Map<String, SamplePermutation> m_sequencePermutations = new HashMap<>();
 
 
@@ -70,6 +74,9 @@ public class BaseMatch implements Comparable<BaseMatch> {
     m_sequences.add(seq);
   }
 
+  /**
+   * Adds a structured permutation while preserving the encoded sequence required by result models.
+   */
   public void addSequence(SamplePermutation permutation) {
     String seq = permutation.getSequence();
     addSequence(seq);

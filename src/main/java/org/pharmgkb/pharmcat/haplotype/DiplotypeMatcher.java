@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Sets;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -26,7 +27,12 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
- * This is the main class responsible for calling diplotypes.
+ * Pairs single-strand matches into diplotypes that can explain the sample genotype.
+ *
+ * <p>Single-strand matching is delegated to {@link MatchData} or {@link CombinationMatcher}. This class validates
+ * complementary strand pairs, scores exact named-allele diplotypes, and applies top-candidate filtering. Structured
+ * {@link SamplePermutation} metadata is preferred, with encoded sequence parsing retained for legacy and synthetic
+ * combination matches.</p>
  *
  * @author Mark Woon
  */
@@ -35,7 +41,9 @@ public class DiplotypeMatcher {
   private final DefinitionFile m_definitionFile;
   private final boolean m_unphasedPriorityMode;
   private final VariantLocus[] m_positions;
+  /** VCF positions aligned with m_positions for structured complement checks. */
   private final long[] m_vcfPositions;
+  /** Sample zygosity aligned with m_positions and m_vcfPositions. */
   private final boolean[] m_isHomozygous;
   private final boolean m_timing;
 
@@ -62,6 +70,9 @@ public class DiplotypeMatcher {
   }
 
 
+  /**
+   * Computes diplotypes, enabling partial-allele matching whenever combination matching is enabled.
+   */
   public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
     return compute(findCombinations, findCombinations, topCandidateOnly);
   }
@@ -156,7 +167,7 @@ public class DiplotypeMatcher {
   }
 
   private int scoreForBaseMatch(BaseMatch hapMatch, String[] seqPair) {
-    Set<String> sequences = sequenceForBaseMatch(hapMatch, seqPair);
+    Set<String> sequences = sequencesForBaseMatch(hapMatch, seqPair);
     List<SamplePermutation> permutations = new ArrayList<>(sequences.size());
     for (String sequence : sequences) {
       SamplePermutation permutation = hapMatch.getSequencePermutation(sequence);
@@ -199,7 +210,7 @@ public class DiplotypeMatcher {
     throw new IllegalArgumentException("Unknown position: " + position);
   }
 
-  private Set<String> sequenceForBaseMatch(BaseMatch hapMatch, String[] seqPair) {
+  private Set<String> sequencesForBaseMatch(BaseMatch hapMatch, String[] seqPair) {
     Set<String> seqs = hapMatch.getSequences();
     if (seqs.size() == 1) {
       return seqs;
@@ -323,6 +334,7 @@ public class DiplotypeMatcher {
         SamplePermutation permutation1 = hm1.getSequencePermutation(seq1);
         SamplePermutation permutation2 = hm2.getSequencePermutation(seq2);
         boolean viable;
+        // Combination/partial and reconstructed DPYD matches may not retain structured permutation metadata.
         if (permutation1 != null && permutation2 != null) {
           viable = isViableComplement(permutation1, permutation2);
         } else {
@@ -338,23 +350,16 @@ public class DiplotypeMatcher {
 
 
   /**
-   * Checks whether the two sequences is complementary based on sample alleles.
+   * Checks whether two encoded sequences are complementary based on sample alleles.
+   * This is the compatibility fallback for matches without structured permutation metadata.
    */
   private boolean isViableComplement(String sequence1, String sequence2) {
 
     for (int x = 0; x < m_positions.length; x += 1) {
       String a1 = m_dataset.getAllele(sequence1, x);
       String a2 = m_dataset.getAllele(sequence2, x);
-      if (m_isHomozygous[x]) {
-        // expecting homozygous
-        if (!Objects.equals(a1, a2)) {
-          return false;
-        }
-      } else {
-        // expecting heterozygous
-        if (Objects.equals(a1, a2)) {
-          return false;
-        }
+      if (!matchesSampleZygosity(a1, a2, m_isHomozygous[x])) {
+        return false;
       }
     }
 
@@ -370,19 +375,21 @@ public class DiplotypeMatcher {
       long position = m_vcfPositions[x];
       String a1 = m_dataset.getAllele(permutation1, position);
       String a2 = m_dataset.getAllele(permutation2, position);
-      if (m_isHomozygous[x]) {
-        // expecting homozygous
-        if (!Objects.equals(a1, a2)) {
-          return false;
-        }
-      } else {
-        // expecting heterozygous
-        if (Objects.equals(a1, a2)) {
-          return false;
-        }
+      if (!matchesSampleZygosity(a1, a2, m_isHomozygous[x])) {
+        return false;
       }
     }
 
     return true;
+  }
+
+
+  /**
+   * Applies the complement rule at one position. Homozygous samples require equal strand alleles; heterozygous
+   * samples require different strand alleles. {@link Objects#equals(Object, Object)} keeps both paths null-safe.
+   */
+  private static boolean matchesSampleZygosity(@Nullable String allele1, @Nullable String allele2,
+      boolean sampleIsHomozygous) {
+    return sampleIsHomozygous == Objects.equals(allele1, allele2);
   }
 }

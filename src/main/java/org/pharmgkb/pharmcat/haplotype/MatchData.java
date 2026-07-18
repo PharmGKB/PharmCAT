@@ -18,7 +18,12 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * This is the data used to compute a {@link DiplotypeMatch} for a specific gene.
+ * Mutable per-sample, per-gene working data used to compute {@link DiplotypeMatch}es.
+ *
+ * <p>The normal lifecycle is: construct, {@link #marshallHaplotypes(String, SortedSet, boolean)}, optionally
+ * {@link #defaultMissingAllelesToReference()}, {@link #generateSamplePermutations()}, then
+ * {@link #comparePermutations()}. Marshalling or reference defaulting can replace the callable haplotypes, so both
+ * operations invalidate the lazily built candidate index.</p>
  *
  * @author Mark Woon
  */
@@ -29,7 +34,7 @@ public class MatchData {
   private final String m_gene;
   private final SortedMap<Long, SampleAllele> m_sampleMap = new TreeMap<>();
   private final boolean m_isHaploid;
-  /** Positions at which data is available for sample. */
+  /** Positions available for this sample, retained in definition/output order. */
   private final VariantLocus[] m_positions;
   /** Positions in the order used by internal sample permutations. */
   private final VariantLocus[] m_permutationPositions;
@@ -48,9 +53,13 @@ public class MatchData {
   @Expose
   @SerializedName("treatUndocumentedVariationsAsReference")
   private boolean m_treatUndocumentedVariationsAsReference;
+  /** Sample-adjusted named alleles that remain callable at the available positions. */
   private @Nullable SortedSet<NamedAllele> m_haplotypes;
+  /** Structured sample strands; their allele arrays follow m_permutationPositions order. */
   private @Nullable Set<SamplePermutation> m_permutations;
+  /** Legacy/result representation of m_permutations, created only when requested. */
   private @Nullable Set<String> m_encodedPermutations;
+  /** True when reference defaults are resolved lazily rather than copied into every named allele. */
   private boolean m_defaultMissingAllelesToReference;
   @Expose
   @SerializedName("phased")
@@ -69,10 +78,15 @@ public class MatchData {
   @Expose
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
+  /** Parsed legacy sequences, used only when structured SamplePermutation metadata is unavailable. */
   private final Map<String, String[]> m_sequenceAlleleCache = new HashMap<>();
+  /** Stable named-allele list whose indexes are the bit positions used by the candidate index. */
   private @Nullable List<NamedAllele> m_haplotypeIndex;
+  /** Expected alleles aligned with m_haplotypeIndex and m_permutationPositions. */
   private @Nullable List<@Nullable String[]> m_haplotypeAlleles;
+  /** Lazily materialized reference-defaulted objects aligned with m_haplotypeIndex for result output. */
   private @Nullable List<@Nullable NamedAllele> m_outputHaplotypes;
+  /** Per permutation position: observed allele to compatible haplotype bits. Entries are populated on demand. */
   private @Nullable List<Map<String, BitSet>> m_candidateIndex;
   @Expose
   @SerializedName("missingRequiredPositions")
@@ -183,8 +197,9 @@ public class MatchData {
 
 
   /**
-   * Organizes the {@link NamedAllele} data for analysis.
-   * This will also reorganize haplotypes to deal with samples that have missing alleles.
+   * Builds the callable {@link NamedAllele} set for the positions present in this sample.
+   * When positions are missing, this creates sample-specific definitions with those positions removed and drops
+   * definitions that no longer have a positive score.
    */
   void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations) {
 
@@ -265,7 +280,10 @@ public class MatchData {
   }
 
   /**
-   * Assumes that missing alleles in {@link NamedAllele}s should be the reference.
+   * Interprets blank cells in non-reference {@link NamedAllele} definitions as reference alleles.
+   * With complete position data, defaults remain lazy and are applied by the candidate index. With missing position
+   * data, the sample-specific definitions created by {@link #marshallHaplotypes(String, SortedSet, boolean)} are
+   * replaced eagerly.
    */
   void defaultMissingAllelesToReference() {
     if (m_haplotypes == null) {
@@ -367,7 +385,9 @@ public class MatchData {
 
 
   /**
-   * Generate all permutations of sample alleles at positions of interest.
+   * Generates all possible sample strands at positions of interest.
+   * {@link CombinationUtil} receives sample alleles in numeric position order, which is also the order expected by
+   * the structured matching path.
    */
   void generateSamplePermutations() {
 
@@ -486,6 +506,9 @@ public class MatchData {
     return m_haplotypes;
   }
 
+  /**
+   * Gets callable haplotypes with lazy reference defaults materialized for serialization and debug rendering.
+   */
   SortedSet<NamedAllele> getHaplotypesForOutput() {
     SortedSet<NamedAllele> haplotypes = getHaplotypes();
     if (!m_defaultMissingAllelesToReference) {
@@ -545,7 +568,9 @@ public class MatchData {
 
 
   /**
-   * Compares a sample's allele permutations to haplotype definitions and return matches.
+   * Compares sample permutations with callable haplotypes using lazy BitSet intersections.
+   * Match objects are accumulated by haplotype index and placed in a {@link TreeSet} only after their sequence sets
+   * are complete because sequence content participates in {@code BaseMatch.compareTo()}.
    */
   protected SortedSet<HaplotypeMatch> comparePermutations() {
     initializeCandidateIndex();
@@ -575,6 +600,10 @@ public class MatchData {
   }
 
 
+  /**
+   * Initializes arrays aligned by haplotype index and empty per-position compatibility caches.
+   * Expected alleles are resolved into permutation position order here so the hot loop can use array indexes only.
+   */
   private void initializeCandidateIndex() {
     if (m_haplotypeIndex != null) {
       return;
@@ -603,7 +632,7 @@ public class MatchData {
       return alleles;
     }
     assert referenceAlleles != null;
-    return defaultMissingAllelesToReference(positions, alleles, referenceAlleles);
+    return applyReferenceDefaults(positions, alleles, referenceAlleles);
   }
 
 
@@ -625,9 +654,9 @@ public class MatchData {
 
 
   private NamedAllele materializeDefaultedHaplotype(NamedAllele haplotype, NamedAllele referenceHaplotype) {
-    @Nullable String[] alleles = defaultMissingAllelesToReference(m_positions, haplotype.getAlleles(m_positions),
+    @Nullable String[] alleles = applyReferenceDefaults(m_positions, haplotype.getAlleles(m_positions),
         referenceHaplotype.getAlleles(m_positions));
-    @Nullable String[] cpicAlleles = defaultMissingCpicAllelesToReference(haplotype, referenceHaplotype);
+    @Nullable String[] cpicAlleles = applyReferenceCpicDefaults(haplotype, referenceHaplotype);
     NamedAllele outputHaplotype = new NamedAllele(haplotype.getId(), haplotype.getName(), alleles, cpicAlleles,
         haplotype.getMissingPositions(), haplotype.isReference());
     outputHaplotype.initialize(m_positions, haplotype.getScore());
@@ -641,7 +670,7 @@ public class MatchData {
   }
 
 
-  private @Nullable String[] defaultMissingAllelesToReference(VariantLocus[] positions, @Nullable String[] alleles,
+  private @Nullable String[] applyReferenceDefaults(VariantLocus[] positions, @Nullable String[] alleles,
       @Nullable String[] referenceAlleles) {
 
     @Nullable String[] defaultedAlleles = new String[alleles.length];
@@ -661,7 +690,7 @@ public class MatchData {
   }
 
 
-  private @Nullable String[] defaultMissingCpicAllelesToReference(NamedAllele haplotype,
+  private @Nullable String[] applyReferenceCpicDefaults(NamedAllele haplotype,
       NamedAllele referenceHaplotype) {
 
     @Nullable String[] cpicAlleles = new String[m_positions.length];
@@ -676,6 +705,11 @@ public class MatchData {
   }
 
 
+  /**
+   * Gets haplotypes compatible with one observed allele, computing that cache entry on first use.
+   * The returned BitSet is owned by the index; callers must clone it or use it only as the right-hand operand of a
+   * BitSet operation.
+   */
   private BitSet getCompatibleHaplotypes(int positionIndex, @Nullable String observedAllele) {
     assert m_candidateIndex != null;
     assert m_haplotypeIndex != null;
