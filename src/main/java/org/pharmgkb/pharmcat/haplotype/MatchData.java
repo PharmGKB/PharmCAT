@@ -231,9 +231,16 @@ public class MatchData {
         // get alleles for positions we have data on
         @Nullable String[] availableAlleles = new String[m_positions.length];
         @Nullable String[] cpicAlleles = new String[m_positions.length];
+        boolean hasAvailableAllele = false;
         for (int x = 0; x < m_positions.length; x += 1) {
           availableAlleles[x] = hap.getAllele(m_positions[x]);
           cpicAlleles[x] = hap.getCpicAllele(m_positions[x]);
+          if (availableAlleles[x] != null) {
+            hasAvailableAllele = true;
+          }
+        }
+        if (!hasAvailableAllele) {
+          continue;
         }
 
         SortedSet<VariantLocus> missingPositions = m_missingPositions.stream()

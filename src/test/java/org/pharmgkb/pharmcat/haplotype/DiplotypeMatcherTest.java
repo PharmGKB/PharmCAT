@@ -308,6 +308,37 @@ class DiplotypeMatcherTest {
 
 
   @Test
+  void testMarshallHaplotypesDropsDefinitionsWithOnlyMissingPositions() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1A>G");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2C>T");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3C>T");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
+
+    NamedAllele ref = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" },
+        new String[] { "A", "C", "C" }, true);
+    ref.initialize(variants);
+    NamedAllele available = new NamedAllele("*2", "*2", new String[] { "G", null, null },
+        new String[] { "G", null, null }, false);
+    available.initialize(variants);
+    NamedAllele missing = new NamedAllele("*3", "*3", new String[] { null, "T", "T" },
+        new String[] { null, "T", "T" }, false);
+    missing.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "A", "G", false,
+        Lists.newArrayList("A", "G"), "0/1"));
+
+    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("GENE", new TreeSet<>(List.of(ref, available, missing)), false);
+
+    assertEquals(List.of("*1", "*2"), dataset.getHaplotypes().stream()
+        .map(NamedAllele::getName)
+        .toList());
+  }
+
+
+  @Test
   void testComparePermutations() {
 
     VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
