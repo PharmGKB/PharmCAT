@@ -309,16 +309,17 @@ public class DpydHapB3Matcher {
    */
   public List<HaplotypeMatch> buildHapB3HaplotypeMatches() {
     List<HaplotypeMatch> matches = new ArrayList<>();
+    Map<String, NamedAllele> haplotypesByName = indexHaplotypes(m_origData);
     if (m_hapB3Call != null) {
       matches.addAll(m_hapB3Call.stream()
             .filter(c -> c.equals("1"))
-            .map(c -> new HaplotypeMatch(findHapB3Allele(m_origData, HAPB3_ALLELE)))
+            .map(c -> new HaplotypeMatch(findHapB3Allele(haplotypesByName, HAPB3_ALLELE)))
             .toList());
     }
     if (m_hapB3IntronCall != null) {
       matches.addAll(m_hapB3IntronCall.stream()
           .filter(c -> c.equals("1"))
-          .map(c -> new HaplotypeMatch(findHapB3Allele(m_origData, HAPB3_INTRONIC_ALLELE)))
+          .map(c -> new HaplotypeMatch(findHapB3Allele(haplotypesByName, HAPB3_INTRONIC_ALLELE)))
           .toList());
     }
     return matches;
@@ -337,15 +338,16 @@ public class DpydHapB3Matcher {
     }
 
     SortedSet<DiplotypeMatch> finalMatches = new TreeSet<>();
+    Map<String, NamedAllele> haplotypesByName = indexHaplotypes(matchData);
     for (DiplotypeMatch dm : diplotypeMatches) {
       BaseMatch hap1 = dm.getHaplotype1();
-      hap1 = callPhasedHapB3(hap1.getSequences().first(), matchData, hap1);
+      hap1 = callPhasedHapB3(hap1.getSequences().first(), matchData, haplotypesByName, hap1);
       BaseMatch hap2 = dm.getHaplotype2();
       if (hap2 == null) {
         // this should never happen
         throw new IllegalStateException("Haplotype 2 is null");
       }
-      hap2 = callPhasedHapB3(hap2.getSequences().first(), matchData, hap2);
+      hap2 = callPhasedHapB3(hap2.getSequences().first(), matchData, haplotypesByName, hap2);
       finalMatches.add(new DiplotypeMatch(hap1, hap2, matchData));
     }
     return finalMatches;
@@ -359,8 +361,9 @@ public class DpydHapB3Matcher {
     Preconditions.checkState(m_hasHapB3Variants && !m_hasNonHapB3Variants);
 
     List<BaseMatch> haps = new ArrayList<>();
+    Map<String, NamedAllele> haplotypesByName = indexHaplotypes(matchData);
     for (SamplePermutation permutation : matchData.getPermutations()) {
-      haps.add(callPhasedHapB3(permutation, matchData, null));
+      haps.add(callPhasedHapB3(permutation, matchData, haplotypesByName, null));
     }
 
     SortedSet<DiplotypeMatch> finalMatches = new TreeSet<>();
@@ -375,9 +378,10 @@ public class DpydHapB3Matcher {
   /**
    * Call HapB3 for a phased sequence.
    */
-  private BaseMatch callPhasedHapB3(String seq, MatchData matchData, @Nullable BaseMatch baseMatch) {
+  private BaseMatch callPhasedHapB3(String seq, MatchData matchData, Map<String, NamedAllele> haplotypesByName,
+      @Nullable BaseMatch baseMatch) {
     return callPhasedHapB3(matchData.getAllele(seq, m_hapB3IntronLocus.getPosition()),
-        matchData.getAllele(seq, m_hapB3ExonLocus.getPosition()), matchData, baseMatch);
+        matchData.getAllele(seq, m_hapB3ExonLocus.getPosition()), matchData, haplotypesByName, baseMatch);
   }
 
 
@@ -385,14 +389,14 @@ public class DpydHapB3Matcher {
    * Call HapB3 for a phased sequence.
    */
   private BaseMatch callPhasedHapB3(SamplePermutation permutation, MatchData matchData,
-      @Nullable BaseMatch baseMatch) {
+      Map<String, NamedAllele> haplotypesByName, @Nullable BaseMatch baseMatch) {
     return callPhasedHapB3(matchData.getAllele(permutation, m_hapB3IntronLocus.getPosition()),
-        matchData.getAllele(permutation, m_hapB3ExonLocus.getPosition()), matchData, baseMatch);
+        matchData.getAllele(permutation, m_hapB3ExonLocus.getPosition()), matchData, haplotypesByName, baseMatch);
   }
 
 
   private BaseMatch callPhasedHapB3(@Nullable String intronAllele, @Nullable String exonAllele,
-      MatchData matchData, @Nullable BaseMatch baseMatch) {
+      MatchData matchData, Map<String, NamedAllele> haplotypesByName, @Nullable BaseMatch baseMatch) {
     boolean hasIntronLocus = false;
     boolean hasIntron = false;
     if (intronAllele != null && !intronAllele.equals(".")) {
@@ -404,9 +408,10 @@ public class DpydHapB3Matcher {
 
     if (hasIntron) {
       if (hasExon) {
-        return buildMatch(matchData, findHapB3Allele(matchData, HAPB3_ALLELE), baseMatch);
+        return buildMatch(matchData, findHapB3Allele(haplotypesByName, HAPB3_ALLELE), baseMatch, haplotypesByName);
       } else {
-        return buildMatch(matchData, findHapB3Allele(matchData, HAPB3_INTRONIC_ALLELE), baseMatch);
+        return buildMatch(matchData, findHapB3Allele(haplotypesByName, HAPB3_INTRONIC_ALLELE), baseMatch,
+            haplotypesByName);
       }
     } else {
       if (hasIntronLocus) {
@@ -416,17 +421,20 @@ public class DpydHapB3Matcher {
       } else {
         if (hasExon) {
           m_warnings.add(m_env.getMessage(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY));
-          return buildMatch(matchData, findHapB3Allele(matchData, HAPB3_ALLELE), baseMatch);
+          return buildMatch(matchData, findHapB3Allele(haplotypesByName, HAPB3_ALLELE), baseMatch,
+              haplotypesByName);
         }
       }
-      return buildMatch(matchData, findHapB3Allele(matchData, TextConstants.REFERENCE), baseMatch);
+      return buildMatch(matchData, findHapB3Allele(haplotypesByName, TextConstants.REFERENCE), baseMatch,
+          haplotypesByName);
     }
   }
 
   /**
    * Builds a match with the additional {@code hapB3Allele}.
    */
-  private BaseMatch buildMatch(MatchData matchData, NamedAllele hapB3Allele, @Nullable BaseMatch baseMatch) {
+  private BaseMatch buildMatch(MatchData matchData, NamedAllele hapB3Allele, @Nullable BaseMatch baseMatch,
+      Map<String, NamedAllele> haplotypesByName) {
 
     if (baseMatch == null) {
       return new HaplotypeMatch(hapB3Allele);
@@ -439,10 +447,7 @@ public class DpydHapB3Matcher {
       SortedSet<NamedAllele> components = new TreeSet<>();
       components.add(hapB3Allele);
       for (NamedAllele c : cm.getComponentHaplotypes()) {
-        NamedAllele component = matchData.getHaplotypes().stream()
-            .filter(h -> h.getName().equals(c.getName()))
-            .findAny()
-            .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + c.getName() + "'"));
+        NamedAllele component = findHapB3Allele(haplotypesByName, c.getName());
         components.add(component);
       }
       return new CombinationMatch(matchData.getPositions(), cm.getSequences().first(), components, null);
@@ -454,10 +459,7 @@ public class DpydHapB3Matcher {
     }
     SortedSet<NamedAllele> components = new TreeSet<>();
     components.add(hapB3Allele);
-    NamedAllele hap = matchData.getHaplotypes().stream()
-        .filter(h -> h.getName().equals(hm.getName()))
-        .findAny()
-        .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + hm.getName() + "'"));
+    NamedAllele hap = findHapB3Allele(haplotypesByName, hm.getName());
     components.add(hap);
     return new CombinationMatch(matchData.getPositions(), hm.getSequences().first(), components, null);
   }
@@ -517,11 +519,21 @@ public class DpydHapB3Matcher {
   }
 
 
-  private NamedAllele findHapB3Allele(MatchData matchData, String name) {
-    return matchData.getHaplotypes().stream()
-        .filter(na -> na.getName().equals(name))
-        .findAny()
-        .orElseThrow(() -> new IllegalStateException("DPYD definition is missing HapB3 allele (" + name + ")"));
+  private Map<String, NamedAllele> indexHaplotypes(MatchData matchData) {
+    Map<String, NamedAllele> haplotypesByName = new HashMap<>();
+    for (NamedAllele haplotype : matchData.getHaplotypes()) {
+      haplotypesByName.put(haplotype.getName(), haplotype);
+    }
+    return haplotypesByName;
+  }
+
+
+  private NamedAllele findHapB3Allele(Map<String, NamedAllele> haplotypesByName, String name) {
+    NamedAllele haplotype = haplotypesByName.get(name);
+    if (haplotype == null) {
+      throw new IllegalStateException("DPYD definition is missing allele (" + name + ")");
+    }
+    return haplotype;
   }
 
 
