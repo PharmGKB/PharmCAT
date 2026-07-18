@@ -51,6 +51,7 @@ public class MatchData {
   private @Nullable SortedSet<NamedAllele> m_haplotypes;
   private @Nullable Set<SamplePermutation> m_permutations;
   private @Nullable Set<String> m_encodedPermutations;
+  private boolean m_defaultMissingAllelesToReference;
   @Expose
   @SerializedName("phased")
   private final boolean m_isPhased;
@@ -71,6 +72,7 @@ public class MatchData {
   private final Map<String, String[]> m_sequenceAlleleCache = new HashMap<>();
   private @Nullable List<NamedAllele> m_haplotypeIndex;
   private @Nullable List<@Nullable String[]> m_haplotypeAlleles;
+  private @Nullable List<@Nullable NamedAllele> m_outputHaplotypes;
   private @Nullable List<Map<String, BitSet>> m_candidateIndex;
   @Expose
   @SerializedName("missingRequiredPositions")
@@ -186,6 +188,7 @@ public class MatchData {
    */
   void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations) {
 
+    m_defaultMissingAllelesToReference = false;
     clearCandidateIndex();
 
     if (m_missingPositions.isEmpty()) {
@@ -269,9 +272,15 @@ public class MatchData {
       throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
     }
 
-    SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
     NamedAllele referenceHaplotype = m_haplotypes.stream().filter(NamedAllele::isReference).findAny()
         .orElseThrow(() -> new IllegalStateException(m_gene + " does not have a reference"));
+    if (m_missingPositions.isEmpty()) {
+      m_defaultMissingAllelesToReference = true;
+      clearCandidateIndex();
+      return;
+    }
+
+    SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
     int numAlleles = referenceHaplotype.getAlleles().length;
     for (NamedAllele hap : m_haplotypes) {
       if (referenceHaplotype == hap) {
@@ -307,6 +316,7 @@ public class MatchData {
     }
 
     m_haplotypes = updatedHaplotypes;
+    m_defaultMissingAllelesToReference = false;
     clearCandidateIndex();
   }
 
@@ -476,6 +486,24 @@ public class MatchData {
     return m_haplotypes;
   }
 
+  SortedSet<NamedAllele> getHaplotypesForOutput() {
+    SortedSet<NamedAllele> haplotypes = getHaplotypes();
+    if (!m_defaultMissingAllelesToReference) {
+      return haplotypes;
+    }
+
+    SortedSet<NamedAllele> outputHaplotypes = new TreeSet<>();
+    NamedAllele referenceHaplotype = getReferenceHaplotype();
+    for (NamedAllele haplotype : haplotypes) {
+      if (haplotype.isReference()) {
+        outputHaplotypes.add(haplotype);
+      } else {
+        outputHaplotypes.add(materializeDefaultedHaplotype(haplotype, referenceHaplotype));
+      }
+    }
+    return outputHaplotypes;
+  }
+
 
   /**
    * Utility method to cache allele lookups in sequences.
@@ -535,7 +563,7 @@ public class MatchData {
       }
       for (int x = candidates.nextSetBit(0); x >= 0; x = candidates.nextSetBit(x + 1)) {
         if (matches[x] == null) {
-          matches[x] = new HaplotypeMatch(m_haplotypeIndex.get(x));
+          matches[x] = new HaplotypeMatch(getOutputHaplotype(x));
         }
         //noinspection DataFlowIssue
         matches[x].addSequence(permutation);
@@ -553,13 +581,98 @@ public class MatchData {
     }
     m_haplotypeIndex = new ArrayList<>(getHaplotypes());
     m_haplotypeAlleles = new ArrayList<>(m_haplotypeIndex.size());
-    for (NamedAllele haplotype : m_haplotypeIndex) {
-      m_haplotypeAlleles.add(haplotype.getAlleles(m_permutationPositions));
+    @Nullable String[] referenceAlleles = null;
+    if (m_defaultMissingAllelesToReference) {
+      referenceAlleles = getReferenceHaplotype().getAlleles(m_permutationPositions);
     }
+    for (NamedAllele haplotype : m_haplotypeIndex) {
+      m_haplotypeAlleles.add(getAllelesForMatching(haplotype, m_permutationPositions, referenceAlleles));
+    }
+    m_outputHaplotypes = new ArrayList<>(Collections.nCopies(m_haplotypeIndex.size(), null));
     m_candidateIndex = new ArrayList<>(m_permutationPositions.length);
     for (int x = 0; x < m_permutationPositions.length; x += 1) {
       m_candidateIndex.add(new HashMap<>());
     }
+  }
+
+
+  private @Nullable String[] getAllelesForMatching(NamedAllele haplotype, VariantLocus[] positions,
+      @Nullable String[] referenceAlleles) {
+    @Nullable String[] alleles = haplotype.getAlleles(positions);
+    if (!m_defaultMissingAllelesToReference || haplotype.isReference()) {
+      return alleles;
+    }
+    assert referenceAlleles != null;
+    return defaultMissingAllelesToReference(positions, alleles, referenceAlleles);
+  }
+
+
+  private NamedAllele getOutputHaplotype(int index) {
+    assert m_haplotypeIndex != null;
+    NamedAllele haplotype = m_haplotypeIndex.get(index);
+    if (!m_defaultMissingAllelesToReference || haplotype.isReference()) {
+      return haplotype;
+    }
+
+    assert m_outputHaplotypes != null;
+    NamedAllele outputHaplotype = m_outputHaplotypes.get(index);
+    if (outputHaplotype == null) {
+      outputHaplotype = materializeDefaultedHaplotype(haplotype, getReferenceHaplotype());
+      m_outputHaplotypes.set(index, outputHaplotype);
+    }
+    return outputHaplotype;
+  }
+
+
+  private NamedAllele materializeDefaultedHaplotype(NamedAllele haplotype, NamedAllele referenceHaplotype) {
+    @Nullable String[] alleles = defaultMissingAllelesToReference(m_positions, haplotype.getAlleles(m_positions),
+        referenceHaplotype.getAlleles(m_positions));
+    @Nullable String[] cpicAlleles = defaultMissingCpicAllelesToReference(haplotype, referenceHaplotype);
+    NamedAllele outputHaplotype = new NamedAllele(haplotype.getId(), haplotype.getName(), alleles, cpicAlleles,
+        haplotype.getMissingPositions(), haplotype.isReference());
+    outputHaplotype.initialize(m_positions, haplotype.getScore());
+    return outputHaplotype;
+  }
+
+
+  private NamedAllele getReferenceHaplotype() {
+    return getHaplotypes().stream().filter(NamedAllele::isReference).findAny()
+        .orElseThrow(() -> new IllegalStateException(m_gene + " does not have a reference"));
+  }
+
+
+  private @Nullable String[] defaultMissingAllelesToReference(VariantLocus[] positions, @Nullable String[] alleles,
+      @Nullable String[] referenceAlleles) {
+
+    @Nullable String[] defaultedAlleles = new String[alleles.length];
+    for (int x = 0; x < alleles.length; x += 1) {
+      if (alleles[x] == null) {
+        String refAllele = referenceAlleles[x];
+        if (Iupac.isWobble(refAllele)) {
+          defaultedAlleles[x] = positions[x].getRef();
+        } else {
+          defaultedAlleles[x] = refAllele;
+        }
+      } else {
+        defaultedAlleles[x] = alleles[x];
+      }
+    }
+    return defaultedAlleles;
+  }
+
+
+  private @Nullable String[] defaultMissingCpicAllelesToReference(NamedAllele haplotype,
+      NamedAllele referenceHaplotype) {
+
+    @Nullable String[] cpicAlleles = new String[m_positions.length];
+    for (int x = 0; x < m_positions.length; x += 1) {
+      if (haplotype.getAllele(m_positions[x]) == null) {
+        cpicAlleles[x] = referenceHaplotype.getCpicAlleles()[x];
+      } else {
+        cpicAlleles[x] = haplotype.getCpicAlleles()[x];
+      }
+    }
+    return cpicAlleles;
   }
 
 
@@ -583,6 +696,7 @@ public class MatchData {
   private void clearCandidateIndex() {
     m_haplotypeIndex = null;
     m_haplotypeAlleles = null;
+    m_outputHaplotypes = null;
     m_candidateIndex = null;
   }
 

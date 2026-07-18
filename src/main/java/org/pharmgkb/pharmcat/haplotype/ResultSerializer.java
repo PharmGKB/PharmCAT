@@ -222,7 +222,7 @@ public class ResultSerializer {
           }
         }
         if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotypeNames.isEmpty()) {
-          for (NamedAllele haplotype : matchData.getHaplotypes()) {
+          for (NamedAllele haplotype : matchData.getHaplotypesForOutput()) {
             if (!matchedHaplotypeNames.contains(haplotype.getName())) {
               printAllele(builder, haplotype.getName(), haplotype.getPermutations()
                   .pattern(), "table-danger", highlightPositions);

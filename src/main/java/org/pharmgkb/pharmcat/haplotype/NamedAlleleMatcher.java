@@ -274,7 +274,7 @@ public class NamedAlleleMatcher {
       return;
     }
 
-    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data)
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data, m_verbose)
         .compute(false, m_topCandidateOnly);
     if (matches.isEmpty()) {
       if (!m_findCombinations) {
@@ -296,7 +296,7 @@ public class NamedAlleleMatcher {
       return;
     }
 
-    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data)
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data, m_verbose)
         .compute(true, false);
     resultBuilder.diplotypes(gene, data, matches);
   }
@@ -337,7 +337,7 @@ public class NamedAlleleMatcher {
     // try for diplotypes if effectively phased
     if (origData.isEffectivelyPhased()) {
       // look for exact matches (use topCandidateOnly = false because looking for exact match)
-      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, workingData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, workingData, m_verbose)
           .compute(false, false);
       if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
         // must add HapB3 call
@@ -371,7 +371,7 @@ public class NamedAlleleMatcher {
         comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
       }
       // look for combinations
-      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, comboData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, comboData, m_verbose)
           .compute(true, false);
       if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
         // must add HapB3 call
@@ -403,7 +403,7 @@ public class NamedAlleleMatcher {
     } else {
       comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
     }
-    SortedSet<DiplotypeMatch> comboDipMatches = new DiplotypeMatcher(m_env, comboData)
+    SortedSet<DiplotypeMatch> comboDipMatches = new DiplotypeMatcher(m_env, comboData, m_verbose)
         .compute(true, false, false);
     if (!comboDipMatches.isEmpty()) {
       if (origData.isEffectivelyPhased() || comboData.isUsingPhaseSets()) {
@@ -474,7 +474,10 @@ public class NamedAlleleMatcher {
       homozygous.remove(TextConstants.REFERENCE);
     }
 
+    long stageStart = MatcherTimings.start(m_verbose);
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
+    MatcherTimings.print(m_verbose, comboData.getGene() + " callHaplotypesForLowestFunctionGene",
+        "MatchData.comparePermutations", stageStart);
     // If there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible.
     // With 2 or fewer haplotype matches, cannot have Reference if there's a partial.
     int numMatches = hapMatches.size();
@@ -515,9 +518,14 @@ public class NamedAlleleMatcher {
   private MatchData initializeCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       boolean assumeReference, boolean findCombinations) {
 
+    String context = gene + " initializeCallData(assumeReference=" + assumeReference +
+        ", findCombinations=" + findCombinations + ")";
+    long totalStart = MatcherTimings.start(m_verbose);
+    long stageStart = MatcherTimings.start(m_verbose);
     SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    MatcherTimings.print(m_verbose, context, "definition lookup", stageStart);
 
     SortedSet<VariantLocus> extraPositions = null;
     if (exemption != null) {
@@ -525,20 +533,30 @@ public class NamedAlleleMatcher {
     }
 
     // grab SampleAlleles for all positions related to the current gene
+    stageStart = MatcherTimings.start(m_verbose);
     MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, exemption);
+    MatcherTimings.print(m_verbose, context, "construct MatchData", stageStart);
     if (data.getNumSampleAlleles() == 0) {
+      MatcherTimings.print(m_verbose, context, "total", totalStart);
       return data;
     }
 
     // handle missing positions (if any)
+    stageStart = MatcherTimings.start(m_verbose);
     data.marshallHaplotypes(gene, alleles, findCombinations);
+    MatcherTimings.print(m_verbose, context, "marshallHaplotypes", stageStart);
 
     if (assumeReference) {
       // fill in blanks in named alleles based on the reference named allele
+      stageStart = MatcherTimings.start(m_verbose);
       data.defaultMissingAllelesToReference();
+      MatcherTimings.print(m_verbose, context, "defaultMissingAllelesToReference", stageStart);
     }
 
+    stageStart = MatcherTimings.start(m_verbose);
     data.generateSamplePermutations();
+    MatcherTimings.print(m_verbose, context, "generateSamplePermutations", stageStart);
+    MatcherTimings.print(m_verbose, context, "total", totalStart);
     return data;
   }
 
@@ -550,6 +568,10 @@ public class NamedAlleleMatcher {
       boolean assumeReference, boolean findCombinations) {
 
     String gene = "DPYD";
+    String context = gene + " initializeDpydCallData(assumeReference=" + assumeReference +
+        ", findCombinations=" + findCombinations + ")";
+    long totalStart = MatcherTimings.start(m_verbose);
+    long stageStart = MatcherTimings.start(m_verbose);
     // remove HapB3 and HapB3Intron
     SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene).stream()
         .filter(a -> !a.getName().equals(DpydHapB3Matcher.HAPB3_ALLELE) &&
@@ -557,6 +579,7 @@ public class NamedAlleleMatcher {
         .collect(Collectors.toCollection(TreeSet::new));
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    MatcherTimings.print(m_verbose, context, "definition lookup", stageStart);
 
     SortedSet<VariantLocus> extraPositions = null;
     if (exemption != null) {
@@ -564,19 +587,29 @@ public class NamedAlleleMatcher {
     }
 
     // grab SampleAlleles for all positions related to the current gene
+    stageStart = MatcherTimings.start(m_verbose);
     MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, exemption);
+    MatcherTimings.print(m_verbose, context, "construct MatchData", stageStart);
     if (data.getNumSampleAlleles() == 0) {
+      MatcherTimings.print(m_verbose, context, "total", totalStart);
       return data;
     }
 
     // handle missing positions (if any)
+    stageStart = MatcherTimings.start(m_verbose);
     data.marshallHaplotypes(gene, alleles, findCombinations);
+    MatcherTimings.print(m_verbose, context, "marshallHaplotypes", stageStart);
 
     if (assumeReference) {
+      stageStart = MatcherTimings.start(m_verbose);
       data.defaultMissingAllelesToReference();
+      MatcherTimings.print(m_verbose, context, "defaultMissingAllelesToReference", stageStart);
     }
 
+    stageStart = MatcherTimings.start(m_verbose);
     data.generateSamplePermutations();
+    MatcherTimings.print(m_verbose, context, "generateSamplePermutations", stageStart);
+    MatcherTimings.print(m_verbose, context, "total", totalStart);
     return data;
   }
 }

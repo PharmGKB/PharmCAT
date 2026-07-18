@@ -37,10 +37,16 @@ public class DiplotypeMatcher {
   private final VariantLocus[] m_positions;
   private final long[] m_vcfPositions;
   private final boolean[] m_isHomozygous;
+  private final boolean m_verbose;
 
 
   public DiplotypeMatcher(Env env, MatchData dataset) {
+    this(env, dataset, false);
+  }
+
+  public DiplotypeMatcher(Env env, MatchData dataset, boolean verbose) {
     m_dataset = dataset;
+    m_verbose = verbose;
     m_positions = dataset.getPositions();
     m_vcfPositions = new long[m_positions.length];
     m_isHomozygous = new boolean[m_positions.length];
@@ -64,30 +70,40 @@ public class DiplotypeMatcher {
     if (findCombinations && topCandidateOnly) {
       throw new IllegalStateException("Cannot get top candidate only when using combinations!");
     }
+    String context = m_dataset.getGene() + " DiplotypeMatcher.compute(findCombinations=" + findCombinations + ")";
+    long totalStart = MatcherTimings.start(m_verbose);
 
     SortedSet<BaseMatch> matches;
     if (findCombinations) {
+      long stageStart = MatcherTimings.start(m_verbose);
       matches = new CombinationMatcher(m_definitionFile, findPartials)
           .compute(m_dataset);
+      MatcherTimings.print(m_verbose, context, "CombinationMatcher.compute", stageStart);
 
     } else {
       // compare sample permutations to haplotypes
+      long stageStart = MatcherTimings.start(m_verbose);
       List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(m_dataset.comparePermutations());
+      MatcherTimings.print(m_verbose, context, "MatchData.comparePermutations", stageStart);
       if (haplotypeMatches.isEmpty()) {
+        MatcherTimings.print(m_verbose, context, "total", totalStart);
         return Collections.emptySortedSet();
       }
       matches = new TreeSet<>(haplotypeMatches);
     }
 
     List<DiplotypeMatch> pairs;
+    long stageStart = MatcherTimings.start(m_verbose);
     if (m_dataset.getPermutationCount() == 1) {
       pairs = determineHomozygousPairs(matches);
     } else {
       // find matched pairs
       pairs = determineHeterozygousPairs(matches, findCombinations);
     }
+    MatcherTimings.print(m_verbose, context, "determine diplotype pairs", stageStart);
 
     if (!findCombinations) {
+      stageStart = MatcherTimings.start(m_verbose);
       for (DiplotypeMatch dm : pairs) {
         // score is based on the best scoring pair of sequences for this diplotype
         int highestScore = 0;
@@ -99,6 +115,7 @@ public class DiplotypeMatcher {
         }
         dm.setScore(highestScore);
       }
+      MatcherTimings.print(m_verbose, context, "score diplotype pairs", stageStart);
     }
 
     // TODO(markwoon): if combinations, and phased, and we have more than one match, it's probably because of wobbles
@@ -108,10 +125,13 @@ public class DiplotypeMatcher {
     SortedSet<DiplotypeMatch> sortedPairs = new TreeSet<>(pairs);
     if (topCandidateOnly && !m_unphasedPriorityMode && sortedPairs.size() > 1) {
       int topScore = sortedPairs.first().getScore();
-      return sortedPairs.stream()
+      SortedSet<DiplotypeMatch> topMatches = sortedPairs.stream()
           .filter(dm -> dm.getScore() == topScore)
           .collect(Collectors.toCollection(TreeSet::new));
+      MatcherTimings.print(m_verbose, context, "total", totalStart);
+      return topMatches;
     }
+    MatcherTimings.print(m_verbose, context, "total", totalStart);
     return sortedPairs;
   }
 

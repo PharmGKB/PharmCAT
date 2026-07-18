@@ -33,6 +33,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -410,6 +411,54 @@ class DiplotypeMatcherTest {
 
     dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(tAllele)), false);
     assertEquals(0, dataset.comparePermutations().size());
+  }
+
+
+  @Test
+  void testLazyReferenceDefaultingMaterializesMatchedHaplotype() {
+
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1A>G");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2C>T");
+    var1.setRef("A");
+    var2.setRef("C");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2 };
+
+    String[] alleles = new String[] { "A", "C" };
+    NamedAllele ref = new NamedAllele("*1", "*1", alleles, alleles, true);
+    ref.initialize(variants);
+
+    alleles = new String[] { "G", null };
+    NamedAllele hap = new NamedAllele("*2", "*2", alleles, alleles, false);
+    hap.initialize(variants);
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "G", "G", false,
+        Lists.newArrayList("A", "G"), "1/1"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "C", "C", false,
+        Lists.newArrayList("C", "T"), "0/0"));
+
+    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, hap)), false);
+    dataset.defaultMissingAllelesToReference();
+    dataset.generateSamplePermutations();
+
+    SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
+    assertEquals(1, matches.size());
+    NamedAllele matchedHaplotype = matches.first().getHaplotype();
+    assertEquals("*2", matchedHaplotype.getName());
+    assertEquals("G", matchedHaplotype.getAllele(var1));
+    assertEquals("C", matchedHaplotype.getAllele(var2));
+
+    NamedAllele internalHaplotype = dataset.getHaplotypes().stream()
+        .filter(h -> h.getName().equals("*2"))
+        .findAny()
+        .orElseThrow();
+    assertNull(internalHaplotype.getAllele(var2));
+    NamedAllele outputHaplotype = dataset.getHaplotypesForOutput().stream()
+        .filter(h -> h.getName().equals("*2"))
+        .findAny()
+        .orElseThrow();
+    assertEquals("C", outputHaplotype.getAllele(var2));
   }
 
 
