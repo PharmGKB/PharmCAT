@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,8 +22,11 @@ import com.google.common.collect.Sets;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.NoDuplicateMergeFunction;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.ReportableException;
+import org.pharmgkb.pharmcat.VcfFile;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -34,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -531,6 +536,50 @@ class DiplotypeMatcherTest {
     for (String sequence : match.getSequences()) {
       assertNotNull(match.getSequencePermutation(sequence));
     }
+  }
+
+
+  @Test
+  void testCombinationMatchDataCanBeReusedAfterPartialMatching() throws Exception {
+
+    Path definitionFile = PathUtils.getPathToResource(
+        "org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
+    Path vcfFile = PathUtils.getPathToResource(
+        "org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialWithCombination.vcf");
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
+    VcfReader vcfReader = new VcfFile(vcfFile).getReader(definitionReader, null, true);
+
+    MatchData reusedData = prepareCombinationMatchData(definitionReader, vcfReader);
+    MatchData freshData = prepareCombinationMatchData(definitionReader, vcfReader);
+
+    SortedSet<DiplotypeMatch> withPartials = new DiplotypeMatcher(s_env, reusedData)
+        .compute(true, true, false);
+    assertTrue(withPartials.stream().anyMatch(DiplotypeMatcherTest::hasPartial));
+
+    SortedSet<DiplotypeMatch> reusedWithoutPartials = new DiplotypeMatcher(s_env, reusedData)
+        .compute(true, false, false);
+    SortedSet<DiplotypeMatch> freshWithoutPartials = new DiplotypeMatcher(s_env, freshData)
+        .compute(true, false, false);
+    assertFalse(reusedWithoutPartials.isEmpty());
+    assertTrue(reusedWithoutPartials.stream().noneMatch(DiplotypeMatcherTest::hasPartial));
+    assertEquals(freshWithoutPartials.stream().map(DiplotypeMatch::getName).toList(),
+        reusedWithoutPartials.stream().map(DiplotypeMatch::getName).toList());
+  }
+
+
+  private static MatchData prepareCombinationMatchData(DefinitionReader definitionReader, VcfReader vcfReader) {
+    String gene = "UGT1A1";
+    MatchData data = new MatchData(vcfReader.getSampleId(), gene, vcfReader.getAlleleMap(),
+        definitionReader.getPositions(gene), null, null);
+    data.marshallHaplotypes(gene, definitionReader.getHaplotypes(gene), true);
+    data.generateSamplePermutations();
+    return data;
+  }
+
+
+  private static boolean hasPartial(DiplotypeMatch match) {
+    return match.getHaplotype1().getHaplotype().isPartial() ||
+        (match.getHaplotype2() != null && match.getHaplotype2().getHaplotype().isPartial());
   }
 
 

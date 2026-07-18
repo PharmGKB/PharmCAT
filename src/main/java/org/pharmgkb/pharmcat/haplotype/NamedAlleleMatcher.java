@@ -379,12 +379,19 @@ public class NamedAlleleMatcher {
     }
 
     // Stage 2: allow combinations and synthetic partial alleles when phase information can constrain the result.
+    // Retain data for stage 3 only when both stages use the same definition set. DPYD without HapB3 is the exception:
+    // stage 2 uses full definitions, while stage 3 always removes the HapB3 definitions.
+    MatchData stage3ComboData = null;
     if (origData.isEffectivelyPhased() || origData.isUsingPhaseSets()) {
       MatchData comboData;
       if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
         comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
+        stage3ComboData = comboData;
       } else {
         comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
+        if (dpydHapB3Matcher == null) {
+          stage3ComboData = comboData;
+        }
       }
       // look for combinations
       SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, comboData, m_timing)
@@ -415,7 +422,9 @@ public class NamedAlleleMatcher {
     // Stage 3: retry combinations without partials. For unresolved data, these matches are retained as evidence for
     // homozygous named alleles before the final direct-haplotype fallback.
     MatchData comboData;
-    if (dpydHapB3Matcher != null) {
+    if (stage3ComboData != null) {
+      comboData = stage3ComboData;
+    } else if (dpydHapB3Matcher != null) {
       comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
     } else {
       comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
