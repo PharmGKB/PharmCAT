@@ -4,7 +4,7 @@ import java.util.Locale;
 
 
 /**
- * Small helper for verbose matcher timing diagnostics.
+ * Small helper for matcher timing diagnostics.
  */
 final class MatcherTimings {
 

@@ -37,16 +37,16 @@ public class DiplotypeMatcher {
   private final VariantLocus[] m_positions;
   private final long[] m_vcfPositions;
   private final boolean[] m_isHomozygous;
-  private final boolean m_verbose;
+  private final boolean m_timing;
 
 
   public DiplotypeMatcher(Env env, MatchData dataset) {
     this(env, dataset, false);
   }
 
-  public DiplotypeMatcher(Env env, MatchData dataset, boolean verbose) {
+  public DiplotypeMatcher(Env env, MatchData dataset, boolean timing) {
     m_dataset = dataset;
-    m_verbose = verbose;
+    m_timing = timing;
     m_positions = dataset.getPositions();
     m_vcfPositions = new long[m_positions.length];
     m_isHomozygous = new boolean[m_positions.length];
@@ -71,39 +71,39 @@ public class DiplotypeMatcher {
       throw new IllegalStateException("Cannot get top candidate only when using combinations!");
     }
     String context = m_dataset.getGene() + " DiplotypeMatcher.compute(findCombinations=" + findCombinations + ")";
-    long totalStart = MatcherTimings.start(m_verbose);
+    long totalStart = MatcherTimings.start(m_timing);
 
     SortedSet<BaseMatch> matches;
     if (findCombinations) {
-      long stageStart = MatcherTimings.start(m_verbose);
+      long stageStart = MatcherTimings.start(m_timing);
       matches = new CombinationMatcher(m_definitionFile, findPartials)
           .compute(m_dataset);
-      MatcherTimings.print(m_verbose, context, "CombinationMatcher.compute", stageStart);
+      MatcherTimings.print(m_timing, context, "CombinationMatcher.compute", stageStart);
 
     } else {
       // compare sample permutations to haplotypes
-      long stageStart = MatcherTimings.start(m_verbose);
+      long stageStart = MatcherTimings.start(m_timing);
       List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(m_dataset.comparePermutations());
-      MatcherTimings.print(m_verbose, context, "MatchData.comparePermutations", stageStart);
+      MatcherTimings.print(m_timing, context, "MatchData.comparePermutations", stageStart);
       if (haplotypeMatches.isEmpty()) {
-        MatcherTimings.print(m_verbose, context, "total", totalStart);
+        MatcherTimings.print(m_timing, context, "total", totalStart);
         return Collections.emptySortedSet();
       }
       matches = new TreeSet<>(haplotypeMatches);
     }
 
     List<DiplotypeMatch> pairs;
-    long stageStart = MatcherTimings.start(m_verbose);
+    long stageStart = MatcherTimings.start(m_timing);
     if (m_dataset.getPermutationCount() == 1) {
       pairs = determineHomozygousPairs(matches);
     } else {
       // find matched pairs
       pairs = determineHeterozygousPairs(matches, findCombinations);
     }
-    MatcherTimings.print(m_verbose, context, "determine diplotype pairs", stageStart);
+    MatcherTimings.print(m_timing, context, "determine diplotype pairs", stageStart);
 
     if (!findCombinations) {
-      stageStart = MatcherTimings.start(m_verbose);
+      stageStart = MatcherTimings.start(m_timing);
       for (DiplotypeMatch dm : pairs) {
         // score is based on the best scoring pair of sequences for this diplotype
         int highestScore = 0;
@@ -115,7 +115,7 @@ public class DiplotypeMatcher {
         }
         dm.setScore(highestScore);
       }
-      MatcherTimings.print(m_verbose, context, "score diplotype pairs", stageStart);
+      MatcherTimings.print(m_timing, context, "score diplotype pairs", stageStart);
     }
 
     // TODO(markwoon): if combinations, and phased, and we have more than one match, it's probably because of wobbles
@@ -128,10 +128,10 @@ public class DiplotypeMatcher {
       SortedSet<DiplotypeMatch> topMatches = sortedPairs.stream()
           .filter(dm -> dm.getScore() == topScore)
           .collect(Collectors.toCollection(TreeSet::new));
-      MatcherTimings.print(m_verbose, context, "total", totalStart);
+      MatcherTimings.print(m_timing, context, "total", totalStart);
       return topMatches;
     }
-    MatcherTimings.print(m_verbose, context, "total", totalStart);
+    MatcherTimings.print(m_timing, context, "total", totalStart);
     return sortedPairs;
   }
 
