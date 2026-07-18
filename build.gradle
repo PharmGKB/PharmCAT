@@ -3,6 +3,7 @@ plugins {
   id 'application'
   id 'jacoco'
   id 'com.gradleup.shadow' version '9.5.1'
+  id 'me.champeau.jmh' version '0.7.2'
 }
 
 
@@ -135,8 +136,13 @@ tasks.withType(Test).configureEach {
     exceptionFormat = 'full'
     showStackTraces = true
   }
+}
 
-  // always generate reports after tests are run
+// exclude the benchmark harness from the standard test run
+test {
+  useJUnitPlatform {
+    excludeTags 'benchmark'
+  }
   finalizedBy jacocoTestReport
 }
 
@@ -144,12 +150,36 @@ tasks.register('testOnJava21', Test) {
   javaLauncher = javaToolchains.launcherFor {
     languageVersion = JavaLanguageVersion.of(21)
   }
+  useJUnitPlatform {
+    excludeTags 'benchmark'
+  }
+  finalizedBy jacocoTestReport
 }
 
 tasks.register('testOnJava25', Test) {
   javaLauncher = javaToolchains.launcherFor {
     languageVersion = JavaLanguageVersion.of(25)
   }
+  useJUnitPlatform {
+    excludeTags 'benchmark'
+  }
+  finalizedBy jacocoTestReport
+}
+
+tasks.register('benchmark', Test) {
+  description = 'Runs the NamedAlleleMatcher benchmark harness.'
+  group = 'verification'
+  testClassesDirs = sourceSets.test.output.classesDirs
+  classpath = sourceSets.test.runtimeClasspath
+  useJUnitPlatform {
+    includeTags 'benchmark'
+  }
+  // benchmark reports are only meaningful when we can see stdout
+  testLogging.showStandardStreams = true
+  outputs.upToDateWhen { false }
+  systemProperty 'benchmark.warmup', System.getProperty('benchmark.warmup', '3')
+  systemProperty 'benchmark.iterations', System.getProperty('benchmark.iterations', '10')
+  systemProperty 'benchmark.timing', System.getProperty('benchmark.timing', 'false')
 }
 
 jacocoTestReport {
@@ -159,6 +189,15 @@ jacocoTestReport {
     xml.required = true // codecov depends on xml format report
     html.required = true
   }
+}
+
+jmh {
+  warmupIterations = 5
+  iterations = 5
+  fork = 2
+  resultFormat = 'TEXT'
+  // Allow JMH source to see classes from both main and test source sets (Scenarios, BenchmarkVcfBuilder, PositionsIndex).
+  includeTests = true
 }
 
 
