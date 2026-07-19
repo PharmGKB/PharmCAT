@@ -81,11 +81,11 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Primary constructor.
    * Use this when reading in allele definitions.
    */
-  public NamedAllele(String id, String name, @Nullable String[] alleles, String[] cpicAlleles, boolean isReference) {
+  public NamedAllele(String id, String name, @Nullable String[] alleles, @Nullable String[] cpicAlleles, boolean isReference) {
     this(id, name, alleles, cpicAlleles, Collections.emptySortedSet(), isReference, 0, 0);
   }
 
-  public NamedAllele(String id, String name, @Nullable String[] alleles, String[] cpicAlleles,
+  public NamedAllele(String id, String name, @Nullable String[] alleles, @Nullable String[] cpicAlleles,
       SortedSet<VariantLocus> missingPositions, boolean isReference) {
     this(id, name, alleles, cpicAlleles, missingPositions, isReference, 0, 0);
   }
@@ -93,7 +93,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   /**
    * Constructor for duplicating/modifying a {@link NamedAllele}.
    */
-  public NamedAllele(String id, String name, @Nullable String[] alleles, String[] cpicAlleles,
+  public NamedAllele(String id, String name, @Nullable String[] alleles, @Nullable String[] cpicAlleles,
       SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
