@@ -194,7 +194,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("C", "T"), "0/1"));
 
     MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2)), false, false);
     dataset.generateSamplePermutations();
 
     SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(s_env, dataset)
@@ -225,7 +225,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("C", "T"), "0/1"));
 
     MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap)), false, false);
     dataset.generateSamplePermutations();
 
     Method method = DiplotypeMatcher.class.getDeclaredMethod("isViableComplement", String.class, String.class);
@@ -260,7 +260,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("A", "G"), "0/0"));
 
     MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, wobble)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, wobble)), false, false);
     dataset.generateSamplePermutations();
 
     SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(s_env, dataset)
@@ -285,7 +285,7 @@ class DiplotypeMatcherTest {
         Function.identity(), new NoDuplicateMergeFunction<>(), TreeMap::new));
 
     MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, s_positions, null, null);
-    dataset.marshallHaplotypes("TEST", s_haplotypes, false);
+    dataset.marshallHaplotypes("TEST", s_haplotypes, false, false);
     dataset.generateSamplePermutations();
 
     return new DiplotypeMatcher(s_env, dataset)
@@ -335,7 +335,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("A", "G"), "0/1"));
 
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("GENE", new TreeSet<>(List.of(ref, available, missing)), false);
+    dataset.marshallHaplotypes("GENE", new TreeSet<>(List.of(ref, available, missing)), false, false);
 
     assertEquals(List.of("*1", "*2"), dataset.getHaplotypes().stream()
         .map(NamedAllele::getName)
@@ -378,7 +378,7 @@ class DiplotypeMatcherTest {
     sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C"), "0/1"));
 
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)), false, false);
     dataset.generateSamplePermutations();
     assertThat(dataset.getPermutationStrings(), equalTo(permutations));
 
@@ -416,7 +416,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("CAT", "CATAT"), "0/1"));
 
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(ambiguous, repeat)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(ambiguous, repeat)), false, false);
     dataset.generateSamplePermutations();
 
     SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
@@ -441,11 +441,11 @@ class DiplotypeMatcherTest {
     sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "C", "C", false,
         Lists.newArrayList("C", "T"), "0/0"));
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(cAllele)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(cAllele)), false, false);
     dataset.generateSamplePermutations();
     assertEquals(cAllele, dataset.comparePermutations().first().getHaplotype());
 
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(tAllele)), false);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(List.of(tAllele)), false, false);
     assertEquals(0, dataset.comparePermutations().size());
   }
 
@@ -474,8 +474,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("C", "T"), "0/0"));
 
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, hap)), false);
-    dataset.defaultMissingAllelesToReference();
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, hap)), false, true);
     dataset.generateSamplePermutations();
 
     SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
@@ -522,7 +521,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("C"), "0/0"));
 
     MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, hap)), true);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, hap)), true, false);
     dataset.generateSamplePermutations();
 
     SortedSet<HaplotypeMatch> matches = new CombinationMatcher(s_env.getDefinitionReader().getDefinitionFile("CYP2B6"),
@@ -571,7 +570,7 @@ class DiplotypeMatcherTest {
     String gene = "UGT1A1";
     MatchData data = new MatchData(vcfReader.getSampleId(), gene, vcfReader.getAlleleMap(),
         definitionReader.getPositions(gene), null, null);
-    data.marshallHaplotypes(gene, definitionReader.getHaplotypes(gene), true);
+    data.marshallHaplotypes(gene, definitionReader.getHaplotypes(gene), true, false);
     data.generateSamplePermutations();
     return data;
   }
@@ -607,7 +606,7 @@ class DiplotypeMatcherTest {
         Lists.newArrayList("A", "G"), "0/0"));
 
     MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, wobble)), true);
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(ref, wobble)), true, false);
     dataset.generateSamplePermutations();
 
     SortedSet<HaplotypeMatch> matches = new CombinationMatcher(s_env.getDefinitionReader().getDefinitionFile("CYP2B6"),

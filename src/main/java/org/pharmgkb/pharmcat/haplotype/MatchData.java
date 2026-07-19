@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.lang.invoke.MethodHandles;
 import java.util.*;
 import java.util.stream.Collectors;
-import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.jspecify.annotations.Nullable;
@@ -20,10 +19,10 @@ import org.slf4j.LoggerFactory;
 /**
  * Mutable per-sample, per-gene working data used to compute {@link DiplotypeMatch}es.
  *
- * <p>The normal lifecycle is: construct, {@link #marshallHaplotypes(String, SortedSet, boolean)}, optionally
- * {@link #defaultMissingAllelesToReference()}, {@link #generateSamplePermutations()}, then
- * {@link #comparePermutations()}. Marshalling or reference defaulting can replace the callable haplotypes, so both
- * operations invalidate the lazily built candidate index.</p>
+ * <p>The normal lifecycle is: construct, {@link #marshallHaplotypes(String, SortedSet, boolean, boolean)},
+ * {@link #generateSamplePermutations()}, then {@link #comparePermutations()}. Marshalling folds reference defaulting
+ * for missing-position samples into the same pass; for samples with no missing positions, the defaulting flag is
+ * consulted lazily by the candidate index at query time.</p>
  *
  * @author Mark Woon
  */
@@ -196,10 +195,15 @@ public class MatchData {
 
   /**
    * Builds the callable {@link NamedAllele} set for the positions present in this sample.
-   * When positions are missing, this creates sample-specific definitions with those positions removed and drops
-   * definitions that no longer have a positive score.
+   *
+   * <p>When positions are missing, this creates sample-specific definitions with those positions removed and drops
+   * definitions that no longer have a positive score. If {@code assumeReference} is true, blank cells in non-reference
+   * definitions are also filled with the reference value in the same pass, avoiding a second full rebuild of the
+   * {@link NamedAllele} set. When no positions are missing, reference defaulting is deferred to query time via
+   * {@code m_defaultMissingAllelesToReference}.</p>
    */
-  void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations) {
+  void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations,
+      boolean assumeReference) {
 
     m_defaultMissingAllelesToReference = false;
     clearCandidateIndex();
@@ -216,42 +220,64 @@ public class MatchData {
       } else {
         m_haplotypes = allHaplotypes;
       }
+      m_defaultMissingAllelesToReference = assumeReference;
+      return;
+    }
 
-    } else {
-      // handle missing positions by duplicating haplotype and eliminating missing positions
-      m_haplotypes = new TreeSet<>();
-      for (NamedAllele hap : allHaplotypes) {
-        if (findCombinations) {
-          if (isIgnorableCombination(gene, hap)) {
-            continue;
-          }
-        }
-        // get alleles for positions we have data on
-        @Nullable String[] availableAlleles = new String[m_positions.length];
-        @Nullable String[] cpicAlleles = new String[m_positions.length];
-        boolean hasAvailableAllele = false;
-        for (int x = 0; x < m_positions.length; x += 1) {
-          availableAlleles[x] = hap.getAllele(m_positions[x]);
-          cpicAlleles[x] = hap.getCpicAllele(m_positions[x]);
-          if (availableAlleles[x] != null) {
-            hasAvailableAllele = true;
-          }
-        }
-        if (!hasAvailableAllele) {
-          continue;
-        }
+    // handle missing positions by duplicating haplotype and eliminating missing positions
+    @Nullable String[] refAlleles = null;
+    @Nullable String[] refCpicAlleles = null;
+    if (assumeReference) {
+      NamedAllele referenceHaplotype = allHaplotypes.stream().filter(NamedAllele::isReference).findAny()
+          .orElseThrow(() -> new IllegalStateException(gene + " does not have a reference"));
+      refAlleles = referenceHaplotype.getAlleles(m_positions);
+      refCpicAlleles = new String[m_positions.length];
+      for (int x = 0; x < m_positions.length; x += 1) {
+        refCpicAlleles[x] = referenceHaplotype.getCpicAllele(m_positions[x]);
+      }
+    }
 
-        SortedSet<VariantLocus> missingPositions = m_missingPositions.stream()
-            .filter(l -> hap.getAllele(l) != null)
-            .collect(Collectors.toCollection(TreeSet::new));
-
-        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, cpicAlleles,
-            missingPositions, hap.isReference());
-        newHap.initialize(m_positions);
-        if (newHap.getScore() > 0) {
-          m_haplotypes.add(newHap);
+    m_haplotypes = new TreeSet<>();
+    for (NamedAllele hap : allHaplotypes) {
+      if (findCombinations && isIgnorableCombination(gene, hap)) {
+        continue;
+      }
+      // get alleles for positions we have data on
+      @Nullable String[] availableAlleles = new String[m_positions.length];
+      @Nullable String[] cpicAlleles = new String[m_positions.length];
+      int score = 0;
+      for (int x = 0; x < m_positions.length; x += 1) {
+        availableAlleles[x] = hap.getAllele(m_positions[x]);
+        cpicAlleles[x] = hap.getCpicAllele(m_positions[x]);
+        if (availableAlleles[x] != null) {
+          score += 1;
         }
       }
+      if (score == 0) {
+        continue;
+      }
+
+      boolean isRef = hap.isReference();
+      if (assumeReference && !isRef) {
+        // Fold reference defaulting into the same pass. Score stays based on pre-default non-null count so that
+        // top-candidate ranking matches the historical two-pass behavior.
+        for (int x = 0; x < m_positions.length; x += 1) {
+          if (availableAlleles[x] == null && refAlleles[x] != null) {
+            String refAllele = refAlleles[x];
+            availableAlleles[x] = Iupac.isWobble(refAllele) ? m_positions[x].getRef() : refAllele;
+            cpicAlleles[x] = refCpicAlleles[x];
+          }
+        }
+      }
+
+      SortedSet<VariantLocus> missingPositions = m_missingPositions.stream()
+          .filter(l -> hap.getAllele(l) != null)
+          .collect(Collectors.toCollection(TreeSet::new));
+
+      NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, cpicAlleles,
+          missingPositions, isRef);
+      newHap.initialize(m_positions, score);
+      m_haplotypes.add(newHap);
     }
   }
 
@@ -284,64 +310,6 @@ public class MatchData {
     return m_missingAmp1Positions;
   }
 
-  /**
-   * Interprets blank cells in non-reference {@link NamedAllele} definitions as reference alleles.
-   * With complete position data, defaults remain lazy and are applied by the candidate index. With missing position
-   * data, the sample-specific definitions created by {@link #marshallHaplotypes(String, SortedSet, boolean)} are
-   * replaced eagerly.
-   */
-  void defaultMissingAllelesToReference() {
-    if (m_haplotypes == null) {
-      throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
-    }
-
-    NamedAllele referenceHaplotype = m_haplotypes.stream().filter(NamedAllele::isReference).findAny()
-        .orElseThrow(() -> new IllegalStateException(m_gene + " does not have a reference"));
-    if (m_missingPositions.isEmpty()) {
-      m_defaultMissingAllelesToReference = true;
-      clearCandidateIndex();
-      return;
-    }
-
-    SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
-    int numAlleles = referenceHaplotype.getAlleles().length;
-    for (NamedAllele hap : m_haplotypes) {
-      if (referenceHaplotype == hap) {
-        updatedHaplotypes.add(hap);
-        continue;
-      }
-
-      @Nullable String[] curAlleles = hap.getAlleles();
-      Preconditions.checkState(numAlleles == curAlleles.length);
-
-      @Nullable String[] newAlleles = new String[numAlleles];
-      @Nullable String[] cpicAlleles = new String[numAlleles];
-      for (int x = 0; x < numAlleles; x += 1) {
-        if (curAlleles[x] == null) {
-          // ref allele can be null if the position is missing
-          String refAllele = referenceHaplotype.getAllele(x);
-          if (Iupac.isWobble(refAllele)) {
-            newAlleles[x] = m_positions[x].getRef();
-          } else {
-            newAlleles[x] = refAllele;
-          }
-          cpicAlleles[x] = referenceHaplotype.getCpicAlleles()[x];
-        } else {
-          newAlleles[x] = curAlleles[x];
-          cpicAlleles[x] = hap.getCpicAlleles()[x];
-        }
-      }
-
-      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, cpicAlleles,
-          hap.getMissingPositions(), hap.isReference());
-      fixedHap.initialize(m_positions, hap.getScore());
-      updatedHaplotypes.add(fixedHap);
-    }
-
-    m_haplotypes = updatedHaplotypes;
-    m_defaultMissingAllelesToReference = false;
-    clearCandidateIndex();
-  }
 
 
   public int getNumSampleAlleles() {

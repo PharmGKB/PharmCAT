@@ -648,16 +648,10 @@ public class NamedAlleleMatcher {
       return data;
     }
 
-    // handle missing positions (if any)
+    // handle missing positions (if any) and fold reference defaulting into the same pass when requested
     stageStart = MatcherTimings.start(m_timing);
-    data.marshallHaplotypes(gene, alleles, findCombinations);
+    data.marshallHaplotypes(gene, alleles, findCombinations, assumeReference);
     MatcherTimings.print(m_timing, context, "marshallHaplotypes", stageStart);
-
-    if (assumeReference) {
-      stageStart = MatcherTimings.start(m_timing);
-      data.defaultMissingAllelesToReference();
-      MatcherTimings.print(m_timing, context, "defaultMissingAllelesToReference", stageStart);
-    }
 
     stageStart = MatcherTimings.start(m_timing);
     data.generateSamplePermutations();

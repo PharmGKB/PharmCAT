@@ -223,7 +223,7 @@ public class NamedAlleleMatcherTest {
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in the sample
-    data.marshallHaplotypes("TEST", definitionReader.getHaplotypes(gene), false);
+    data.marshallHaplotypes("TEST", definitionReader.getHaplotypes(gene), false, false);
     assertEquals(3, data.getPositions().length);
     assertEquals(2, data.getHaplotypes().size());
 
