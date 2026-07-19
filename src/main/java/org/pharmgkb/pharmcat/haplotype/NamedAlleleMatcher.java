@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
@@ -64,9 +66,17 @@ public class NamedAlleleMatcher {
   private final boolean m_findCombinations;
   private final boolean m_topCandidateOnly;
   private final boolean m_callCyp2d6;
+  private final Map<IndexKey, HaplotypeCandidateIndex> m_indexCache = new ConcurrentHashMap<>();
   private boolean m_printWarnings;
   private boolean m_verbose;
   private boolean m_timing;
+
+
+  /**
+   * Cache key for shared {@link HaplotypeCandidateIndex} instances. Only valid for samples with no missing positions,
+   * where the callable haplotype set and permutation-position order are gene-level constants.
+   */
+  private record IndexKey(String gene, boolean assumeReference, boolean findCombinations) {}
 
 
   /**
@@ -552,8 +562,41 @@ public class NamedAlleleMatcher {
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     MatcherTimings.print(m_timing, context, "definition lookup", stageStart);
-    return prepareMatchData(sampleId, alleleMap, gene, alleles, allPositions, exemption, assumeReference,
+    MatchData data = prepareMatchData(sampleId, alleleMap, gene, alleles, allPositions, exemption, assumeReference,
         findCombinations, context, totalStart);
+    if (data.getNumSampleAlleles() > 0 && data.getMissingPositions().isEmpty()) {
+      // Shared index is safe because the standard-path haplotype set and permutation-position order are gene-level
+      // constants when there are no missing positions. The DPYD-specialized path is intentionally excluded — it uses
+      // a filtered haplotype set that would collide with this cache key.
+      data.useSharedIndex(getOrBuildSharedIndex(gene, assumeReference, findCombinations));
+    }
+    return data;
+  }
+
+
+  /**
+   * Returns the shared {@link HaplotypeCandidateIndex} for a standard {@code (gene, assumeReference, findCombinations)}
+   * combination, building it on first use. Callers must only invoke this when the shared index is applicable — see
+   * {@link #initializeCallData}.
+   */
+  private HaplotypeCandidateIndex getOrBuildSharedIndex(String gene, boolean assumeReference,
+      boolean findCombinations) {
+    return m_indexCache.computeIfAbsent(new IndexKey(gene, assumeReference, findCombinations), key -> {
+      VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
+      VariantLocus[] permutationPositions = Arrays.stream(allPositions).sorted().toArray(VariantLocus[]::new);
+      SortedSet<NamedAllele> haplotypes;
+      if (findCombinations) {
+        haplotypes = new TreeSet<>();
+        for (NamedAllele hap : m_definitionReader.getHaplotypes(gene)) {
+          if (!MatchData.isIgnorableCombination(gene, hap)) {
+            haplotypes.add(hap);
+          }
+        }
+      } else {
+        haplotypes = m_definitionReader.getHaplotypes(gene);
+      }
+      return new HaplotypeCandidateIndex(haplotypes, permutationPositions, assumeReference);
+    });
   }
 
 

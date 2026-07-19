@@ -13,7 +13,6 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
-import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,17 +80,9 @@ public class MatchData {
   private boolean m_isEffectivelyPhased;
   /** Parsed legacy sequences, used only when structured SamplePermutation metadata is unavailable. */
   private final Map<String, String[]> m_sequenceAlleleCache = new HashMap<>();
-  /** Stable named-allele list whose indexes are the bit positions used by the candidate index. */
-  private @Nullable List<NamedAllele> m_haplotypeIndex;
-  /** Per position: haplotypes with a null raw allele that match any observed value (true wildcards). */
-  private BitSet @Nullable [] m_wildcardsAt;
-  /** Per position: non-reference haplotypes with null raw allele that default to the reference at this position. */
-  private BitSet @Nullable [] m_defaultedToRefAt;
-  /** Per position: pre-expanded bases for the ref-defaulted value; obs matching any of these enables {@link #m_defaultedToRefAt}. */
-  private Set<String> @Nullable [] m_refExpandedBasesAt;
-  /** Per position: observed-allele string to the haplotypes that specifically require that allele. */
-  private @Nullable List<Map<String, BitSet>> m_specificsAt;
-  /** Lazily materialized reference-defaulted objects aligned with m_haplotypeIndex for result output. */
+  /** Immutable per-position BitSet index. Shared across samples when there are no missing positions. */
+  private @Nullable HaplotypeCandidateIndex m_index;
+  /** Lazily materialized reference-defaulted objects aligned with the index for result output. */
   private @Nullable List<@Nullable NamedAllele> m_outputHaplotypes;
   /** Per permutation position: observed allele to compatible haplotype bits. Entries are populated on demand. */
   private @Nullable List<Map<String, BitSet>> m_candidateIndex;
@@ -272,7 +263,7 @@ public class MatchData {
         .anyMatch(sa -> sa.getVcfCall().contains("."));
   }
 
-  private boolean isIgnorableCombination(String gene, NamedAllele hap) {
+  static boolean isIgnorableCombination(String gene, NamedAllele hap) {
     if (gene.equalsIgnoreCase("UGT1A1")) {
       return hap.getName().contains("+");
     }
@@ -367,6 +358,14 @@ public class MatchData {
 
   public boolean isHaploid() {
     return m_isHaploid;
+  }
+
+  VariantLocus[] getPermutationPositions() {
+    return m_permutationPositions;
+  }
+
+  boolean isDefaultMissingAllelesToReference() {
+    return m_defaultMissingAllelesToReference;
   }
 
 
@@ -596,11 +595,13 @@ public class MatchData {
    */
   protected SortedSet<HaplotypeMatch> comparePermutations() {
     initializeCandidateIndex();
-    @Nullable HaplotypeMatch[] matches = new HaplotypeMatch[Objects.requireNonNull(m_haplotypeIndex).size()];
+    HaplotypeCandidateIndex index = Objects.requireNonNull(m_index);
+    int numHaps = index.numHaplotypes();
+    @Nullable HaplotypeMatch[] matches = new HaplotypeMatch[numHaps];
     for (SamplePermutation permutation : getPermutations()) {
       @Nullable String[] sequenceAlleles = permutation.getAllelesForMatching();
-      BitSet candidates = new BitSet(m_haplotypeIndex.size());
-      candidates.set(0, m_haplotypeIndex.size());
+      BitSet candidates = new BitSet(numHaps);
+      candidates.set(0, numHaps);
       for (int x = 0; x < sequenceAlleles.length; x += 1) {
         BitSet compatibleHaplotypes = getCompatibleHaplotypes(x, sequenceAlleles[x]);
         candidates.and(compatibleHaplotypes);
@@ -623,105 +624,39 @@ public class MatchData {
 
 
   /**
-   * Builds the sparse per-position candidate index eagerly.
-   *
-   * <p>Three per-position sets replace the old per-position full-haplotype walk:</p>
-   * <ul>
-   *   <li>{@link #m_wildcardsAt} - haplotypes whose raw allele is {@code null} and stays null (ref haplotype's null
-   *       slots, or any null slot where reference defaulting does not apply). These match any observed value.</li>
-   *   <li>{@link #m_defaultedToRefAt} - non-reference haplotypes whose raw allele is {@code null} but gets defaulted
-   *       to the reference value at this position. These match only observed values equal to the ref-defaulted
-   *       expected string. Kept separate so the defaulting decision moves to query time via
-   *       {@link #m_refExpandedBasesAt} - the hot loop pays a single {@code BitSet.set} per (h, p) instead of a
-   *       {@code HashMap} insert.</li>
-   *   <li>{@link #m_specificsAt} - haplotypes with a non-null raw allele. Wobble-expanded at build time so the query
-   *       only does {@code Map.get}.</li>
-   * </ul>
+   * Attaches a pre-built shared candidate index. Must be called before {@link #comparePermutations()} and only when the
+   * shared index is compatible with this sample's haplotype set and permutation positions — {@link NamedAlleleMatcher}
+   * guarantees this by only sharing when {@link #getMissingPositions()} is empty.
    */
-  @SuppressWarnings("unchecked")
-  private void initializeCandidateIndex() {
-    if (m_haplotypeIndex != null) {
-      return;
-    }
-    m_haplotypeIndex = new ArrayList<>(getHaplotypes());
-    int numHaps = m_haplotypeIndex.size();
-    int numPos = m_permutationPositions.length;
-
-    m_wildcardsAt = new BitSet[numPos];
-    m_defaultedToRefAt = new BitSet[numPos];
-    m_refExpandedBasesAt = new Set[numPos];
-    m_specificsAt = new ArrayList<>(numPos);
-    for (int p = 0; p < numPos; p++) {
-      m_wildcardsAt[p] = new BitSet(numHaps);
-      m_defaultedToRefAt[p] = new BitSet(numHaps);
-      m_refExpandedBasesAt[p] = Collections.emptySet();
-      m_specificsAt.add(new HashMap<>());
-    }
-
-    @Nullable String[] refExpected = null;
-    if (m_defaultMissingAllelesToReference) {
-      refExpected = getReferenceHaplotype().getAlleles(m_permutationPositions);
-      // Pre-expand the ref-defaulted value at every position where defaulting applies.
-      for (int p = 0; p < numPos; p++) {
-        String refA = refExpected[p];
-        if (refA == null) {
-          continue;
-        }
-        String refValue = Iupac.isWobble(refA) ? m_permutationPositions[p].getRef() : refA;
-        m_refExpandedBasesAt[p] = new HashSet<>(expandAllele(refValue));
-      }
-    }
-
-    for (int h = 0; h < numHaps; h++) {
-      NamedAllele hap = m_haplotypeIndex.get(h);
-      @Nullable String[] rawAlleles = hap.getAlleles(m_permutationPositions);
-      boolean isRef = hap.isReference();
-      for (int p = 0; p < numPos; p++) {
-        String raw = rawAlleles[p];
-        if (raw != null) {
-          for (String base : expandAllele(raw)) {
-            m_specificsAt.get(p).computeIfAbsent(base, k -> new BitSet(numHaps)).set(h);
-          }
-        } else if (m_defaultMissingAllelesToReference && !isRef && refExpected != null && refExpected[p] != null) {
-          // Non-ref haplotype whose null slot defaults to ref: cheap BitSet.set here, deferred match at query time.
-          m_defaultedToRefAt[p].set(h);
-        } else {
-          // True wildcard: matchesAllele(null, anything) == true.
-          m_wildcardsAt[p].set(h);
-        }
-      }
-    }
-
-    m_outputHaplotypes = new ArrayList<>(Collections.nCopies(numHaps, null));
-    m_candidateIndex = new ArrayList<>(numPos);
-    for (int p = 0; p < numPos; p++) {
-      m_candidateIndex.add(new HashMap<>());
-    }
+  void useSharedIndex(HaplotypeCandidateIndex sharedIndex) {
+    m_index = sharedIndex;
+    m_outputHaplotypes = null;
+    m_candidateIndex = null;
   }
 
 
   /**
-   * Expands a raw haplotype allele into the set of observed-allele strings it matches,
-   * mirroring {@link NamedAllele#matchesAllele} semantics exactly.
+   * Builds or reuses the per-position candidate index and its query-side memo.
    */
-  private static List<String> expandAllele(String raw) {
-    if (raw.contains(TextConstants.REPEAT_WOBBLE_DELIMITER)) {
-      return Arrays.asList(raw.split(TextConstants.REPEAT_WOBBLE_DELIMITER));
+  private void initializeCandidateIndex() {
+    if (m_index == null) {
+      m_index = new HaplotypeCandidateIndex(getHaplotypes(), m_permutationPositions,
+          m_defaultMissingAllelesToReference);
     }
-    if (raw.length() == 1) {
-      Iupac iupac = Iupac.lookup(raw);
-      if (iupac.isAmbiguity()) {
-        return iupac.getBases();
+    if (m_candidateIndex == null) {
+      int numPos = m_index.numPositions();
+      m_outputHaplotypes = new ArrayList<>(Collections.nCopies(m_index.numHaplotypes(), null));
+      m_candidateIndex = new ArrayList<>(numPos);
+      for (int p = 0; p < numPos; p += 1) {
+        m_candidateIndex.add(new HashMap<>());
       }
-      return List.of(iupac.getRegex());
     }
-    return List.of(raw);
   }
 
 
   private NamedAllele getOutputHaplotype(int index) {
-    assert m_haplotypeIndex != null;
-    NamedAllele haplotype = m_haplotypeIndex.get(index);
+    assert m_index != null;
+    NamedAllele haplotype = m_index.haplotypeAt(index);
     if (!m_defaultMissingAllelesToReference || haplotype.isReference()) {
       return haplotype;
     }
@@ -794,22 +729,20 @@ public class MatchData {
    * BitSet operation.
    */
   private BitSet getCompatibleHaplotypes(int positionIndex, @Nullable String observedAllele) {
+    assert m_index != null;
     assert m_candidateIndex != null;
-    assert m_wildcardsAt != null;
-    assert m_defaultedToRefAt != null;
-    assert m_refExpandedBasesAt != null;
-    assert m_specificsAt != null;
+    HaplotypeCandidateIndex index = m_index;
     Map<String, BitSet> candidatesByAllele = m_candidateIndex.get(positionIndex);
     return candidatesByAllele.computeIfAbsent(observedAllele, allele -> {
-      BitSet result = (BitSet) m_wildcardsAt[positionIndex].clone();
+      BitSet result = (BitSet) index.wildcardsAt(positionIndex).clone();
       if (allele != null) {
-        BitSet specifics = m_specificsAt.get(positionIndex).get(allele);
+        BitSet specifics = index.specificsAt(positionIndex).get(allele);
         if (specifics != null) {
           result.or(specifics);
         }
         // Non-ref haplotypes whose null slot defaults to ref are compatible when obs equals the ref-defaulted value.
-        if (m_refExpandedBasesAt[positionIndex].contains(allele)) {
-          result.or(m_defaultedToRefAt[positionIndex]);
+        if (index.refExpandedBasesAt(positionIndex).contains(allele)) {
+          result.or(index.defaultedToRefAt(positionIndex));
         }
       }
       // observedAllele == null: matchesAllele(expected, null) is false for all non-null expected values,
@@ -820,11 +753,7 @@ public class MatchData {
 
 
   private void clearCandidateIndex() {
-    m_haplotypeIndex = null;
-    m_wildcardsAt = null;
-    m_defaultedToRefAt = null;
-    m_refExpandedBasesAt = null;
-    m_specificsAt = null;
+    m_index = null;
     m_outputHaplotypes = null;
     m_candidateIndex = null;
   }
