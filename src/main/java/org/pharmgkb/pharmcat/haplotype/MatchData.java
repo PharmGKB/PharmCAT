@@ -558,6 +558,14 @@ public class MatchData {
     return permutation.getAllelesForMatching()[idx];
   }
 
+  int getPermutationIndex(long vcfPosition) {
+    Integer idx = m_permutationPositionIndex.get(vcfPosition);
+    if (idx == null) {
+      throw new IllegalArgumentException("No permutation index for position " + vcfPosition);
+    }
+    return idx;
+  }
+
   String[] getSequenceAlleles(String sequence) {
     return m_sequenceAlleleCache.computeIfAbsent(sequence, s -> {
       String[] alleles = new String[m_positions.length];

@@ -41,9 +41,9 @@ public class DiplotypeMatcher {
   private final DefinitionFile m_definitionFile;
   private final boolean m_unphasedPriorityMode;
   private final VariantLocus[] m_positions;
-  /** VCF positions aligned with m_positions for structured complement checks. */
-  private final long[] m_vcfPositions;
-  /** Sample zygosity aligned with m_positions and m_vcfPositions. */
+  /** Permutation array index for each position in m_positions order. */
+  private final int[] m_permIndexByPositionOrder;
+  /** Sample zygosity aligned with m_positions. */
   private final boolean[] m_isHomozygous;
   private final boolean m_timing;
 
@@ -56,11 +56,11 @@ public class DiplotypeMatcher {
     m_dataset = dataset;
     m_timing = timing;
     m_positions = dataset.getPositions();
-    m_vcfPositions = new long[m_positions.length];
+    m_permIndexByPositionOrder = new int[m_positions.length];
     m_isHomozygous = new boolean[m_positions.length];
     for (int x = 0; x < m_positions.length; x += 1) {
       long position = m_positions[x].getPosition();
-      m_vcfPositions[x] = position;
+      m_permIndexByPositionOrder[x] = dataset.getPermutationIndex(position);
       m_isHomozygous[x] = dataset.getSampleAllele(position).isHomozygous();
     }
     m_definitionFile = env.getDefinitionReader().getDefinitionFile(dataset.getGene());
@@ -371,10 +371,13 @@ public class DiplotypeMatcher {
    */
   private boolean isViableComplement(SamplePermutation permutation1, SamplePermutation permutation2) {
 
+    @Nullable String[] alleles1 = permutation1.getAllelesForMatching();
+    @Nullable String[] alleles2 = permutation2.getAllelesForMatching();
+
     for (int x = 0; x < m_positions.length; x += 1) {
-      long position = m_vcfPositions[x];
-      String a1 = m_dataset.getAllele(permutation1, position);
-      String a2 = m_dataset.getAllele(permutation2, position);
+      int permIdx = m_permIndexByPositionOrder[x];
+      String a1 = alleles1[permIdx];
+      String a2 = alleles2[permIdx];
       if (!matchesSampleZygosity(a1, a2, m_isHomozygous[x])) {
         return false;
       }
