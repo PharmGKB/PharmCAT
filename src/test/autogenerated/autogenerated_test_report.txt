@@ -1,5 +1,5 @@
-# tests    = 38,733
-# passed   = 38,515
+# tests    = 98,764
+# passed   = 98,546
 # warnings = 58
 # failed   = 160
 # no alts & no match   = 122
@@ -23,6 +23,7 @@
 | IFNL3      |       0  |       0  |
 | NAT2       |       0  |      33  |
 | NUDT15     |       0  |       1  |
+| RYR1       |       0  |       0  |
 | SLCO1B1    |      33  |     100  |
 | TPMT       |       0  |       2  |
 | UGT1A1     |       2  |       2  |
