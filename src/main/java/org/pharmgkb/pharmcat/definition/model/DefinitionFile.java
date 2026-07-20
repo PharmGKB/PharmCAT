@@ -313,6 +313,7 @@ public class DefinitionFile {
     m_namedAlleles = namedAlleles;
     m_namedAlleleMap = null;
     m_referenceNamedAllele = null;
+    m_candidateIndexCache = null;
   }
 
   /**
@@ -327,6 +328,7 @@ public class DefinitionFile {
     if (m_namedAlleles.add(namedAllele)) {
       m_namedAlleleMap = null;
       m_referenceNamedAllele = null;
+      m_candidateIndexCache = null;
     }
   }
 
@@ -341,6 +343,7 @@ public class DefinitionFile {
     if (m_namedAlleles.remove(namedAllele)) {
       m_namedAlleleMap = null;
       m_referenceNamedAllele = null;
+      m_candidateIndexCache = null;
     }
   }
 
