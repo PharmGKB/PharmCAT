@@ -358,17 +358,7 @@ public class NamedAlleleMatcher {
           .compute(false, false);
       if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
         // must add HapB3 call
-        if (!diplotypeMatches.isEmpty()) {
-          // has matches, add HapB3 call
-          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
-          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedHapB3Call(mergerData, diplotypeMatches);
-          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
-          return;
-        } else if (!dpydHapB3Matcher.hasNonHapB3Variants()) {
-          // no matches (so reference everywhere else) - only has HapB3
-          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
-          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.addPhasedHapB3CallToRef(mergerData);
-          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+        if (mergeDpydHapB3Call(sampleId, alleleMap, gene, dpydHapB3Matcher, diplotypeMatches, false, resultBuilder)) {
           return;
         }
       }
@@ -399,17 +389,7 @@ public class NamedAlleleMatcher {
           .compute(true, false);
       if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
         // must add HapB3 call
-        if (!diplotypeMatches.isEmpty()) {
-          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
-          diplotypeMatches = dpydHapB3Matcher.fixPartials(mergerData, diplotypeMatches);
-          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedHapB3Call(mergerData, diplotypeMatches);
-          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
-          return;
-        } else if (!dpydHapB3Matcher.hasNonHapB3Variants()) {
-          // no matches (so reference everywhere else) - only has HapB3
-          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
-          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.addPhasedHapB3CallToRef(mergerData);
-          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+        if (mergeDpydHapB3Call(sampleId, alleleMap, gene, dpydHapB3Matcher, diplotypeMatches, true, resultBuilder)) {
           return;
         }
       }
@@ -460,6 +440,38 @@ public class NamedAlleleMatcher {
     } else {
       resultBuilder.haplotypes(gene, origData, hapMatches);
     }
+  }
+
+
+  /**
+   * Merges the DPYD HapB3 call into a phased/effectively-phased stage's diplotype matches and reports the result.
+   * Shared by the exact (stage 1) and combination (stage 2) stages of {@link #callLowestFunctionGene}.
+   *
+   * @param applyFixPartials true to reconcile partial alleles before merging (combination stage only)
+   * @return true if a call was reported and the caller should return; false if this stage produced no
+   * HapB3-mergeable result and matching should continue
+   */
+  private boolean mergeDpydHapB3Call(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+      DpydHapB3Matcher dpydHapB3Matcher, SortedSet<DiplotypeMatch> diplotypeMatches, boolean applyFixPartials,
+      ResultBuilder resultBuilder) {
+
+    if (!diplotypeMatches.isEmpty()) {
+      // has matches, add HapB3 call
+      MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
+      if (applyFixPartials) {
+        diplotypeMatches = dpydHapB3Matcher.fixPartials(mergerData, diplotypeMatches);
+      }
+      SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedHapB3Call(mergerData, diplotypeMatches);
+      resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+      return true;
+    } else if (!dpydHapB3Matcher.hasNonHapB3Variants()) {
+      // no matches (so reference everywhere else) - only has HapB3
+      MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
+      SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.addPhasedHapB3CallToRef(mergerData);
+      resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+      return true;
+    }
+    return false;
   }
 
 
