@@ -35,14 +35,14 @@ public class MatchData {
   private final String m_gene;
   private final SortedMap<Long, SampleAllele> m_sampleMap = new TreeMap<>();
   private final boolean m_isHaploid;
-  /** Positions available for this sample, retained in definition/output order. */
+  /**
+   * Positions available for this sample, in definition order. DefinitionFile sorts positions by location at ingestion,
+   * so this is also the ascending numeric order used by internal sample permutations and the candidate index (verified
+   * in the constructor).
+   */
   private final VariantLocus[] m_positions;
-  /** Positions in the order used by internal sample permutations. */
-  private final VariantLocus[] m_permutationPositions;
   /** Maps VCF position to the index of the matching VariantLocus in the m_positions array. */
   private final SortedMap<Long, Integer> m_vcfPositionIndex = new TreeMap<>();
-  /** Maps VCF position to the index used by internal sample permutations. */
-  private final Map<Long, Integer> m_permutationPositionIndex = new HashMap<>();
   @Expose
   @SerializedName("missingPositions")
   private final SortedSet<VariantLocus> m_missingPositions = new TreeSet<>();
@@ -56,7 +56,7 @@ public class MatchData {
   private boolean m_treatUndocumentedVariationsAsReference;
   /** Sample-adjusted named alleles that remain callable at the available positions. */
   private @Nullable SortedSet<NamedAllele> m_haplotypes;
-  /** Structured sample strands; their allele arrays follow m_permutationPositions order. */
+  /** Structured sample strands; their allele arrays follow m_positions order. */
   private @Nullable Set<SamplePermutation> m_permutations;
   /** Legacy/result representation of m_permutations, created only when requested. */
   private @Nullable Set<String> m_encodedPermutations;
@@ -99,8 +99,12 @@ public class MatchData {
    * Constructor.
    * Organizes the {@link SampleAllele} data related for the gene of interest.
    *
+   * <p>{@code allPositions} must be in ascending numeric order. {@link org.pharmgkb.pharmcat.definition.model.DefinitionFile}
+   * sorts positions at ingestion, so definitions always satisfy this; internal sample-permutation matching and the
+   * candidate index depend on it, and the constructor throws {@link IllegalStateException} if it is violated.</p>
+   *
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
-   * @param allPositions all {@link VariantLocus} positions of interest for the gene
+   * @param allPositions all {@link VariantLocus} positions of interest for the gene, in ascending order
    * @param extraPositions extra positions to track sample alleles for
    */
   public MatchData(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
@@ -140,9 +144,14 @@ public class MatchData {
     for (int x = 0; x < m_positions.length; x += 1) {
       m_vcfPositionIndex.put(m_positions[x].getPosition(), x);
     }
-    m_permutationPositions = Arrays.stream(m_positions).sorted().toArray(VariantLocus[]::new);
-    for (int x = 0; x < m_permutationPositions.length; x += 1) {
-      m_permutationPositionIndex.put(m_permutationPositions[x].getPosition(), x);
+    // Sample permutations and the candidate index rely on m_positions being in ascending numeric order. This holds
+    // because DefinitionFile sorts positions at ingestion; verify rather than trust, since a violation would silently
+    // misalign permutation alleles with positions.
+    for (int x = 1; x < m_positions.length; x += 1) {
+      if (m_positions[x - 1].compareTo(m_positions[x]) > 0) {
+        throw new IllegalStateException(gene + " definition positions are not in ascending order; " +
+            "sample-permutation matching requires sorted positions");
+      }
     }
     if (extraPositions != null) {
       for (VariantLocus vl : extraPositions) {
@@ -324,7 +333,7 @@ public class MatchData {
   }
 
   VariantLocus[] getPermutationPositions() {
-    return m_permutationPositions;
+    return m_positions;
   }
 
   boolean isDefaultMissingAllelesToReference() {
@@ -520,7 +529,7 @@ public class MatchData {
   }
 
   @Nullable String getAllele(SamplePermutation permutation, long vcfPosition) {
-    Integer idx = m_permutationPositionIndex.get(vcfPosition);
+    Integer idx = m_vcfPositionIndex.get(vcfPosition);
     if (idx == null) {
       return null;
     }
@@ -528,7 +537,7 @@ public class MatchData {
   }
 
   int getPermutationIndex(long vcfPosition) {
-    Integer idx = m_permutationPositionIndex.get(vcfPosition);
+    Integer idx = m_vcfPositionIndex.get(vcfPosition);
     if (idx == null) {
       throw new IllegalArgumentException("No permutation index for position " + vcfPosition);
     }
@@ -603,7 +612,7 @@ public class MatchData {
    */
   private void initializeCandidateIndex() {
     if (m_index == null) {
-      m_index = new HaplotypeCandidateIndex(getHaplotypes(), m_permutationPositions,
+      m_index = new HaplotypeCandidateIndex(getHaplotypes(), m_positions,
           m_defaultMissingAllelesToReference);
     }
     if (m_candidateIndex == null) {

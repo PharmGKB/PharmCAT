@@ -38,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -350,18 +351,18 @@ class DiplotypeMatcherTest {
     VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
     VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
     VariantLocus var4 = new VariantLocus("chr1", 4, "g.3T>A");
-    // Keep definition positions out of order to exercise position-sorted internal permutation matching.
-    VariantLocus[] variants = new VariantLocus[] { var3, var1, var4, var2 };
+    // Definition positions are provided in ascending order, as MatchData requires.
+    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
-    String[] alleles = new String[] { "C", "T", "C", "A" };
+    String[] alleles = new String[] { "T", "A", "C", "C" };
     NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
     hap1.initialize(variants);
 
-    alleles = new String[] { "C", null, null, "T" };
+    alleles = new String[] { null, "T", "C", null };
     NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false);
     hap2.initialize(variants);
 
-    alleles = new String[] { "GG", null, null, null };
+    alleles = new String[] { null, null, "GG", null };
     NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
     hap3.initialize(variants);
 
@@ -392,6 +393,26 @@ class DiplotypeMatcherTest {
     Iterator<HaplotypeMatch> it = matches.iterator();
     assertEquals(hap1, it.next().getHaplotype());
     assertEquals(hap2, it.next().getHaplotype());
+  }
+
+
+  @Test
+  void testRejectsUnsortedPositions() {
+    // MatchData requires definition positions in ascending order; internal permutation matching assumes it.
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
+    VariantLocus var4 = new VariantLocus("chr1", 4, "g.4T>A");
+    VariantLocus[] variants = new VariantLocus[] { var3, var1, var4, var2 };
+
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T"), "0/0"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("T"), "1/0"));
+    sampleAlleleMap.put("chr1:3", new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C"), "0/0"));
+    sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C"), "0/1"));
+
+    assertThrows(IllegalStateException.class,
+        () -> new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null));
   }
 
 
