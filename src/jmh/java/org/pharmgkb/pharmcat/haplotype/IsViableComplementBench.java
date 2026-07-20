@@ -104,8 +104,8 @@ public class IsViableComplementBench {
     VariantLocus[] allPositions = definitionReader.getPositions(gene);
     m_matchData = new MatchData(sampleId, gene, alleleMap, allPositions,
         /*extraPositions=*/null, /*exemption=*/null);
-    m_matchData.marshallHaplotypes(gene, definitionReader.getHaplotypes(gene), /*findCombinations=*/true);
-    // No defaultMissingAllelesToReference for combinations mode (assumeReference=false).
+    m_matchData.marshallHaplotypes(gene, definitionReader.getHaplotypes(gene), /*findCombinations=*/true,
+        /*assumeReference=*/false);
     m_matchData.generateSamplePermutations();
 
     // Extract two DIFFERENT permutations.
