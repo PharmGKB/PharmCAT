@@ -3,7 +3,7 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.SortedMap;
+import java.util.Map;
 import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 import org.jspecify.annotations.Nullable;
@@ -111,7 +111,7 @@ public class CoreMatchingPathBench {
   /** Precomputed per-gene inputs plus the run() that exercises the core matching path each invocation. */
   private static final class GeneCase {
     private final String gene;
-    private final SortedMap<String, SampleAllele> alleleMap;
+    private final Map<String, SampleAllele> alleleMap;
     private final VariantLocus[] allPositions;
     private final SortedSet<NamedAllele> haplotypes;
     private final @Nullable DefinitionExemption exemption;
@@ -119,7 +119,7 @@ public class CoreMatchingPathBench {
     private final DefinitionFile definitionFile;
     private final Path vcfPath;
 
-    private GeneCase(String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
+    private GeneCase(String gene, Map<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
         SortedSet<NamedAllele> haplotypes, @Nullable DefinitionExemption exemption, DefinitionFile definitionFile,
         Path vcfPath) {
       this.gene = gene;
@@ -147,7 +147,7 @@ public class CoreMatchingPathBench {
       builder.write(vcfPath);
 
       VcfFile vcfFile = new VcfFile(vcfPath);
-      SortedMap<String, SampleAllele> alleleMap =
+      Map<String, SampleAllele> alleleMap =
           vcfFile.getReader(definitionReader, null, false, false).getAlleleMap();
       return new GeneCase(gene, alleleMap, definitionReader.getPositions(gene),
           definitionReader.getHaplotypes(gene), definitionReader.getExemption(gene),

@@ -41,6 +41,12 @@ From the repository root:
     `--tests` filter patterns
   - Prints wall-clock duration, the Gradle exit code, and `tests=… failures=… errors=… skipped=…` (plus any failing
     test names); full output is written to `build/run-tests.log`.
+- Run JMH microbenchmarks with full CLI control (Unix helper; wraps `org.openjdk.jmh.Main`):
+  - `bin/run-jmh.sh <benchmark-regex> [jmh args...]` — e.g. `bin/run-jmh.sh CoreMatchingPathBench` or
+    `bin/run-jmh.sh 'VcfParseBench' -f 2 -wi 3 -i 5 -w 1s -r 2s -prof gc`
+  - Builds the JMH jar + a runtime classpath (the `me.champeau.jmh` task can't pass through arbitrary JMH args) and
+    forwards all arguments to JMH (forks, iterations, `-prof` profilers). Prints the results table plus any
+    `-prof stack` hot-method section; full output is written to `build/run-jmh.log`.
 
 Prefer the smallest command that validates the change.
 
