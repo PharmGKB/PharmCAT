@@ -177,8 +177,8 @@ tasks.register('benchmark', Test) {
   // benchmark reports are only meaningful when we can see stdout
   testLogging.showStandardStreams = true
   outputs.upToDateWhen { false }
-  systemProperty 'benchmark.warmup', System.getProperty('benchmark.warmup', '3')
-  systemProperty 'benchmark.iterations', System.getProperty('benchmark.iterations', '10')
+  systemProperty 'benchmark.warmup', System.getProperty('benchmark.warmup', '30')
+  systemProperty 'benchmark.iterations', System.getProperty('benchmark.iterations', '100')
   systemProperty 'benchmark.timing', System.getProperty('benchmark.timing', 'false')
 }
 

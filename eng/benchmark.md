@@ -123,7 +123,9 @@ Output includes mean and standard error; non-overlapping CIs are the go/no-go si
 2. Follow the pattern in `CoreMatchingPathBench`:
    - `@State(Scope.Benchmark)` with `@Setup(Level.Trial)` that builds a realistic
      `MatchData` via the same call sequence `NamedAlleleMatcher.initializeCallData` uses.
-   - One `@Benchmark` per implementation variant so JMH compares them in one run.
+   - One `@Benchmark` per case you want reported side by side — per scenario (as
+     `CoreMatchingPathBench` does for gene × phased/unphased) or, when comparing candidate
+     implementations, one per variant so JMH measures them in the same run.
    - Return a value from each `@Benchmark` so JMH's DCE guard doesn't strip work.
 3. Reuse `Scenarios` / `BenchmarkVcfBuilder` / `PositionsIndex` where possible — they're
    on the JMH classpath via `includeTests = true`.
@@ -150,7 +152,7 @@ Output includes mean and standard error; non-overlapping CIs are the go/no-go si
 | "Did my change make PharmCAT faster for users?" | Tier 1, look at `match` column |
 | "Is `VcfReader` parse a meaningful fraction of matcher cost?" | Tier 1, `e2e - match` delta |
 | "Where does the time go inside `matcher.call()` for scenario X?" | Tier 1 with `-Dbenchmark.timing=true` |
-| "Did this HashMap→array change to hot loop Y actually help?" | Tier 2, JMH |
+| "Did this change to hot loop Y actually help?" | Tier 2, JMH |
 | "Which of these two candidate implementations is faster?" | Tier 2, JMH — one `@Benchmark` per candidate |
 | "Is a sub-1% end-to-end delta real or noise?" | Tier 2 on the specific loop that changed |
 
