@@ -46,7 +46,6 @@ public class MatchData {
   @Expose
   @SerializedName("missingPositions")
   private final SortedSet<VariantLocus> m_missingPositions = new TreeSet<>();
-  private final SortedSet<Long> m_missingVcfPositions = new TreeSet<>();
   private final SortedSet<Variant> m_extraPositions = new TreeSet<>();
   @Expose
   @SerializedName("positionsWithUndocumentedVariations")
@@ -119,7 +118,6 @@ public class MatchData {
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
         m_missingPositions.add(variant);
-        m_missingVcfPositions.add(variant.getPosition());
         sf_logger.debug("Sample has no allele for {}", chrPos);
         continue;
       }
@@ -332,15 +330,6 @@ public class MatchData {
     return m_isHaploid;
   }
 
-  VariantLocus[] getPermutationPositions() {
-    return m_positions;
-  }
-
-  boolean isDefaultMissingAllelesToReference() {
-    return m_defaultMissingAllelesToReference;
-  }
-
-
   /**
    * Gets all permutations of sample alleles at positions of interest.
    */
@@ -404,13 +393,6 @@ public class MatchData {
   }
 
   /**
-   * Gets a map of the positions for each phase set (i.e. phase set ID to positions).
-   */
-  public SortedMap<Integer, SortedSet<Long>> getPhaseSets() {
-    return m_phaseSets;
-  }
-
-  /**
    * Gets the phase set ID for the specified {@code position}.
    */
   public @Nullable Integer getPhaseSet(long position) {
@@ -445,14 +427,6 @@ public class MatchData {
    */
   public SortedSet<VariantLocus> getMissingPositions() {
     return m_missingPositions;
-  }
-
-  /**
-   * Gets the positions that are missing from the sample VCF that would have been helpful for calling the haplotypes for
-   * the gene.
-   */
-  public SortedSet<Long> getMissingVcfPositions() {
-    return m_missingVcfPositions;
   }
 
   /**
@@ -532,14 +506,6 @@ public class MatchData {
       return null;
     }
     return permutation.getAllelesForMatching()[idx];
-  }
-
-  int getPermutationIndex(long vcfPosition) {
-    Integer idx = m_vcfPositionIndex.get(vcfPosition);
-    if (idx == null) {
-      throw new IllegalArgumentException("No permutation index for position " + vcfPosition);
-    }
-    return idx;
   }
 
   String[] getSequenceAlleles(String sequence) {
@@ -642,7 +608,7 @@ public class MatchData {
 
 
   private NamedAllele materializeDefaultedHaplotype(NamedAllele haplotype, NamedAllele referenceHaplotype) {
-    @Nullable String[] alleles = applyReferenceDefaults(m_positions, haplotype.getAlleles(m_positions),
+    @Nullable String[] alleles = applyReferenceDefaults(haplotype.getAlleles(m_positions),
         referenceHaplotype.getAlleles(m_positions));
     @Nullable String[] cpicAlleles = applyReferenceCpicDefaults(haplotype, referenceHaplotype);
     NamedAllele outputHaplotype = new NamedAllele(haplotype.getId(), haplotype.getName(), alleles, cpicAlleles,
@@ -658,7 +624,7 @@ public class MatchData {
   }
 
 
-  private @Nullable String[] applyReferenceDefaults(VariantLocus[] positions, @Nullable String[] alleles,
+  private @Nullable String[] applyReferenceDefaults(@Nullable String[] alleles,
       @Nullable String[] referenceAlleles) {
 
     @Nullable String[] defaultedAlleles = new String[alleles.length];
@@ -666,7 +632,7 @@ public class MatchData {
       if (alleles[x] == null) {
         String refAllele = referenceAlleles[x];
         if (Iupac.isWobble(refAllele)) {
-          defaultedAlleles[x] = positions[x].getRef();
+          defaultedAlleles[x] = m_positions[x].getRef();
         } else {
           defaultedAlleles[x] = refAllele;
         }

@@ -108,19 +108,19 @@ jmh {
 Each `@Benchmark` runs 2 forks × 5 warmup × 5 measurement = 10 samples with C2-warm JIT.
 Output includes mean and standard error; non-overlapping CIs are the go/no-go signal.
 
-### Existing benchmark
+### Existing benchmarks
 
-`IsViableComplementBench.java` compares the current array-based
-`isViableComplement(SamplePermutation, SamplePermutation)` against the old HashMap-based
-implementation on the same live `MatchData` state (the `combinations/CYP2D6/het=6`
-scenario reused from Tier 1).
+- `CoreMatchingPathBench.java` — the per-sample core matching path (`MatchData` construction,
+  `marshallHaplotypes`, `generateSamplePermutations`, shared `HaplotypeCandidateIndex` attach, and
+  `comparePermutations`) for CYP2C19 and RYR1, in phased (≤2 permutations) and unphased (2^n permutations) regimes.
+- `ColdVsWarmIndexCacheBench.java` — cold `HaplotypeCandidateIndex` build vs. the warm shared-cache lookup.
 
 ### Adding a new benchmark
 
 1. Put the class in `src/jmh/java/org/pharmgkb/pharmcat/haplotype/` if you need access to
    package-private members of `MatchData`, `DiplotypeMatcher`, `SamplePermutation`, etc.
    Otherwise use a subpackage.
-2. Follow the pattern in `IsViableComplementBench`:
+2. Follow the pattern in `CoreMatchingPathBench`:
    - `@State(Scope.Benchmark)` with `@Setup(Level.Trial)` that builds a realistic
      `MatchData` via the same call sequence `NamedAlleleMatcher.initializeCallData` uses.
    - One `@Benchmark` per implementation variant so JMH compares them in one run.

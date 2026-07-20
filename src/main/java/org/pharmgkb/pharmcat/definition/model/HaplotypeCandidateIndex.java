@@ -40,14 +40,12 @@ public final class HaplotypeCandidateIndex {
   private final BitSet[] m_defaultedToRefAt;
   private final Set<String>[] m_refExpandedBasesAt;
   private final List<Map<String, BitSet>> m_specificsAt;
-  private final boolean m_defaultMissingAllelesToReference;
 
 
   public HaplotypeCandidateIndex(SortedSet<NamedAllele> haplotypes, VariantLocus[] permutationPositions,
       boolean defaultMissingAllelesToReference) {
     m_haplotypeIndex = List.copyOf(haplotypes);
     m_permutationPositions = permutationPositions;
-    m_defaultMissingAllelesToReference = defaultMissingAllelesToReference;
 
     int numHaps = m_haplotypeIndex.size();
     int numPos = permutationPositions.length;
@@ -110,14 +108,6 @@ public final class HaplotypeCandidateIndex {
 
   public NamedAllele haplotypeAt(int index) {
     return m_haplotypeIndex.get(index);
-  }
-
-  public List<NamedAllele> haplotypes() {
-    return m_haplotypeIndex;
-  }
-
-  public boolean isDefaultMissingAllelesToReference() {
-    return m_defaultMissingAllelesToReference;
   }
 
 
