@@ -447,7 +447,7 @@ public class NamedAlleleMatcher {
         // TODO(markwoon): consider reporting all diplotypes, and letting reporter pick lowest function
         // TODO(markwoon): this is a more reliable way of dealing with possible strand combinations
         // the following commented out code would merge HapB3 calls into the diplotype results,
-        // but is not compatible with how DpydHapB3Matcher.callHapBeHaplotypes() works
+        // but is not compatible with how DpydHapB3Matcher.callHapB3HaplotypeMatches() works
 //      } else if (dpydHapB3Matcher != null && dpydHapB3Matcher.hasHapB3Variants()) {
 //        comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
 //        comboDipMatches = dpydHapB3Matcher.mergePhasedHapB3Call(comboData, comboDipMatches);
@@ -594,8 +594,8 @@ public class NamedAlleleMatcher {
 
   /**
    * Runs the common per-gene preparation pipeline after the caller has selected the applicable allele definitions.
-   * The order is intentional: sample-specific marshalling must precede reference defaulting, and both must precede
-   * permutation matching.
+   * The order is intentional: {@code marshallHaplotypes} (which folds reference defaulting into the same pass) must run
+   * before {@code generateSamplePermutations}.
    */
   private MatchData prepareMatchData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       SortedSet<NamedAllele> alleles, VariantLocus[] allPositions, @Nullable DefinitionExemption exemption,
