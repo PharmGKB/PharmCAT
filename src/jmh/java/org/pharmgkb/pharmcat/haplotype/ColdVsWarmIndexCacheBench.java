@@ -1,8 +1,8 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
+import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -14,26 +14,30 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.TearDown;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
-import org.pharmgkb.pharmcat.TestVcfBuilder;
-import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
-import org.pharmgkb.pharmcat.haplotype.benchmark.BenchmarkVcfBuilder;
-import org.pharmgkb.pharmcat.haplotype.benchmark.PositionsIndex;
-import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.HaplotypeCandidateIndex;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
- * JMH microbenchmark measuring the payoff of caching the per-gene {@link HaplotypeCandidateIndex} across samples.
+ * JMH microbenchmark quantifying the payoff of issue #1: caching the per-gene {@link HaplotypeCandidateIndex} on
+ * {@link DefinitionFile} so it is shared across all samples instead of rebuilt for every sample.
  *
  * <p>Run with: {@code ./gradlew jmh}</p>
  *
- * <p>{@code coldCache} constructs a new {@link NamedAlleleMatcher} on every invocation, mirroring today's batch
- * behavior where {@code Pipeline} creates a new matcher per sample and discards its index cache. {@code warmCache}
- * reuses a single matcher instance created once in {@link #setup}, mirroring a hoisted cross-sample cache.</p>
+ * <p>{@code coldBuild} constructs a fresh {@link HaplotypeCandidateIndex} on every invocation, mirroring the
+ * pre-#1 behavior where each sample rebuilt the index from scratch (the matcher's index cache lived on the
+ * per-sample {@code NamedAlleleMatcher}). {@code warmLookup} fetches the index from the {@link DefinitionFile}
+ * cache introduced by #1, mirroring the shared cross-sample (and cross-thread {@code BatchPharmCAT}) behavior. The
+ * delta is the per-sample, per-gene cost that #1 eliminates.</p>
+ *
+ * <p>This is deliberately {@code Env}-free: the index depends only on the gene's callable {@link NamedAllele} set,
+ * its sorted positions, and the {@code assumeReference} flag, none of which involve phenotype/drug data.</p>
  */
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
@@ -43,70 +47,42 @@ import org.pharmgkb.pharmcat.util.DataManager;
 @Fork(2)
 public class ColdVsWarmIndexCacheBench {
 
-  /** Gene definitions restricted to a single gene, matching how the matcher is scoped in production. */
-  private DefinitionReader m_definitionReader;
+  /** Gene whose definition drives the index (RYR1: many haplotypes/positions, standard reference-defaulted path). */
+  private static final String GENE = "RYR1";
 
-  /** All-reference RYR1 VCF, reused for both benchmarks. */
-  private VcfFile m_vcfFile;
-
-  /** Matcher created once and reused across invocations (the "warm cache" case). */
-  private NamedAlleleMatcher m_warmMatcher;
-
-  /** Temporary directory cleaned up after the trial. */
-  private Path m_tempDir;
+  private DefinitionFile m_definitionFile;
+  private SortedSet<NamedAllele> m_haplotypes;
+  private VariantLocus[] m_permutationPositions;
 
 
   @Setup(Level.Trial)
   public void setup() throws Exception {
-    m_tempDir = Files.createTempDirectory("jmh-cache-");
-
-    String gene = "RYR1";
-    m_definitionReader = new DefinitionReader(
-        List.of(DataManager.getDefinitionFilePath(gene)),
+    DefinitionReader definitionReader = new DefinitionReader(
+        List.of(DataManager.getDefinitionFilePath(GENE)),
         DataManager.DEFAULT_EXEMPTIONS_FILE);
-
-    PositionsIndex positionsIndex = PositionsIndex.getInstance();
-    BenchmarkVcfBuilder builder = new BenchmarkVcfBuilder(gene, positionsIndex, m_definitionReader);
-    // No set() calls — every position defaults to 0/0 (all-reference).
-    Path vcfPath = m_tempDir.resolve("ryr1_allref.vcf");
-    builder.write(vcfPath);
-    m_vcfFile = new VcfFile(vcfPath);
-
-    m_warmMatcher = new NamedAlleleMatcher(TestVcfBuilder.DEFAULT_TEST_ENV, m_definitionReader,
-        /*findCombinations=*/false, /*topCandidateOnly=*/true, /*callCyp2d6=*/false);
-  }
-
-
-  @TearDown(Level.Trial)
-  public void tearDown() throws Exception {
-    if (m_tempDir != null) {
-      Path vcf = m_tempDir.resolve("ryr1_allref.vcf");
-      Files.deleteIfExists(vcf);
-      Files.deleteIfExists(m_tempDir);
-    }
+    m_definitionFile = definitionReader.getDefinitionFile(GENE);
+    // Inputs to a cold build, matching DefinitionFile.buildCandidateIndex(assumeReference=true, findCombinations=false).
+    m_haplotypes = m_definitionFile.getNamedAlleles();
+    m_permutationPositions = Arrays.stream(m_definitionFile.getVariants()).sorted().toArray(VariantLocus[]::new);
+    // Prime the warm cache once so warmLookup measures a pure cache hit.
+    m_definitionFile.getCandidateIndex(true, false);
   }
 
 
   /**
-   * Cold cache: a new {@link NamedAlleleMatcher} (and thus a new, empty {@code m_indexCache}) is created for every
-   * sample, so the per-gene {@link HaplotypeCandidateIndex} is rebuilt from scratch every call.
+   * Cold: rebuild the per-gene index from scratch every call (pre-#1 per-sample cost).
    */
   @Benchmark
-  public void coldCache(Blackhole bh) throws Exception {
-    NamedAlleleMatcher matcher = new NamedAlleleMatcher(TestVcfBuilder.DEFAULT_TEST_ENV, m_definitionReader,
-        /*findCombinations=*/false, /*topCandidateOnly=*/true, /*callCyp2d6=*/false);
-    Result result = matcher.call(m_vcfFile, null, null);
-    bh.consume(result);
+  public void coldBuild(Blackhole bh) {
+    bh.consume(new HaplotypeCandidateIndex(m_haplotypes, m_permutationPositions, true));
   }
 
 
   /**
-   * Warm cache: the same {@link NamedAlleleMatcher} instance is reused across samples, so the per-gene
-   * {@link HaplotypeCandidateIndex} is built once and shared thereafter.
+   * Warm: fetch the index from the {@link DefinitionFile} cache introduced by #1 (shared across samples).
    */
   @Benchmark
-  public void warmCache(Blackhole bh) throws Exception {
-    Result result = m_warmMatcher.call(m_vcfFile, null, null);
-    bh.consume(result);
+  public void warmLookup(Blackhole bh) {
+    bh.consume(m_definitionFile.getCandidateIndex(true, false));
   }
 }
