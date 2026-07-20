@@ -74,6 +74,7 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | UGT1A1  | \*1/\*80+\*28              | Intermediate       | \*28/\*80                            | Indeterminate               |
 | UGT1A1  | \*1/\*80+\*37              | Intermediate       | \*37/\*80                            | Indeterminate               |
 | TPMT    | \*1/\*3A                   | Intermediate       | \*3B/\*3C                            | Poor                        |
+| TPMT    | \*1/\*46                   | Intermediate       | \*8/\*33                             | Possible Intermediate       |
 | NUDT15  | \*1/\*2                    | Intermediate       | \*3/\*6                              | Possible Intermediate       |
 | CYP2C9  | \*1/\*71                   | Indeterminate      | \*10/\*22                            | Indeterminate               |
 | CYP2C19 | \*1/\*34                   | Indeterminate      | \*38/\*40                            | N/A                         |
