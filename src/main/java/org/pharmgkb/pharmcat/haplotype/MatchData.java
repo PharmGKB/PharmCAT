@@ -7,6 +7,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.HaplotypeCandidateIndex;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -212,7 +214,7 @@ public class MatchData {
       if (findCombinations) {
         m_haplotypes = new TreeSet<>();
         for (NamedAllele hap : allHaplotypes) {
-          if (isIgnorableCombination(gene, hap)) {
+          if (DefinitionFile.isIgnorableCombination(gene, hap)) {
             continue;
           }
           m_haplotypes.add(hap);
@@ -239,7 +241,7 @@ public class MatchData {
 
     m_haplotypes = new TreeSet<>();
     for (NamedAllele hap : allHaplotypes) {
-      if (findCombinations && isIgnorableCombination(gene, hap)) {
+      if (findCombinations && DefinitionFile.isIgnorableCombination(gene, hap)) {
         continue;
       }
       // get alleles for positions we have data on
@@ -287,13 +289,6 @@ public class MatchData {
   public boolean hasPartialMissingAlleles() {
     return m_sampleMap.values().stream()
         .anyMatch(sa -> sa.getVcfCall().contains("."));
-  }
-
-  static boolean isIgnorableCombination(String gene, NamedAllele hap) {
-    if (gene.equalsIgnoreCase("UGT1A1")) {
-      return hap.getName().contains("+");
-    }
-    return false;
   }
 
   /**

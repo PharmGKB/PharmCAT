@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.haplotype;
+package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,19 +11,18 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import org.jspecify.annotations.Nullable;
-import org.pharmgkb.pharmcat.definition.model.NamedAllele;
-import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
 /**
- * Immutable per-gene BitSet index used by {@link MatchData#comparePermutations()} to look up haplotypes compatible with
+ * Immutable per-gene BitSet index used by {@code MatchData.comparePermutations()} to look up haplotypes compatible with
  * an observed allele in constant time.
  *
  * <p>The index depends only on the callable {@link NamedAllele} set, the ordered permutation positions, and the
  * "default missing alleles to reference" flag; when the sample has no missing positions, all three are determined by
- * (gene, findCombinations, defaultMissingAllelesToReference), which lets {@link NamedAlleleMatcher} cache instances
- * across samples.</p>
+ * (gene, findCombinations, defaultMissingAllelesToReference), which lets {@link DefinitionFile} cache and share
+ * instances across samples.</p>
  *
  * <p>Fields correspond to the three-way partition originally documented on {@code MatchData}:</p>
  * <ul>
@@ -33,7 +32,7 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
  *   <li>{@link #specificsAt} - haplotypes with a non-null raw allele, wobble-expanded at build time.</li>
  * </ul>
  */
-final class HaplotypeCandidateIndex {
+public final class HaplotypeCandidateIndex {
   private final List<NamedAllele> m_haplotypeIndex;
   private final VariantLocus[] m_permutationPositions;
   private final BitSet[] m_wildcardsAt;
@@ -43,8 +42,7 @@ final class HaplotypeCandidateIndex {
   private final boolean m_defaultMissingAllelesToReference;
 
 
-  @SuppressWarnings("unchecked")
-  HaplotypeCandidateIndex(SortedSet<NamedAllele> haplotypes, VariantLocus[] permutationPositions,
+  public HaplotypeCandidateIndex(SortedSet<NamedAllele> haplotypes, VariantLocus[] permutationPositions,
       boolean defaultMissingAllelesToReference) {
     m_haplotypeIndex = List.copyOf(haplotypes);
     m_permutationPositions = permutationPositions;
@@ -101,39 +99,39 @@ final class HaplotypeCandidateIndex {
   }
 
 
-  int numHaplotypes() {
+  public int numHaplotypes() {
     return m_haplotypeIndex.size();
   }
 
-  int numPositions() {
+  public int numPositions() {
     return m_permutationPositions.length;
   }
 
-  NamedAllele haplotypeAt(int index) {
+  public NamedAllele haplotypeAt(int index) {
     return m_haplotypeIndex.get(index);
   }
 
-  List<NamedAllele> haplotypes() {
+  public List<NamedAllele> haplotypes() {
     return m_haplotypeIndex;
   }
 
-  BitSet wildcardsAt(int p) {
+  public BitSet wildcardsAt(int p) {
     return m_wildcardsAt[p];
   }
 
-  BitSet defaultedToRefAt(int p) {
+  public BitSet defaultedToRefAt(int p) {
     return m_defaultedToRefAt[p];
   }
 
-  Set<String> refExpandedBasesAt(int p) {
+  public Set<String> refExpandedBasesAt(int p) {
     return m_refExpandedBasesAt[p];
   }
 
-  Map<String, BitSet> specificsAt(int p) {
+  public Map<String, BitSet> specificsAt(int p) {
     return m_specificsAt.get(p);
   }
 
-  boolean isDefaultMissingAllelesToReference() {
+  public boolean isDefaultMissingAllelesToReference() {
     return m_defaultMissingAllelesToReference;
   }
 

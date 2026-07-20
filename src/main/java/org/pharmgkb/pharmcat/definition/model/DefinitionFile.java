@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.definition.model;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -85,6 +86,15 @@ public class DefinitionFile {
   //-- cache
   private transient @Nullable Map<String, NamedAllele> m_namedAlleleMap;
   private transient @Nullable NamedAllele m_referenceNamedAllele;
+  /**
+   * Lazily built, shared-across-samples {@link HaplotypeCandidateIndex} cache, keyed by the two matching flags.
+   * Only valid for the full-coverage case (sample with no missing positions), where the callable haplotype set and
+   * permutation-position order are gene-level constants. Transient (never serialized) and thread-safe because a single
+   * {@link DefinitionFile} is shared across concurrent {@code BatchPharmCAT} worker threads.
+   */
+  private transient volatile @Nullable Map<CandidateIndexKey, HaplotypeCandidateIndex> m_candidateIndexCache;
+
+  private record CandidateIndexKey(boolean assumeReference, boolean findCombinations) {}
 
 
 
@@ -244,6 +254,53 @@ public class DefinitionFile {
       m_namedAlleleMap = map;
     }
   }
+
+
+  /**
+   * Gets the shared {@link HaplotypeCandidateIndex} for this gene and the given matching flags, building it on first
+   * use. This is only valid for samples with no missing positions; callers must enforce that precondition.
+   */
+  public HaplotypeCandidateIndex getCandidateIndex(boolean assumeReference, boolean findCombinations) {
+    Map<CandidateIndexKey, HaplotypeCandidateIndex> cache = m_candidateIndexCache;
+    if (cache == null) {
+      synchronized (this) {
+        cache = m_candidateIndexCache;
+        if (cache == null) {
+          cache = new ConcurrentHashMap<>();
+          m_candidateIndexCache = cache;
+        }
+      }
+    }
+    return cache.computeIfAbsent(new CandidateIndexKey(assumeReference, findCombinations),
+        key -> buildCandidateIndex(key.assumeReference(), key.findCombinations()));
+  }
+
+  private HaplotypeCandidateIndex buildCandidateIndex(boolean assumeReference, boolean findCombinations) {
+    VariantLocus[] permutationPositions = Arrays.stream(m_variants).sorted().toArray(VariantLocus[]::new);
+    SortedSet<NamedAllele> haplotypes;
+    if (findCombinations) {
+      haplotypes = new TreeSet<>();
+      for (NamedAllele hap : m_namedAlleles) {
+        if (!isIgnorableCombination(m_geneSymbol, hap)) {
+          haplotypes.add(hap);
+        }
+      }
+    } else {
+      haplotypes = m_namedAlleles;
+    }
+    return new HaplotypeCandidateIndex(haplotypes, permutationPositions, assumeReference);
+  }
+
+  /**
+   * Whether a named allele should be ignored during combination matching.
+   */
+  public static boolean isIgnorableCombination(String gene, NamedAllele hap) {
+    if (gene.equalsIgnoreCase("UGT1A1")) {
+      return hap.getName().contains("+");
+    }
+    return false;
+  }
+
 
   /**
    * Resets this {@link DefinitionFile}'s named alleles to the specified set.
