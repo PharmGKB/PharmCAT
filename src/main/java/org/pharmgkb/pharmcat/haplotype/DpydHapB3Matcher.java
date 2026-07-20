@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.base.Preconditions;
@@ -47,7 +46,7 @@ public class DpydHapB3Matcher {
   private final Env m_env;
   /** Original DPYD call data, including HapB3 positions and sample-adjusted definitions. */
   private final MatchData m_origData;
-  private final SortedMap<String, SampleAllele> m_alleleMap;
+  private final Map<String, SampleAllele> m_alleleMap;
   // calculated in constructor
   private final VariantLocus m_hapB3ExonLocus;
   private final VariantLocus m_hapB3IntronLocus;
@@ -60,7 +59,7 @@ public class DpydHapB3Matcher {
   private final Set<MessageAnnotation> m_warnings = new HashSet<>();
 
 
-  public DpydHapB3Matcher(Env env, SortedMap<String, SampleAllele> alleleMap, MatchData origData) {
+  public DpydHapB3Matcher(Env env, Map<String, SampleAllele> alleleMap, MatchData origData) {
     m_env = env;
     m_origData = origData;
     m_alleleMap = alleleMap;

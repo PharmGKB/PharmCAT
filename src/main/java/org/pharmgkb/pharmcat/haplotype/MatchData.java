@@ -106,7 +106,7 @@ public class MatchData {
    * @param allPositions all {@link VariantLocus} positions of interest for the gene, in ascending order
    * @param extraPositions extra positions to track sample alleles for
    */
-  public MatchData(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
+  public MatchData(String sampleId, String gene, Map<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
       @Nullable SortedSet<VariantLocus> extraPositions, @Nullable DefinitionExemption exemption) {
     m_sampleId = sampleId;
     m_gene = gene;

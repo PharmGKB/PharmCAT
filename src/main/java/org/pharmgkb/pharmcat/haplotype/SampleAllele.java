@@ -98,7 +98,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
       callBuilder.append(m_allele2);
     } else {
       m_allele2 = null;
-      String[] gtArray = VcfReader.GT_DELIMITER.split(gt);
+      String[] gtArray = VcfReader.splitGt(gt);
       if (gtArray.length > 1 && gtArray[1].equals(".")) {
         if (isPhased) {
           callBuilder.append("|");

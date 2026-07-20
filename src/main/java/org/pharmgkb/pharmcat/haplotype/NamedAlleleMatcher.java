@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -220,7 +219,7 @@ public class NamedAlleleMatcher {
    */
   public Result call(VcfFile vcfFile, @Nullable String sampleId, @Nullable Path sampleMetadataFile) throws IOException {
     VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId, m_findCombinations, m_verbose);
-    SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
+    Map<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap(), vcfReader.getSampleId(), sampleMetadataFile);
 
@@ -270,7 +269,7 @@ public class NamedAlleleMatcher {
    * Missing alleles in {@link NamedAllele}s should be treated as reference.
    * This determines how to interpret PharmCAT named allele definitions, not sample data.
    */
-  private void callAssumingReference(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+  private void callAssumingReference(String sampleId, Map<String, SampleAllele> alleleMap, String gene,
       ResultBuilder resultBuilder) {
 
     MatchData data = initializeCallData(sampleId, alleleMap, gene, true, false);
@@ -304,7 +303,7 @@ public class NamedAlleleMatcher {
     resultBuilder.diplotypes(gene, data, matches);
   }
 
-  private void callCombination(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+  private void callCombination(String sampleId, Map<String, SampleAllele> alleleMap, String gene,
       ResultBuilder resultBuilder) {
 
     MatchData data = initializeCallData(sampleId, alleleMap, gene, false, true);
@@ -330,7 +329,7 @@ public class NamedAlleleMatcher {
    * DPYD follows the same ladder with HapB3 removed from general matching and merged back by
    * {@link DpydHapB3Matcher}.
    */
-  private void callLowestFunctionGene(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap,
+  private void callLowestFunctionGene(String sampleId, String gene, Map<String, SampleAllele> alleleMap,
       ResultBuilder resultBuilder) {
 
     MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
@@ -451,7 +450,7 @@ public class NamedAlleleMatcher {
    * @return true if a call was reported and the caller should return; false if this stage produced no
    * HapB3-mergeable result and matching should continue
    */
-  private boolean mergeDpydHapB3Call(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+  private boolean mergeDpydHapB3Call(String sampleId, Map<String, SampleAllele> alleleMap, String gene,
       DpydHapB3Matcher dpydHapB3Matcher, SortedSet<DiplotypeMatch> diplotypeMatches, boolean applyFixPartials,
       ResultBuilder resultBuilder) {
 
@@ -554,7 +553,7 @@ public class NamedAlleleMatcher {
    * @param assumeReference true if missing alleles in {@link NamedAllele}s should be treated as reference.
    * This determines how to interpret PharmCAT named allele definitions, not sample data.
    */
-  private MatchData initializeCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+  private MatchData initializeCallData(String sampleId, Map<String, SampleAllele> alleleMap, String gene,
       boolean assumeReference, boolean findCombinations) {
 
     String context = gene + " initializeCallData(assumeReference=" + assumeReference +
@@ -582,7 +581,7 @@ public class NamedAlleleMatcher {
   /**
    * Selects DPYD definitions without HapB3 before running the shared MatchData preparation pipeline.
    */
-  private MatchData initializeDpydCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap,
+  private MatchData initializeDpydCallData(String sampleId, Map<String, SampleAllele> alleleMap,
       boolean assumeReference, boolean findCombinations) {
 
     String gene = "DPYD";
@@ -609,7 +608,7 @@ public class NamedAlleleMatcher {
    * The order is intentional: {@code marshallHaplotypes} (which folds reference defaulting into the same pass) must run
    * before {@code generateSamplePermutations}.
    */
-  private MatchData prepareMatchData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+  private MatchData prepareMatchData(String sampleId, Map<String, SampleAllele> alleleMap, String gene,
       SortedSet<NamedAllele> alleles, VariantLocus[] allPositions, @Nullable DefinitionExemption exemption,
       boolean assumeReference, boolean findCombinations, String context, long totalStart) {
 

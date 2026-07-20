@@ -10,12 +10,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
@@ -23,7 +21,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.jspecify.annotations.Nullable;
-import org.pharmgkb.common.comparator.ChromosomePositionComparator;
 import org.pharmgkb.parser.vcf.VcfFormatException;
 import org.pharmgkb.parser.vcf.VcfLineParser;
 import org.pharmgkb.parser.vcf.VcfParser;
@@ -50,10 +47,8 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
  */
 public class VcfReader implements VcfLineParser {
   public static final String MSG_AD_FORMAT_MISSING = "AD format is not defined.  Assuming AD field is valid.";
-  public static final Pattern GT_DELIMITER = Pattern.compile("[|/]");
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Set<String> sf_haploidChromosomes = ImmutableSet.of("chrY", "chrM");
-  private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
   private static final String sf_filterCodeRef = "PCATxREF";
   private static final String sf_filterCodeAlt = "PCATxALT";
   private static final String sf_filterCodeIndel = "PCATxINDEL";
@@ -67,8 +62,10 @@ public class VcfReader implements VcfLineParser {
   private boolean m_adFormatDefined;
   private boolean m_useAdFormat = true;
   private @Nullable String m_genomeBuild;
-  // <chr:position, allele>
-  private final SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
+  // <chr:position, allele>; keyed lookup only (no consumer relies on sorted order, and MatchData re-sorts by numeric
+  // position), so a LinkedHashMap avoids the regex-based ChromosomePositionComparator while keeping deterministic
+  // (file-order) iteration
+  private final Map<String, SampleAllele> m_alleleMap = new LinkedHashMap<>();
   // <chr:position, warning>
   private final SortedSetMultimap<String, String> m_warnings = TreeMultimap.create();
   private final Set<String> m_discardedPositions = new HashSet<>();
@@ -170,7 +167,7 @@ public class VcfReader implements VcfLineParser {
    *
    * @return map of {@code <chr:position, SampleAllele>}
    */
-  public SortedMap<String, SampleAllele> getAlleleMap() {
+  public Map<String, SampleAllele> getAlleleMap() {
     return m_alleleMap;
   }
 
@@ -331,7 +328,7 @@ public class VcfReader implements VcfLineParser {
       m_discardedPositions.add(chrPos);
       return;
     }
-    String[] gtArray = GT_DELIMITER.split(gt);
+    String[] gtArray = splitGt(gt);
     List<Integer> gtNonMissing = Arrays.stream(gtArray)
         .filter(g -> !g.equals("."))
         .map(Integer::parseInt)
@@ -604,7 +601,7 @@ public class VcfReader implements VcfLineParser {
     } else if (gt1.toUpperCase().contains("N")) {
       addWarning(chrPos, "Discarded genotype at this position because REF uses ambiguous allele in '" + gt1 + "'");
       isValid = false;
-    } else if (!sf_allelePattern.matcher(gt1).matches()) {
+    } else if (!isAcgt(gt1)) {
       addWarning(chrPos, "Discarded genotype at this position because REF uses unknown base in '" + gt1 + "'");
       isValid = false;
     }
@@ -627,7 +624,7 @@ public class VcfReader implements VcfLineParser {
           isValid = false;
         }
         addWarning(chrPos, prefix + "ALT uses missing allele in '" + gt2 + "'");
-      } else if (!sf_allelePattern.matcher(gt2).matches()) {
+      } else if (!isAcgt(gt2)) {
         if (isG2Selected) {
           isValid = false;
         }
@@ -636,6 +633,59 @@ public class VcfReader implements VcfLineParser {
     }
 
     return isValid;
+  }
+
+
+  /**
+   * Splits a VCF GT value on the phasing delimiters ('|' or '/'), matching {@code Pattern.compile("[|/]").split(gt)}
+   * (including its removal of trailing empty fields) without the regex engine.
+   */
+  static String[] splitGt(String gt) {
+    int delims = 0;
+    for (int i = 0; i < gt.length(); i += 1) {
+      char c = gt.charAt(i);
+      if (c == '|' || c == '/') {
+        delims += 1;
+      }
+    }
+    if (delims == 0) {
+      return new String[] { gt };
+    }
+    String[] parts = new String[delims + 1];
+    int idx = 0;
+    int start = 0;
+    for (int i = 0; i < gt.length(); i += 1) {
+      char c = gt.charAt(i);
+      if (c == '|' || c == '/') {
+        parts[idx++] = gt.substring(start, i);
+        start = i + 1;
+      }
+    }
+    parts[idx] = gt.substring(start);
+    // drop trailing empty fields to match Pattern.split with the default limit of 0
+    int end = parts.length;
+    while (end > 0 && parts[end - 1].isEmpty()) {
+      end -= 1;
+    }
+    return end == parts.length ? parts : Arrays.copyOf(parts, end);
+  }
+
+  /**
+   * True if {@code s} is non-empty and every character is A/C/G/T (case-insensitive), matching {@code ^[AaCcGgTt]+$}.
+   */
+  private static boolean isAcgt(String s) {
+    if (s.isEmpty()) {
+      return false;
+    }
+    for (int i = 0; i < s.length(); i += 1) {
+      switch (s.charAt(i)) {
+        case 'A', 'a', 'C', 'c', 'G', 'g', 'T', 't' -> { }
+        default -> {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
 
