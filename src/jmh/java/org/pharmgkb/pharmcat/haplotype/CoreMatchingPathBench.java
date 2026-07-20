@@ -54,8 +54,10 @@ import org.pharmgkb.pharmcat.util.DataManager;
 @Fork(2)
 public class CoreMatchingPathBench {
 
-  private GeneCase m_cyp2c19;
-  private GeneCase m_ryr1;
+  private GeneCase m_cyp2c19Unphased;
+  private GeneCase m_cyp2c19Phased;
+  private GeneCase m_ryr1Unphased;
+  private GeneCase m_ryr1Phased;
   private Path m_tempDir;
 
 
@@ -63,30 +65,46 @@ public class CoreMatchingPathBench {
   public void setup() throws Exception {
     m_tempDir = Files.createTempDirectory("jmh-corematch-");
     PositionsIndex positionsIndex = PositionsIndex.getInstance();
-    m_cyp2c19 = GeneCase.build("CYP2C19", positionsIndex, m_tempDir);
-    m_ryr1 = GeneCase.build("RYR1", positionsIndex, m_tempDir);
+    m_cyp2c19Unphased = GeneCase.build("CYP2C19", positionsIndex, m_tempDir, false);
+    m_cyp2c19Phased = GeneCase.build("CYP2C19", positionsIndex, m_tempDir, true);
+    m_ryr1Unphased = GeneCase.build("RYR1", positionsIndex, m_tempDir, false);
+    m_ryr1Phased = GeneCase.build("RYR1", positionsIndex, m_tempDir, true);
   }
 
 
   @TearDown(Level.Trial)
   public void tearDown() throws Exception {
     if (m_tempDir != null) {
-      Files.deleteIfExists(m_cyp2c19.vcfPath);
-      Files.deleteIfExists(m_ryr1.vcfPath);
+      Files.deleteIfExists(m_cyp2c19Unphased.vcfPath);
+      Files.deleteIfExists(m_cyp2c19Phased.vcfPath);
+      Files.deleteIfExists(m_ryr1Unphased.vcfPath);
+      Files.deleteIfExists(m_ryr1Phased.vcfPath);
       Files.deleteIfExists(m_tempDir);
     }
   }
 
 
   @Benchmark
-  public void cyp2c19(Blackhole bh) {
-    bh.consume(m_cyp2c19.run());
+  public void cyp2c19Unphased(Blackhole bh) {
+    bh.consume(m_cyp2c19Unphased.run());
   }
 
 
   @Benchmark
-  public void ryr1(Blackhole bh) {
-    bh.consume(m_ryr1.run());
+  public void cyp2c19Phased(Blackhole bh) {
+    bh.consume(m_cyp2c19Phased.run());
+  }
+
+
+  @Benchmark
+  public void ryr1Unphased(Blackhole bh) {
+    bh.consume(m_ryr1Unphased.run());
+  }
+
+
+  @Benchmark
+  public void ryr1Phased(Blackhole bh) {
+    bh.consume(m_ryr1Phased.run());
   }
 
 
@@ -114,16 +132,18 @@ public class CoreMatchingPathBench {
       this.vcfPath = vcfPath;
     }
 
-    static GeneCase build(String gene, PositionsIndex positionsIndex, Path tempDir) throws Exception {
+    static GeneCase build(String gene, PositionsIndex positionsIndex, Path tempDir, boolean phased) throws Exception {
       DefinitionReader definitionReader = new DefinitionReader(
           List.of(DataManager.getDefinitionFilePath(gene)),
           DataManager.DEFAULT_EXEMPTIONS_FILE);
       BenchmarkVcfBuilder builder = new BenchmarkVcfBuilder(gene, positionsIndex, definitionReader);
       int n = Math.min(6, builder.size());
+      // Phased het (0|1) yields 2 permutations (effectively phased); unphased het (0/1) yields 2^n permutations.
+      String gt = phased ? "0|1" : "0/1";
       for (int i = 0; i < n; i++) {
-        builder.set(i, "0/1");
+        builder.set(i, gt);
       }
-      Path vcfPath = tempDir.resolve(gene.toLowerCase() + "_het.vcf");
+      Path vcfPath = tempDir.resolve(gene.toLowerCase() + (phased ? "_phased" : "_unphased") + ".vcf");
       builder.write(vcfPath);
 
       VcfFile vcfFile = new VcfFile(vcfPath);
