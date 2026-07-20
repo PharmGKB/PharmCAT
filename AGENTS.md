@@ -35,6 +35,12 @@ From the repository root:
   - `gradlew.bat shadowJar`
 - Test Python preprocessor:
   - `make test-preprocessor`
+- Run Java tests with timing and a pass/fail summary (Unix helper; wraps `./gradlew cleanTest test`):
+  - `bin/run-tests.sh` — full test suite
+  - `bin/run-tests.sh 'org.pharmgkb.pharmcat.DpydTest' 'org.pharmgkb.pharmcat.haplotype.*'` — one or more Gradle
+    `--tests` filter patterns
+  - Prints wall-clock duration, the Gradle exit code, and `tests=… failures=… errors=… skipped=…` (plus any failing
+    test names); full output is written to `build/run-tests.log`.
 
 Prefer the smallest command that validates the change.
 
@@ -65,7 +71,8 @@ Never modify these files:
 
 ## Validation guidance
 
-- For Java logic changes, prefer targeted Gradle tests first.
+- For Java logic changes, prefer targeted Gradle tests first (e.g. `bin/run-tests.sh '<test pattern>'...`, which
+  reports a pass/fail summary).
 - For preprocessor-only changes, validate the smallest relevant command or test path in `preprocessor/`.
 - For docs-only changes, avoid runtime-heavy validation unless the task depends on generated docs output.
 - If a task touches release or packaging behavior, note clearly which outputs are expected to change.
