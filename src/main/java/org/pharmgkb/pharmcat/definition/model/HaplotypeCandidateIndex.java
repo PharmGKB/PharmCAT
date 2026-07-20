@@ -24,12 +24,13 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
  * (gene, findCombinations, defaultMissingAllelesToReference), which lets {@link DefinitionFile} cache and share
  * instances across samples.</p>
  *
- * <p>Fields correspond to the three-way partition originally documented on {@code MatchData}:</p>
+ * <p>Internally each position partitions the haplotypes three ways (originally documented on {@code MatchData}), and
+ * {@link #compatibleHaplotypes} unions the relevant parts for an observed allele:</p>
  * <ul>
- *   <li>{@link #wildcardsAt} - haplotypes whose raw allele is {@code null} and matches any observed value.</li>
- *   <li>{@link #defaultedToRefAt} - non-reference haplotypes whose null slot defaults to reference; matched only when
+ *   <li>{@code wildcards} - haplotypes whose raw allele is {@code null} and matches any observed value.</li>
+ *   <li>{@code defaultedToRef} - non-reference haplotypes whose null slot defaults to reference; matched only when
  *       the observed allele expands to the reference-defaulted value.</li>
- *   <li>{@link #specificsAt} - haplotypes with a non-null raw allele, wobble-expanded at build time.</li>
+ *   <li>{@code specifics} - haplotypes with a non-null raw allele, wobble-expanded at build time.</li>
  * </ul>
  */
 public final class HaplotypeCandidateIndex {
@@ -115,24 +116,30 @@ public final class HaplotypeCandidateIndex {
     return m_haplotypeIndex;
   }
 
-  public BitSet wildcardsAt(int p) {
-    return m_wildcardsAt[p];
-  }
-
-  public BitSet defaultedToRefAt(int p) {
-    return m_defaultedToRefAt[p];
-  }
-
-  public Set<String> refExpandedBasesAt(int p) {
-    return m_refExpandedBasesAt[p];
-  }
-
-  public Map<String, BitSet> specificsAt(int p) {
-    return m_specificsAt.get(p);
-  }
-
   public boolean isDefaultMissingAllelesToReference() {
     return m_defaultMissingAllelesToReference;
+  }
+
+
+  /**
+   * Builds the set of haplotypes compatible with {@code observedAllele} at permutation position {@code p}. The returned
+   * BitSet is freshly allocated and owned by the caller, so it can be memoized or used directly as a BitSet operand.
+   */
+  public BitSet compatibleHaplotypes(int p, @Nullable String observedAllele) {
+    BitSet result = (BitSet) m_wildcardsAt[p].clone();
+    if (observedAllele != null) {
+      BitSet specifics = m_specificsAt.get(p).get(observedAllele);
+      if (specifics != null) {
+        result.or(specifics);
+      }
+      // Non-ref haplotypes whose null slot defaults to ref are compatible when obs equals the ref-defaulted value.
+      if (m_refExpandedBasesAt[p].contains(observedAllele)) {
+        result.or(m_defaultedToRefAt[p]);
+      }
+    }
+    // observedAllele == null: matchesAllele(expected, null) is false for all non-null expected values, which is exactly
+    // the wildcard set. Cloning m_wildcardsAt is correct in that case too.
+    return result;
   }
 
 

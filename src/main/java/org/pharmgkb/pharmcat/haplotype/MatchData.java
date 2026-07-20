@@ -695,30 +695,15 @@ public class MatchData {
 
   /**
    * Gets haplotypes compatible with one observed allele, computing that cache entry on first use.
-   * The returned BitSet is owned by the index; callers must clone it or use it only as the right-hand operand of a
-   * BitSet operation.
+   * The returned BitSet is owned by the memo; callers must use it only as a read-only BitSet operand.
    */
   private BitSet getCompatibleHaplotypes(int positionIndex, @Nullable String observedAllele) {
     assert m_index != null;
     assert m_candidateIndex != null;
     HaplotypeCandidateIndex index = m_index;
     Map<String, BitSet> candidatesByAllele = m_candidateIndex.get(positionIndex);
-    return candidatesByAllele.computeIfAbsent(observedAllele, allele -> {
-      BitSet result = (BitSet) index.wildcardsAt(positionIndex).clone();
-      if (allele != null) {
-        BitSet specifics = index.specificsAt(positionIndex).get(allele);
-        if (specifics != null) {
-          result.or(specifics);
-        }
-        // Non-ref haplotypes whose null slot defaults to ref are compatible when obs equals the ref-defaulted value.
-        if (index.refExpandedBasesAt(positionIndex).contains(allele)) {
-          result.or(index.defaultedToRefAt(positionIndex));
-        }
-      }
-      // observedAllele == null: matchesAllele(expected, null) is false for all non-null expected values,
-      // which is exactly the wildcard set. Cloning m_wildcardsAt is correct in that case too.
-      return result;
-    });
+    return candidatesByAllele.computeIfAbsent(observedAllele,
+        allele -> index.compatibleHaplotypes(positionIndex, allele));
   }
 
 
