@@ -376,11 +376,9 @@ public class MatchData {
    */
   void generateSamplePermutations() {
 
-    m_permutations = CombinationUtil.generatePermutationData(
-        m_sampleMap.values().stream()
-            .sorted()
-            .toList()
-    );
+    // m_sampleMap is a TreeMap keyed by position, so its values are already in ascending numeric position order, which
+    // is the order generatePermutationData expects; no additional sort is needed.
+    m_permutations = CombinationUtil.generatePermutationData(new ArrayList<>(m_sampleMap.values()));
     m_encodedPermutations = null;
     m_isEffectivelyPhased = m_permutations.size() <= 2;
   }
