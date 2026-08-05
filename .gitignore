@@ -37,6 +37,11 @@ venv/
 *~
 *:Zone.Identifier
 /build/
+/eng/history
+REVIEW_SOP.md
+TODO.md
+state.md
+story_so_far.md
 
 # PharmCAT specific
 /docs/assets/

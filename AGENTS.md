@@ -83,6 +83,13 @@ Never modify these files:
 - For docs-only changes, avoid runtime-heavy validation unless the task depends on generated docs output.
 - If a task touches release or packaging behavior, note clearly which outputs are expected to change.
 
+## Commit guidance
+
+- Commit messages use conventional-commits style (`type(scope): summary`). `scope` is drawn from `namedAlleleMatcher`, `phenotyper`, `reporter`, `preprocessor`, `data`, `build` and `tools` -- never a class name. A commit touching more than one of these areas may list multiple, comma-separated (e.g. `type(parser,writer): summary`), rather than picking one to cover the rest.
+- A single logical change should land as one commit. Squash incidental churn (fix-loop iterations, a reconsidered design, a follow-up correction) into the commit for the item it belongs to rather than leaving it split across commits, and bundle several individually-trivial fixes -- pure documentation/comment changes especially -- into one commit even when they're unrelated to each other. Reserve a dedicated commit for anything with a real design decision, a behavior change, or genuine risk, so it can be reviewed and reverted independently.
+- A rename (a class, method, or other identifier that appears by name in prose, not just in code) isn't finished until the repo's own tracked `*.md` docs are checked for the old name too (not `CHANGELOG.md`, which is semantic-release-owned history, never hand-edited).
+
+
 ## Cautions
 
 - This is a biomedical/pharmacogenomics project. Treat behavioral changes as high sensitivity; avoid silent logic
