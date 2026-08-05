@@ -46,9 +46,9 @@ public class ZipUtils {
    * Protect against Zip Slip.
    */
   private static Path newFile(Path destDir, ZipEntry zipEntry) throws IOException {
-    Path destFile = destDir.resolve(zipEntry.getName());
-    Path normalizePath = destDir.normalize();
-    if (!normalizePath.startsWith(destDir)) {
+    Path normalizedDestDir = destDir.normalize();
+    Path destFile = normalizedDestDir.resolve(zipEntry.getName()).normalize();
+    if (!destFile.startsWith(normalizedDestDir)) {
       throw new IOException("Bad zip entry: " + zipEntry.getName());
     }
     return destFile;
