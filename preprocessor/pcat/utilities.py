@@ -1406,7 +1406,7 @@ def check_max_processes(requested_max_processes: int | None, validate: bool = Tr
             print("Warning:", max_processes, "processes requested, but python on Windows is limited to 61")
         max_processes = 61
 
-    if verbose and not validate and requested_max_processes and requested_max_processes != max_processes:
+    if verbose and not validate and requested_max_processes != max_processes:
         print('Using a maximum of %s concurrent processes' % max_processes)
     return max_processes
 

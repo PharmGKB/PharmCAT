@@ -679,6 +679,17 @@ def test_check_max_processes_non_windows_uncapped(monkeypatch):
     assert utils.check_max_processes(70) == 70
 
 
+def test_check_max_processes_verbose_notice_for_auto_detected(monkeypatch, capsys):
+    monkeypatch.setattr(os, 'name', 'posix')
+    monkeypatch.setattr(os, 'cpu_count', lambda: 8)
+
+    # verbose + validate=False (the mode used by the concurrent-processing call sites) must still report the
+    # auto-detected process count, not silently skip the notice because the request was None
+    result = utils.check_max_processes(None, validate=False, verbose=1)
+    assert result == 6
+    assert 'Using a maximum of 6 concurrent processes' in capsys.readouterr().out
+
+
 def test_check_max_memory():
     assert utils.check_max_memory(None) is None
     assert utils.check_max_memory('') is None
