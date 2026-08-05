@@ -11,8 +11,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
-
 
 /**
  * This class represents a row in the recommendations table.
@@ -54,7 +52,7 @@ public class Report {
           for (GeneReport geneReport : guideline.getGeneReports()) {
             for (Diplotype dip : geneReport.getRecommendationDiplotypes()) {
               if (dip.isInferred()) {
-                if (isLowestFunctionGene(geneReport.getGene())) {
+                if (geneReport.getGene().equals("DPYD")) {
                   m_unmatchedDpydInferred = true;
                 } else {
                   m_unmatchedInferred = true;
