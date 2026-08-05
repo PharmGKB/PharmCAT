@@ -15,6 +15,18 @@ import pcat.utilities as utils
 from pcat import ReportableException, InappropriateVCFSuffix, InvalidURL, common
 
 
+def test_run_pharmcat_reports_failure_with_no_stderr(monkeypatch):
+    """
+    Regression test: run_pharmcat() must raise a ReportableException when the subprocess fails, even if it
+    produced no stderr output. Previously, both branches of the CalledProcessError handler were skipped in that
+    case, silently swallowing the failure instead of reporting it.
+    """
+    monkeypatch.setattr(common, 'JAVA_PATH', 'false')
+    with pytest.raises(ReportableException) as context:
+        utils.run_pharmcat(Path('fake.jar'), [], 1)
+    assert 'Failed to run' in context.value.msg
+
+
 def test_validate_tool():
     utils.validate_tool('bcftools', 'bcftools')
 

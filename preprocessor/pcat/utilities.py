@@ -122,6 +122,8 @@ def run_pharmcat(jar_location: Path, args: list[str], max_processes: int, max_me
     except subprocess.CalledProcessError as e:
         if e.stderr:
             raise ReportableException(e.stderr)
+        else:
+            raise ReportableException('Error: Failed to run %s' % ' '.join(command))
 
 
 def validate_tool(tool_name: str, tool_path: str, min_version: str | None = None):
