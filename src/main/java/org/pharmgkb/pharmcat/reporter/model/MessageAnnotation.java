@@ -144,7 +144,7 @@ public class MessageAnnotation implements Comparable<MessageAnnotation> {
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_name, m_version, m_exceptionType, m_matches);
+    return Objects.hash(m_name, m_version, m_exceptionType, m_message);
   }
 
 
