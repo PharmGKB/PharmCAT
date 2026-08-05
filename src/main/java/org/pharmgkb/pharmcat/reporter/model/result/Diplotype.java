@@ -482,14 +482,16 @@ public class Diplotype implements Comparable<Diplotype> {
 
     rez = ObjectUtils.compare(m_label, o.getLabel());
     if (rez != 0) {
-      rez = compareAllele(m_allele1, o.getAllele1());
-      if (rez != 0) {
-        return rez;
+      int alleleRez = compareAllele(m_allele1, o.getAllele1());
+      if (alleleRez == 0) {
+        alleleRez = compareAllele(m_allele2, o.getAllele2());
       }
-      rez = compareAllele(m_allele2, o.getAllele2());
-      if (rez != 0) {
-        return rez;
+      if (alleleRez != 0) {
+        return alleleRez;
       }
+      // alleles don't distinguish these diplotypes (e.g. both missing, as with phenotype-only outside calls) -
+      // fall back to the label difference so compareTo stays consistent with equals()
+      return rez;
     }
 
     return ObjectUtils.compare(m_inferred, o.isInferred());

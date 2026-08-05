@@ -13,6 +13,7 @@ import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -224,6 +225,26 @@ public class DiplotypeTest {
     assertThat(dip.getLookupKeys(), contains("4.0"));
     assertNull(dip.getOutsidePhenotypeMismatch());
     assertNotNull(dip.getOutsideActivityScoreMismatch());
+  }
+
+  /**
+   * Regression test: {@code compareTo()} must stay consistent with {@code equals()}. Two phenotype-only diplotypes
+   * (no alleles, e.g. from outside calls) with different labels used to compare as equal, because differing labels
+   * fell through to comparing alleles (both {@code null} here) without ever falling back to the label difference,
+   * silently dropping one of them from a {@code TreeSet}.
+   */
+  @Test
+  void testCompareToConsistentWithEqualsForPhenotypeOnlyDiplotypes() {
+    Diplotype dip1 = new Diplotype("GENEX", "Poor Metabolizer", DataSource.UNKNOWN);
+    Diplotype dip2 = new Diplotype("GENEX", "Normal Metabolizer", DataSource.UNKNOWN);
+
+    assertNotEquals(dip1, dip2);
+    assertNotEquals(0, dip1.compareTo(dip2), "compareTo() must be consistent with equals()");
+
+    TreeSet<Diplotype> diplotypes = new TreeSet<>();
+    diplotypes.add(dip1);
+    diplotypes.add(dip2);
+    assertEquals(2, diplotypes.size(), "both diplotypes should be retained in a TreeSet");
   }
 
   private void logDiplotype(Diplotype dip) {
