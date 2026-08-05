@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.List;
+import java.util.TreeSet;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
@@ -79,5 +80,24 @@ class GeneReportTest {
     assertEquals(1, geneCalls.size());
     assertTrue(geneCalls.contains("*1/*XXX"));
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
+  }
+
+  /**
+   * Regression test: {@code compareTo()} must stay consistent with {@code equals()}. Two {@link GeneReport}s
+   * whose gene symbols differ only by case are not {@code equals()} (case-sensitive), so they must not
+   * {@code compareTo()} as equal either.
+   */
+  @Test
+  void testCompareToConsistentWithEqualsForDifferentCaseGene() {
+    GeneReport geneReport1 = new GeneReport("CYP2D6", "test");
+    GeneReport geneReport2 = new GeneReport("cyp2d6", "test");
+
+    assertNotEquals(geneReport1, geneReport2);
+    assertNotEquals(0, geneReport1.compareTo(geneReport2), "compareTo() must be consistent with equals()");
+
+    TreeSet<GeneReport> geneReports = new TreeSet<>();
+    geneReports.add(geneReport1);
+    geneReports.add(geneReport2);
+    assertEquals(2, geneReports.size(), "both gene reports should be retained in a TreeSet");
   }
 }

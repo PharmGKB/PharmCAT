@@ -641,7 +641,7 @@ public class GeneReport implements Comparable<GeneReport> {
       return 0;
     }
     int rez = new ComparisonChain()
-        .compareIgnoreCase(m_gene, o.getGene())
+        .compare(m_gene, o.getGene())
         .result();
     if (rez != 0) {
       return rez;
