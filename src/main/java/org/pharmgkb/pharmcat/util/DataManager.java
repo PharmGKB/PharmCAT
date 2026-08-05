@@ -420,7 +420,7 @@ public class DataManager {
     if (Objects.requireNonNull(star1.getAllele(positions[1])).equals(star45.getAllele(positions[1]))) {
       throw new IllegalStateException("Expected *45's V174A allele to be different from *1's allele");
     }
-    if (Objects.requireNonNull(star1.getAllele(positions[2])).equals(star45.getAllele(positions[1]))) {
+    if (Objects.requireNonNull(star1.getAllele(positions[2])).equals(star45.getAllele(positions[2]))) {
       throw new IllegalStateException("Expected *45's R580X allele to be different from *1's allele");
     }
 
