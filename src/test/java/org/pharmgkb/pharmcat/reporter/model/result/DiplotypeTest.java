@@ -247,6 +247,30 @@ public class DiplotypeTest {
     assertEquals(2, diplotypes.size(), "both diplotypes should be retained in a TreeSet");
   }
 
+  /**
+   * Regression test: {@code compareTo()} must stay consistent with {@code equals()}. {@code buildLabel()} sorts
+   * allele names before joining them, so two diplotypes holding the same allele pair in swapped order (as can
+   * happen via an outside call, which sets alleles directly from the unsorted "/"-split input) produce an
+   * identical label. {@code equals()}/{@code hashCode()} compare alleles positionally and correctly consider them
+   * different, so {@code compareTo()} must not stop at the (equal) label and return 0.
+   */
+  @Test
+  void testCompareToConsistentWithEqualsForSwappedAlleleOrder() {
+    OutsideCall call1 = new OutsideCall(s_env, "CYP2D6\t*2/*3", 1);
+    OutsideCall call2 = new OutsideCall(s_env, "CYP2D6\t*3/*2", 2);
+    Diplotype dip1 = new Diplotype(call1, s_env);
+    Diplotype dip2 = new Diplotype(call2, s_env);
+
+    assertEquals(dip1.getLabel(), dip2.getLabel(), "sorted labels should be identical");
+    assertNotEquals(dip1, dip2, "positionally-different alleles should not be equal");
+    assertNotEquals(0, dip1.compareTo(dip2), "compareTo() must be consistent with equals()");
+
+    TreeSet<Diplotype> diplotypes = new TreeSet<>();
+    diplotypes.add(dip1);
+    diplotypes.add(dip2);
+    assertEquals(2, diplotypes.size(), "both diplotypes should be retained in a TreeSet");
+  }
+
   private void logDiplotype(Diplotype dip) {
     System.out.println();
     System.out.println(dip);

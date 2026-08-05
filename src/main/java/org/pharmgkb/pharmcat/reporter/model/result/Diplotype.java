@@ -494,6 +494,16 @@ public class Diplotype implements Comparable<Diplotype> {
       return rez;
     }
 
+    // labels match (buildLabel() sorts allele names, so a swapped-order allele pair can still produce an
+    // identical label) - compare alleles positionally, same as equals(), before falling back to m_inferred
+    int alleleRez = compareAllele(m_allele1, o.getAllele1());
+    if (alleleRez == 0) {
+      alleleRez = compareAllele(m_allele2, o.getAllele2());
+    }
+    if (alleleRez != 0) {
+      return alleleRez;
+    }
+
     return ObjectUtils.compare(m_inferred, o.isInferred());
   }
 
