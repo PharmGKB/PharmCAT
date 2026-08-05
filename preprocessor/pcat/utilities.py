@@ -1400,11 +1400,11 @@ def check_max_processes(requested_max_processes: int | None, validate: bool = Tr
                       (requested_max_processes, os.cpu_count()))
                 print('Will use a maximum of %s concurrent processes.' % max_processes)
 
-    if os.name == 'nt' and requested_max_processes > 61:
+    if os.name == 'nt' and max_processes > 61:
         # Windows has a max of 61 workers: https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor
-        max_processes = 61
         if validate:
-            print("Warning:", requested_max_processes, "processes requested, but python on Windows is limited to 61")
+            print("Warning:", max_processes, "processes requested, but python on Windows is limited to 61")
+        max_processes = 61
 
     if verbose and not validate and requested_max_processes and requested_max_processes != max_processes:
         print('Using a maximum of %s concurrent processes' % max_processes)

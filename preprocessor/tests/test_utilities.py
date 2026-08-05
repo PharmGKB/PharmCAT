@@ -623,6 +623,27 @@ def test_absent_and_unspecified_to_ref():
         helpers.compare_vcf_files(expected_vcf, tmp_dir, basename)
 
 
+def test_check_max_processes_windows_cap(monkeypatch):
+    monkeypatch.setattr(os, 'name', 'nt')
+    monkeypatch.setattr(os, 'cpu_count', lambda: 100)
+
+    # auto-detected concurrency on a high-core-count Windows machine must be capped at 61, not crash on the
+    # unset (None) request
+    assert utils.check_max_processes(None) == 61
+    # an explicit request above the Windows limit is also capped
+    assert utils.check_max_processes(70) == 61
+    # requests within the Windows limit are unaffected
+    assert utils.check_max_processes(10) == 10
+
+
+def test_check_max_processes_non_windows_uncapped(monkeypatch):
+    monkeypatch.setattr(os, 'name', 'posix')
+    monkeypatch.setattr(os, 'cpu_count', lambda: 100)
+
+    assert utils.check_max_processes(None) == 98
+    assert utils.check_max_processes(70) == 70
+
+
 def test_check_max_memory():
     assert utils.check_max_memory(None) is None
     assert utils.check_max_memory('') is None
