@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 import tempfile
 from pathlib import Path
 
@@ -228,6 +229,31 @@ def test_preprocess_structural_variations():
         # copy_vcf(files, 'sv.presort.bcf.bgzf', tmp_dir, 'sv.presort.vcf')
 
         helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
+
+
+def test_preprocessor_script_default_basename():
+    """
+    Regression test: the pharmcat_vcf_preprocessor script must derive its default output basename via
+    get_vcf_or_bcf_basename(), not Path.stem, so a single compressed VCF input (e.g. "raw.vcf.bgz") produces
+    "raw.preprocessed.vcf.bgz" and not "raw.vcf.preprocessed.vcf.bgz".
+    """
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    script = helpers.test_dir / '..' / 'pharmcat_vcf_preprocessor'
+    vcf_file = helpers.test_dir / 'raw.vcf.bgz'
+
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        run([sys.executable, str(script), '-vcf', str(tmp_vcf),
+            '-refVcf', str(helpers.pharmcat_positions_file), '-refFna', str(reference_fasta),
+            '-o', str(tmp_dir)])
+
+        files = os.listdir(tmp_dir)
+        assert 'raw.preprocessed.vcf.bgz' in files, (
+            'Expected default output basename derived from get_vcf_or_bcf_basename(), got: %s' % files)
+        assert 'raw.vcf.preprocessed.vcf.bgz' not in files
 
 
 def copy_vcf(files, filename: str, tmp_dir: Path, out_filename):
