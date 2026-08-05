@@ -176,7 +176,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   }
 
   public boolean hasAmp1Positions() {
-    return m_amp1Positions.isEmpty();
+    return !m_amp1Positions.isEmpty();
   }
 
   public boolean isAmp1Position(long pos) {

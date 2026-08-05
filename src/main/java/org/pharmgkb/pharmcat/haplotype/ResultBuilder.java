@@ -203,7 +203,7 @@ public class ResultBuilder {
         builder.append("s");
       }
       builder.append(" required to meet AMP Tier 1 requirements:  ")
-          .append(String.join(", ", matchData.getMissingRequiredPositions()))
+          .append(String.join(", ", matchData.getMissingAmp1Positions()))
           .append(". See https://www.clinpgx.org/ampAllelesToTest for details.");
       if (warnings == null) {
         warnings = new ArrayList<>();
