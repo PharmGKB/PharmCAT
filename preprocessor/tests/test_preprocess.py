@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 import helpers
-from pcat import get_pgx_regions, preprocess, ReportableException, run, common
+from pcat import get_pgx_regions, preprocess, preprocess_multiple_files, ReportableException, run, common
 
 
 def test_preprocess_vcf():
@@ -147,6 +147,31 @@ def test_preprocess_multi_vcf_concurrent():
 
         assert len(results) == 1
         helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
+
+
+def test_preprocess_multiple_files_sample_filter():
+    """
+    Regression test: preprocess_multiple_files() must check each file's own samples when filtering by -s/-S,
+    not just the first file's samples. A directory of independent per-sample VCFs, filtered down to a sample
+    that only exists in a file other than the first one, must still process that file.
+    """
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    pgx_regions = get_pgx_regions(helpers.pharmcat_positions_file)
+
+    src_vcf = helpers.test_dir / 'raw.vcf.bgz'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        # build two independent single-sample VCFs, mimicking a directory of separate per-sample files
+        file1 = tmp_dir / 'file1.vcf.bgz'
+        file2 = tmp_dir / 'file2.vcf.bgz'
+        run([common.BCFTOOLS_PATH, 'view', '--no-version', '-s', 'Sample_1', '-Oz', '-o', str(file1), str(src_vcf)])
+        run([common.BCFTOOLS_PATH, 'view', '--no-version', '-s', 'Sample_2', '-Oz', '-o', str(file2), str(src_vcf)])
+
+        # request only Sample_2, which only exists in the second file
+        results = preprocess_multiple_files(helpers.pharmcat_positions_file, reference_fasta, pgx_regions, False,
+                                            [file1, file2], ['Sample_2'], tmp_dir, verbose=1)
+
+        assert len(results) == 1, 'Expected file2 (which has Sample_2) to be processed, got: %s' % results
 
 
 def test_preprocess_vcf_key_error():

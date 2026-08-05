@@ -108,7 +108,7 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
             file_samples = util.read_vcf_samples(file, verbose=verbose)
         else:
             # make sure samples are in the VCF file
-            vcf_samples = util.read_vcf_samples(vcf_files[0], verbose=verbose)
+            vcf_samples = util.read_vcf_samples(file, verbose=verbose)
             for sample in samples:
                 if sample in vcf_samples:
                     file_samples.append(sample)
