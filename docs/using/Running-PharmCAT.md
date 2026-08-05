@@ -41,7 +41,7 @@ Where:
 -jar `<path_to_jar_file>`
 : The compiled PharmCAT Jar file
 
--vcf `<vcf_file>`
+-vcf `<vcf_file>` <span class="altArg"><br />or --matcher-vcf `<vcf_file>`</span>
 : Input VCF file (must comply with PharmCAT's [VCF requirements](/using/VCF-Requirements))
 
 By default, the output will be saved to the same directory as the input VCF file and will use the same base file name.  For example:
@@ -64,7 +64,7 @@ To control this behavior, provide:
 -bf `<name>` <span class="altArg"><br />or --base-filename `<name>`</span>
 : The base name (without file extensions) used for output files
 
--del <span class="altArg"><br />or --delete-intermediary-files</span>
+-del <span class="altArg"><br />or --delete-intermediate-files</span>
 : Delete intermediary output files
 
 Example:
@@ -134,6 +134,9 @@ Each module has its own arguments to customize its behavior.
 -matcher
 : run Named Allele Matcher
 
+-g `<genes>` <span class="altArg"><br />or --genes `<genes>`</span>
+: comma-separated list of genes to call (defaults to all supported genes)
+
 -ma <span class="altArg"><br />or --matcher-all-results</span>
 : return all possible diplotypes, not just top hits
 
@@ -168,14 +171,14 @@ Each module has its own arguments to customize its behavior.
 -re <span class="altArg"><br />or --reporter-extended</span>
 : write an extended report (includes all possible genes and drugs, even if no data is available)
 
--reporterHtml <span class="altArg"><br />or --reporter-save-html
+-reporterHtml <span class="altArg"><br />or --reporter-save-html</span>
 : save reporter results as HTML. This is the default if no format is specified.
 If any format is specified, only the specified formats will be saved.
 
--reporterJson <span class="altArg"><br />or --reporter-save-json
+-reporterJson <span class="altArg"><br />or --reporter-save-json</span>
 : save reporter results as JSON
 
--reporterCallsOnlyTsv <span class="altArg"><br />or --reporter-save-calls-only-tsv
+-reporterCallsOnlyTsv <span class="altArg"><br />or --reporter-save-calls-only-tsv</span>
 : save call results only as TSV
 
 
@@ -341,7 +344,7 @@ For frequency analysis, _all_ alleles should be counted.
 The diplotype/phenotype/activity score used for recommendation lookup may not be the same as what is called by the
 `Named Allele Matcher`.
 See [Matching Recommendations](/methods/Matching-Recommendations/) and
-[Gene Definition Exceptions](https://markwoon.pharmcat.org/methods/Gene-Definition-Exceptions/) for details.
+[Gene Definition Exceptions](https://pharmcat.org/methods/Gene-Definition-Exceptions/) for details.
 
 If sourced from an outside call, these fields be whatever was specified by the outside call.
 

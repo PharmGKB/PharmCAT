@@ -36,11 +36,11 @@ Full list of options:
 usage: pharmcat_pipeline [-s <samples> | -S <txt_file>] [-sm <tsv_file> ]
                          [-0] [--absent-to-ref] [-unspecified-to-ref] [-G] 
                          [-R <bed_file>]
-                         [-matcher] [-ma] [-matcherHtml] [-research <type>]
+                         [-matcher] [-g <genes>] [-ma] [-matcherHtml] [-research <type>]
                          [-phenotyper]
                          [-reporter] [-rs <sources>] [-re]
                          [-reporterHtml] [-reporterJson] [-reporterCallsOnlyTsv]
-                         [-o <dir>] [-bf <name>] [-del]
+                         [-o <dir>] [-bf <name>] [-k] [-del]
                          [-cp <num processes>]
                          [-v] [-V]
                          input file or directory
@@ -94,6 +94,8 @@ Preprocessor arguments:
 
 Named allele matcher arguments:
   -matcher              Run named allele matcher independently.
+  -g <genes>, --genes <genes>
+                        Comma-separated list of genes to match.
   -ma, --matcher-all-results
                         Return all possible diplotypes, not just top hits.
   -matcherHtml, --matcher-save-html
@@ -123,6 +125,8 @@ Output arguments:
                         Directory for outputs. Defaults to the directory of the input VCF.
   -bf <name>, --base-filename <name>
                         Prefix for output files. Defaults to the same base name as the input.
+  -k, --keep-intermediate-preprocessor-files
+                        Keep intermediate preprocessor files (deleted by default).
   -del, --delete-intermediate-pharmcat-files
                         Delete intermediate PharmCAT files. Defaults to saving all files.
 

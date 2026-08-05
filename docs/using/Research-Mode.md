@@ -13,9 +13,9 @@ These features are part of what we refer to as "Research Mode". As the name indi
 for use outside a research context. They are enabled on the command line by using the `-research` flag and specifying
 which research mode features you'd like to enable.
 
-__If you specify any Research Mode feature PharmCAT will not output any data from the Reporter module__. Matcher and
-Phenotyper data can still be written. Research features change the data in ways that are not compatible with making 
-reliable prescribing recommendation data.
+__If you specify any Research Mode feature PharmCAT will not produce full Reporter output (HTML/JSON)__; only the
+calls-only TSV report is still written. Matcher and Phenotyper data can still be written. Research features change
+the data in ways that are not compatible with making reliable prescribing recommendation data.
 
 The following explains each research mode feature.
 

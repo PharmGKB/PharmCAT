@@ -121,7 +121,7 @@ Although we did not simulate coverage, a recent study by [Thuesen et al. 2022](h
 
 PharmCAT supports incorporating results from your favorite HLA programs for phenotype translations through “[outside calls](/using/Outside-Call-Format).”
 
-To incorporate the outside calls, you would run PharmCAT as you normally would, and add the -po flag which signals the program to look for an external call file. Please note that PharmCAT requires that your HLA call have only two fields for phenotype translations. Therefore, if your external calls have more than two fields, you should truncate your output to only two fields. For more information on HLA nomenclature and what the each field means in HLA, please visit the page for [Nomenclature for Factors of the HLA System page](https://hla.alleles.org/nomenclature/naming.html). For example:
+To incorporate the outside calls, you would run PharmCAT as you normally would, and add the -po flag which signals the program to look for an external call file. Please note that PharmCAT uses only two fields for HLA phenotype translations. If your external calls have more than two fields, PharmCAT will automatically truncate them to two fields (with a warning), so you do not need to truncate your output yourself. For more information on HLA nomenclature and what the each field means in HLA, please visit the page for [Nomenclature for Factors of the HLA System page](https://hla.alleles.org/nomenclature/naming.html). For example:
 
 ```console
 # run the HLA calls with a VCF

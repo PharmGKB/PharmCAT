@@ -90,7 +90,7 @@ chr1_set2.vcf
 -k <span class="altArg"><br />or --keep-intermediate-files</span>
 : This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `<base_input_file_name>.pgx_regions.normalized.multiallelic.vcf.bgz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
 
--ss <span class="altArg"><br />or --single-sample</span>
+-ss <span class="altArg"><br />or --single-samples</span>
 : Generate 1 VCF file per sample.
 
 -0 <span class="altArg"><br />or --missing-to-ref</span>
@@ -117,7 +117,7 @@ chr1_set2.vcf
   calls are likely left unspecified for good reasons.
 
 -c <span class="altArg"><br />or --concurrent-mode</span>
-: Enable concurrent mode. This defaults to using one less than the number of CPU cores available.
+: Enable concurrent mode. This defaults to using the number of CPU cores available minus 2 (minimum of 2).
   Note that this is only useful if processing many files/samples. With only a few files/samples, the overhead of
   using concurrent mode is more than the benefit it may provide.
 
@@ -138,7 +138,7 @@ These options allow you to override default locations if the preprocessor cannot
 -refVcf `<vcf_file>` <span class="altArg"><br />or --reference-pgx-vcf `<vcf_file>`</span>
 : A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT. By default, the preprocessor will
 look for `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the
-`pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
+`pharmcat-preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
 
 -refFna `<fna_file>` <span class="altArg"><br />or --reference-genome `<fna_file>`</span>
 : The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file can be either decompressed or compressed but has to be indexed (.fai and, in addition, .gzi for the compressed file). We recommended the compressed reference genome FASTA file for the sake of storage. These mandatory files will be automatically downloaded (~0.9 GB) to the same directory
@@ -172,7 +172,7 @@ By default, the preprocessor will produce a (multi-sample) VCF named `<base_file
 
 All preprocessor output files will use the base filename of the input file unless otherwise specified using the `-bf`/`--base-filename` argument. For example, if the input file is "study.vcf", then the base filename is "study". If the input file is "biobank_files.txt" then the base filename is "biobank_files".
 
-If there are multiple samples, and the `-ss` flag is provided, the preprocessor will produce one PharmCAT-ready VCF file per sample. The output files are named `<base_filename>.<sample_id>.preprocessed.vcf`
+If there are multiple samples, and the `-ss` flag is provided, the preprocessor will produce one PharmCAT-ready VCF file per sample. The output files are named `<base_filename>.<sample_id>.preprocessed.vcf` (uncompressed).
 
 The preprocessor will produce a report named `<base_filename>.missing_pgx_var.vcf` when there are absent PGx positions or alleles. This file only reports positions that are absent or unspecified in _all_ samples. The report is based on the input VCF and is not affected by `--unspecified-to-ref` or `--absent-to-ref`.
 
@@ -198,13 +198,13 @@ $ pharmcat_vcf_preprocessor -vcf test_1.vcf.bgz
 ```
 
 The VCF Preprocessor will return two files in this test case.
-1. one named *"test_1.preprocessed.vcf"*, which is a PharmCAT-ready VCF
+1. one named *"test_1.preprocessed.vcf.bgz"*, which is a PharmCAT-ready VCF
 2. the other named *"test_1.missing_pgx_var.vcf"* as a report of missing PGx positions.
 
 Note that the chr7 variant is not used in PharmCAT and was removed by the PharmCAT VCF Preprocessor.
 
 ```console
-$ cat test_1.preprocessed.vcf
+$ gunzip -c test_1.preprocessed.vcf.bgz
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1	3/2
@@ -241,14 +241,14 @@ Command to run the PharmCAT VCF Preprocessor:
 $ pharmcat_vcf_preprocessor -vcf test_2.vcf.bgz
 ```
 
-The VCF Preprocessor will return three (3) files in this test case:
-1. *"test_2.preprocessed.vcf"*
+The VCF Preprocessor will return two (2) files in this test case:
+1. *"test_2.preprocessed.vcf.bgz"*
 2. *"test_2.missing_pgx_var.vcf"*
 
 Note that the PharmCAT-ready VCFs will use the sample names from the input VCF.
 
 ```console
-$ cat test_2.preprocessed.vcf
+$ gunzip -c test_2.preprocessed.vcf.bgz
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0	0/1
@@ -301,7 +301,7 @@ chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1 
 
 ## Explanation of INFO
 
-The PharmCAT VCF Preprocessor updates the INFO on genetic variants that warrant further inspection. Please check positions with these INFO flags:
+The PharmCAT VCF Preprocessor updates the FILTER field on genetic variants that warrant further inspection. Please check positions with these FILTER values:
 1. `PCATxREF`
    1. The reference allele at this position does not match the PharmCAT reference allele at this PGx allele defining positions, which is based on the RefSeq reference human genome sequence on GRCh38. This cannot be fixed by normalizing and flipping the REF and ALT alleles in the PharmCAT VCF Preprocessor.
 2. `PCATxALT`

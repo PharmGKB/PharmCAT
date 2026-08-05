@@ -44,7 +44,7 @@ This was documented before the VCF Preprocessor supported multi-sample VCF by de
 - Elapsed time: 38 hr 12 min 19 sec
 - Maximum memory used: 2.98 GB
 - **Average speed** = 0.68 seconds/sample
-- **Overall time** = 38 hours for 200K samples using 20 processors
+- **Overall time** = 38 hours for 200K samples using 31 processors
 - Cost estimate on the UK Biobank Research Analytic Platform using Swiss Army Knife
   - Instance requested: 70.3 GB total memory, 3600 GB total storage, 36 cores
   - Estimated Cost Per Hour: £0.4464

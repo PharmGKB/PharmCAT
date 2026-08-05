@@ -162,8 +162,8 @@ There are genes that need to use special, individual logic to determine their ge
 See [Gene Definition Exceptions](/methods/Gene-Definition-Exceptions) for details on these genes.
 
 In the `Reporter` JSON output, the diplotype used to look up the recommendation is specified in the
-`recommendationDiplotype` field.
+`recommendationDiplotypes` field.
 
-The "real" diplotype is stored in the `sourceDiplotype` field.
+The "real" diplotype is stored in the `sourceDiplotypes` field.
 This will be either what the `Named Allele Matcher` called, or was provided as an outside call.
 This is the value that is displayed in the PharmCAT reports.

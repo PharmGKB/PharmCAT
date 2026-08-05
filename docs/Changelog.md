@@ -15,14 +15,48 @@ PharmCAT release notifications by following
 [these instructions](/versioning#subscribing-to-release-notifications). This method will require a GitHub account.
 
 
+## v3.4.0
+
+* **data:** updated to the latest PharmVar data.
+* Fixed a `Reporter` bug that occurred when more than one phenotype applied to a single gene.
+
+
+## v3.3.0
+
+* **data:** updated to the latest ClinPGx data.
+* Several `VCF Preprocessor` bug fixes, including handling unordered symbolic structural variants, running the
+  pipeline on a directory, and avoiding a spurious ambiguity warning for effectively phased genes.
+
+
+## v3.2.0
+
+#### Key New Features
+
+* **NUDT15 Repeat Wobble Support** - The `Named Allele Matcher` now handles repeat wobbles in _NUDT15_, improving
+  allele calling accuracy for this gene.
+
+* **data:** updated to the latest PharmVar and ClinPGx data.
+
+
+## v3.1.0
+
+#### Key New Features
+
+* **Suballele Matching** - The `Named Allele Matcher` now supports suballeles to work around ambiguous core allele
+  definitions.
+* **`-g`/`--genes` Flag** - Restrict the `Named Allele Matcher` to a comma-separated list of genes.
+* **DPWG Simplification** - Removed DPWG-specific phenotypes and functions, and adjusted _DPYD_ recommendations for
+  DPWG guidelines accordingly.
+
+
 ## v3.0.0
 
 #### Key New Features
 
-* **Phase Set Support** - Addresses issue [#175], enabling support for phase sets in VCF (the `PS` genotype field).
-* **New TSV Reports** - Produce focused reports on allele calls that that eliminates the complexity and verbosity of PharmCAT's JSON reports. Learn more in the [TSV Reports documentation](https://pharmcat.org/using/running-pharmcat/#calls-only-tsv-reports).
-* **Allele Frequency Analysis** - Leverage the new TSV reports to run frequency analysis, with support for arbitrary sample metadata to enable pivot column analysis as well.  Instructions are available in the [allele frequence analysis documentation](https://pharmcat.org/using/allele-frequency-analysis/).
-* **NAT2 Alelle Calling** - Enable calling NAT2 alleles with a new mechanism that uses frequency analysis to help call unphased data. See the [NAT2](https://pharmcat.org/methods/gene-definition-exceptions/#nat2) for details.  NAT2 allele function, phenotypes, and recommendations will be included when available through CPIC.
+* **Phase Set Support** - Addresses issue [#175](https://github.com/PharmGKB/PharmCAT/issues/175), enabling support for phase sets in VCF (the `PS` genotype field).
+* **New TSV Reports** - Produce focused reports on allele calls that that eliminates the complexity and verbosity of PharmCAT's JSON reports. Learn more in the [TSV Reports documentation](https://pharmcat.org/using/Running-PharmCAT/#calls-only-tsv-reports).
+* **Allele Frequency Analysis** - Leverage the new TSV reports to run frequency analysis, with support for arbitrary sample metadata to enable pivot column analysis as well.  Instructions are available in the [allele frequence analysis documentation](https://pharmcat.org/using/Allele-Frequency-Analysis/).
+* **NAT2 Alelle Calling** - Enable calling NAT2 alleles with a new mechanism that uses frequency analysis to help call unphased data. See the [NAT2](https://pharmcat.org/methods/Gene-Definition-Exceptions/#nat2) for details.  NAT2 allele function, phenotypes, and recommendations will be included when available through CPIC.
 
 #### ⚠ BREAKING CHANGES
 
