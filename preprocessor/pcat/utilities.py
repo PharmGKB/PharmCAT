@@ -718,8 +718,6 @@ def create_regions_file(regions_file: Path, pharmcat_positions_vcf: Path, verbos
         # no need to sort - keys are preserved in insertion order
         for px in entries:
             data = entries[px]
-            entries[px]['start'] = entries[px]['start'] - 200
-            entries[px]['end'] = entries[px]['end'] + 200
             f.write(data['chr'] + "\t" + str(data['start'] - 200) + "\t" + str(data['end'] + 200) + "\t" + px + "\n")
 
 
