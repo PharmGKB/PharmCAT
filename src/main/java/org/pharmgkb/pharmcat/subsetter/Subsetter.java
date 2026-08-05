@@ -478,11 +478,14 @@ public class Subsetter {
                 to dataDir/phenotypes.
               """);
         }
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
         return;
       }
 
       if (cliHelper.hasOption("pos") && cliHelper.hasOption("a")) {
-        System.out.println("-pos and -a are mutually exclusive.");
+        CliUtils.failIfNotTest("-pos and -a are mutually exclusive.");
         return;
       }
 

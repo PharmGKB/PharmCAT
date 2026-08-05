@@ -58,7 +58,10 @@ public class GeneDrugSummary {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("o", "output-dir", "directory to write files to", true, "directory");
       if (!cliHelper.parse(args)) {
-        System.exit(1);
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
+        return;
       }
 
       DefinitionReader definitionReader = DefinitionReader.defaultReader();

@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,6 +46,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.pharmgkb.pharmcat.util.DataManager.DEFAULT_EXEMPTIONS_FILE;
+import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemErr;
 
 
 /**
@@ -64,6 +66,29 @@ public class NamedAlleleMatcherTest {
   @AfterEach
   void deleteDirectory(TestInfo testInfo) {
     TestUtils.deleteTestOutputDirectory(testInfo);
+  }
+
+
+  /**
+   * Regression test: hitting the "no allele definitions found" validation must not call {@link System#exit(int)}
+   * directly (which would kill the JVM, including the test JVM) - it should go through
+   * {@link org.pharmgkb.pharmcat.util.CliUtils#failIfNotTest(String)} like every other CLI validation failure in
+   * this codebase.
+   */
+  @Test
+  void mainReportsMissingDefinitionsWithoutExitingJvm(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.vcf");
+    Path emptyDefDir = TestUtils.getTestOutputDir(testInfo, true);
+    // a directory with no *_translation.json files but a valid (empty) exemptions.json - the reader itself must
+    // succeed so the "no definitions found" check is actually the thing being exercised
+    Files.copy(DEFAULT_EXEMPTIONS_FILE, emptyDefDir.resolve(DEFAULT_EXEMPTIONS_FILE.getFileName()));
+
+    String systemErr = tapSystemErr(() -> NamedAlleleMatcher.main(new String[] {
+        "-vcf", vcfFile.toString(),
+        "-d", emptyDefDir.toString()
+    }));
+    assertTrue(systemErr.contains("Did not find any allele definitions"),
+        "expected the validation message to be surfaced instead of the process exiting: " + systemErr);
   }
 
 

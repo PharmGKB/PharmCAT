@@ -157,8 +157,8 @@ public class NamedAlleleMatcher {
 
       DefinitionReader definitionReader = new DefinitionReader(definitionDir, genes);
       if (definitionReader.getGenes().isEmpty()) {
-        System.out.println("Did not find any allele definitions at " + definitionDir);
-        System.exit(1);
+        CliUtils.failIfNotTest("Did not find any allele definitions at " + definitionDir);
+        return;
       }
 
       boolean topCandidateOnly = !cliHelper.hasOption("a");

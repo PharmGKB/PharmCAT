@@ -63,7 +63,7 @@ public class DataManager {
   }
 
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
@@ -82,7 +82,10 @@ public class DataManager {
 
 
       if (!cliHelper.parse(args)) {
-        System.exit(1);
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
+        return;
       }
 
       boolean skipDownload = cliHelper.hasOption("sdl");
@@ -92,8 +95,8 @@ public class DataManager {
         System.out.println("Downloading to " + downloadDir);
       } else {
         if (skipDownload) {
-          System.out.println("Cannot skip download without providing download directory containing necessary files");
-          System.exit(1);
+          CliUtils.failIfNotTest("Cannot skip download without providing download directory containing necessary files");
+          return;
         }
         downloadDir = Files.createTempDirectory("pharmcat");
         downloadDir.toFile().deleteOnExit();
@@ -214,9 +217,7 @@ public class DataManager {
       }
 
     } catch (Exception ex) {
-      //noinspection CallToPrintStackTrace
-      ex.printStackTrace();
-      System.exit(1);
+      CliUtils.failIfNotTest(ex);
     }
   }
 

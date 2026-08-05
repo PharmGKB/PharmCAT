@@ -1,10 +1,13 @@
 package org.pharmgkb.pharmcat.util;
 
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -88,5 +91,28 @@ class DataManagerTest {
     IllegalStateException ex = assertThrows(IllegalStateException.class,
         () -> DataManager.fixSlco1b1(definitionFile));
     assertNotNull(ex.getMessage());
+  }
+
+
+  /**
+   * Regression test: a CLI parse failure (an unrecognized option, since every one of {@link DataManager}'s options
+   * is optional) must go through {@link CliUtils#failIfNotTest()} instead of calling {@link System#exit(int)}
+   * directly (which would kill the JVM, including the test JVM).
+   */
+  @Test
+  void mainDoesNotThrowOnCliParseFailure() {
+    assertDoesNotThrow(() -> DataManager.main(new String[] { "--bogus-option" }));
+  }
+
+  /**
+   * Regression test: hitting the "cannot skip download without a download directory" validation must not call
+   * {@link System#exit(int)} directly (which would kill the JVM, including the test JVM) - it should go through
+   * {@link CliUtils#failIfNotTest(String)} like every other CLI validation failure in this codebase.
+   */
+  @Test
+  void mainThrowsWhenSkippingDownloadWithoutDownloadDir() {
+    ReportableException ex = assertThrows(ReportableException.class, () ->
+        DataManager.main(new String[] { "-sdl" }));
+    assertTrue(ex.getMessage().contains("Cannot skip download"));
   }
 }
