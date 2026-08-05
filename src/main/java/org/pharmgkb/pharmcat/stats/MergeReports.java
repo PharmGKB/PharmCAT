@@ -26,6 +26,7 @@ import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.StreamUtils;
 import org.pharmgkb.common.util.TimeUtils;
+import org.pharmgkb.pharmcat.util.CliUtils;
 
 import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.HEADER_SAMPLE_ID;
 
@@ -63,6 +64,9 @@ public class MergeReports {
           ;
 
       if (!cliHelper.parse(args)) {
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
         return;
       }
 

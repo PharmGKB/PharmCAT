@@ -61,8 +61,8 @@ public class MergeCalls {
         return;
       }
       if (cliHelper.hasOption("o1d") && cliHelper.hasOption("o1f")) {
-        System.out.println("-o1d and -o1f are mutually exclusive! Exiting...");
-        System.exit(1);
+        CliUtils.failIfNotTest("-o1d and -o1f are mutually exclusive!");
+        return;
       }
 
 
