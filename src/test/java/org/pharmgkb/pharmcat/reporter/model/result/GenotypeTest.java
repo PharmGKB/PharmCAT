@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -103,5 +104,18 @@ public class GenotypeTest {
       assertEquals(1, possibleGenotype.getDiplotypes().stream().filter(d -> d.getGene().equals(sf_gene1)).count());
       assertEquals(1, possibleGenotype.getDiplotypes().stream().filter(d -> d.getGene().equals(sf_gene2)).count());
     }
+  }
+
+  /**
+   * Regression test: {@code getPhenotypes()} must return each diplotype's actual phenotype (via
+   * {@link Diplotype#printPhenotype()}), not its {@code toString()} (which includes the gene prefix and allele
+   * label instead of the phenotype).
+   */
+  @Test
+  void testGetPhenotypesReturnsPhenotypeNotToString() {
+    Diplotype diplotype = new Diplotype("GENEX", "Poor Metabolizer", DataSource.UNKNOWN);
+    Genotype genotype = Genotype.forTest(List.of(diplotype));
+
+    assertEquals("Poor Metabolizer", genotype.getPhenotypes());
   }
 }

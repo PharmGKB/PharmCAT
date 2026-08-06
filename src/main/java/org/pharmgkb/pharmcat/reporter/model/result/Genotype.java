@@ -105,7 +105,7 @@ public class Genotype implements Comparable<Genotype> {
       return Haplotype.UNKNOWN;
     } else {
       return m_diplotypes.stream()
-          .map(Diplotype::toString)
+          .map(Diplotype::printPhenotype)
           .collect(Collectors.joining("; "));
     }
   }
