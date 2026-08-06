@@ -140,7 +140,6 @@ public class CliUtils {
    */
   public static void failIfNotTest(String msg) throws ReportableException {
     failIfNotTest(msg, false);
-    throw new ReportableException(msg);
   }
 
   /**

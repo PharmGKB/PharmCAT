@@ -907,20 +907,6 @@ def _is_phased(gt_field) -> bool | None:
     return True
 
 
-def _is_homozygous_ref(gt_field) -> bool | None:
-    """
-    Determines if all calls are homozygous reference.
-    Returns False if any sample is not '1', '1/1', or '1|1',
-    None if gt_field is empty, True otherwise.
-    """
-    if not gt_field:
-        return None
-    for x in gt_field:
-        if x in ['1', '1/1', '1|1']:
-            return False
-    return True
-
-
 def _is_haploid(gt_field) -> bool:
     """
     Determine whether the genotypes are haploid or diploid
@@ -1071,13 +1057,11 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 3. Matching REF and ALT=<*>: uncertain nucleotide changes, warn and ignore
                             '''
 
-                            # check whether the position has unspecified alt '<*>' or is homozygous reference
-                            is_all_samples_homozygous_ref = None
+                            # check whether the position has unspecified alt '<*>'
                             if fields[4] in ['.', '<*>']:
                                 is_nonspecific_alt: bool = True
                             else:
                                 is_nonspecific_alt: bool = False
-                                #is_all_samples_homozygous_ref = _is_homozygous_ref(fields[9:])
 
                             # list out REF alleles at a position
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]

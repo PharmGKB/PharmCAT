@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.Constants;
@@ -328,18 +327,6 @@ public class GeneDrugSummary {
       });
     }
   }
-
-  private void printPhenotype(PrintWriter writer, GenePhenotype gp, String haplotype) {
-    if (gp != null) {
-      writer.print(StringUtils.stripToEmpty(gp.getHaplotypeFunction(haplotype)));
-      writer.print("\t");
-      writer.print(StringUtils.stripToEmpty(gp.getHaplotypeActivity(haplotype)));
-    } else {
-      writer.print("\t");
-    }
-    writer.print("\t");
-  }
-
 
   private void appendGene(StringBuilder builder, String gene) {
     builder.append("| [")
