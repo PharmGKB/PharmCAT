@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.common.util.ComparisonChain;
@@ -176,22 +174,6 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     return m_dosingInformation || m_alternateDrugAvailable || m_otherPrescribingGuidance;
   }
 
-
-  /**
-   * Checks diplotypes for overriding phenotype from outside call.
-   * If found, replaces phenotype from recommendation.
-   */
-  public void checkDiplotypes() {
-    Multimap<String, String> mismatches = HashMultimap.create();
-    for (Genotype genotype : m_genotypes) {
-      for (Diplotype diplotype : genotype.getDiplotypes()) {
-        String expected = diplotype.getOutsidePhenotypeMismatch();
-        if (expected != null) {
-          mismatches.put(diplotype.getGene(), diplotype.getPhenotypes().get(0));
-        }
-      }
-    }
-  }
 
   private static String normalizeClassification(OntologyTerm term) {
     if (term != null && !TextConstants.isUnspecified(term.getTerm())) {

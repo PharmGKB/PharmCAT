@@ -167,7 +167,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
       String id = guidelinePackage.getGuideline().getSource() + "-" + recommendationAnnotation.getId();
       AnnotationReport annotationReport = new AnnotationReport(recommendationAnnotation, id);
       matchedGenotypes.get(recommendationAnnotation).forEach((a) -> annotationReport.addGenotype(a, false, guidelinePackage.getAlleles()));
-      annotationReport.checkDiplotypes();
       m_annotationReports.add(annotationReport);
     }
   }
