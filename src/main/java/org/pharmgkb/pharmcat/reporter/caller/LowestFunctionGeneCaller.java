@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Stream;
 import org.apache.commons.lang3.ObjectUtils;
 import org.jspecify.annotations.Nullable;
@@ -113,16 +112,14 @@ public class LowestFunctionGeneCaller {
   }
 
   private static Diplotype inferUnphasedDiplotype(String gene, List<String> hapNames, Env env) {
-    InferredHaps hapData = makeHaplotypes(gene, hapNames, env);
-    List<Haplotype> haplotypes = hapData.haplotypes;
-    boolean isInferred = hapData.isInferred;
+    List<Haplotype> haplotypes = makeHaplotypes(gene, hapNames, env);
     Haplotype hap1 = haplotypes.get(0);
     Haplotype hap2 = null;
     if (haplotypes.size() > 1) {
       hap2 = haplotypes.get(1);
     }
     Diplotype diplotype = new Diplotype(gene, hap1, hap2, env);
-    if (isInferred || haplotypes.size() > 2) {
+    if (haplotypes.size() > 2) {
       diplotype.setInferred(true);
     }
     return diplotype;
@@ -130,26 +127,21 @@ public class LowestFunctionGeneCaller {
 
   private static Diplotype inferPhasedDiplotype(String gene, List<String> hapNames1, List<String> hapNames2, Env env) {
 
-    InferredHaps hapData1 = makeHaplotypes(gene, hapNames1, env);
-    boolean isInferred = hapData1.isInferred;
-    Haplotype hap1 = hapData1.haplotypes.get(0);
+    Haplotype hap1 = makeHaplotypes(gene, hapNames1, env).get(0);
     Haplotype hap2 = null;
     if (!hapNames2.isEmpty()) {
-      InferredHaps hapData2 = makeHaplotypes(gene, hapNames2, env);
-      hap2 = hapData2.haplotypes.get(0);
-      isInferred = isInferred || hapData2.isInferred;
+      hap2 = makeHaplotypes(gene, hapNames2, env).get(0);
     }
     Diplotype diplotype = new Diplotype(gene, hap1, hap2, env);
-    if (isInferred || hapNames1.size() > 1 || hapNames2.size() > 1) {
+    if (hapNames1.size() > 1 || hapNames2.size() > 1) {
       diplotype.setInferred(true);
     }
     return diplotype;
   }
 
 
-  private static InferredHaps makeHaplotypes(String gene, List<String> hapNames, Env env) {
+  private static List<Haplotype> makeHaplotypes(String gene, List<String> hapNames, Env env) {
     String refAllele = env.getReferenceAllele(gene);
-    AtomicBoolean inferred = new AtomicBoolean(false);
     Stream<Haplotype> hapStream = hapNames.stream()
         .map(h -> env.makeHaplotype(gene, h));
     if (gene.equals("DPYD")) {
@@ -157,22 +149,7 @@ public class LowestFunctionGeneCaller {
     } else if (gene.equals("RYR1")) {
       hapStream = hapStream.sorted(Ryr1ActivityComparator.INSTANCE);
     }
-    List<Haplotype> haplotypes = hapStream.toList();
-    return new InferredHaps(haplotypes, inferred.get());
-  }
-
-
-  /**
-   * Wrapper class to hold multiple returned values.
-   */
-  private static class InferredHaps {
-    List<Haplotype> haplotypes;
-    boolean isInferred;
-
-    private InferredHaps(List<Haplotype> haplotypes, boolean isInferred) {
-      this.haplotypes = haplotypes;
-      this.isInferred = isInferred;
-    }
+    return hapStream.toList();
   }
 
 
