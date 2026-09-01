@@ -40,6 +40,20 @@ All technical requirements and documentation are available on [PharmCAT.org](htt
 PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG013077).
 
 
+## Building without Logback
+
+Applications that provide their own [SLF4J](https://www.slf4j.org/) implementation can build an executable PharmCAT
+JAR without Logback:
+
+```console
+./gradlew noLogbackJar
+```
+
+The task writes `build/libs/pharmcat-<version>-no-logback.jar`. The JAR includes PharmCAT's other runtime dependencies
+but excludes Logback and `logback.xml`; the consuming application must provide a compatible SLF4J implementation and
+logging configuration.
+
+
 ## Contact
 
 For technical questions or bug reports, [file an issue](https://github.com/PharmGKB/PharmCAT/issues).
