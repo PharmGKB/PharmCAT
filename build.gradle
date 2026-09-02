@@ -1,3 +1,5 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
   id 'java'
   id 'application'
@@ -124,6 +126,7 @@ tasks.withType(JavaExec).configureEach {
 }
 
 tasks.withType(Test).configureEach {
+  dependsOn 'jar', 'shadowJar', 'noLogbackJar'
   minHeapSize = "512m"
   maxHeapSize = "4096m"
   // hide restricted method warnings
@@ -134,6 +137,12 @@ tasks.withType(Test).configureEach {
     events 'failed', 'standard_error'
     exceptionFormat = 'full'
     showStackTraces = true
+  }
+
+  doFirst {
+    systemProperty 'pharmcat.thinJar', tasks.named('jar').get().archiveFile.get().asFile.absolutePath
+    systemProperty 'pharmcat.shadowJar', tasks.named('shadowJar').get().archiveFile.get().asFile.absolutePath
+    systemProperty 'pharmcat.noLogbackJar', tasks.named('noLogbackJar').get().archiveFile.get().asFile.absolutePath
   }
 
   // always generate reports after tests are run
@@ -181,6 +190,26 @@ shadowJar {
   }
   archiveBaseName = project.ext.archiveBaseName
   archiveFileName = project.ext.archiveBaseName + "-" + project.ext.version + "-all.jar";
+}
+
+tasks.register('noLogbackJar', ShadowJar) {
+  group = 'build'
+  description = 'Builds an executable jar without Logback so consumers can supply an SLF4J provider.'
+  from sourceSets.main.output
+  configurations = [project.configurations.runtimeClasspath]
+  dependencies {
+    exclude(dependency('ch.qos.logback:logback-classic'))
+    exclude(dependency('ch.qos.logback:logback-core'))
+  }
+  exclude 'logback.xml'
+  manifest {
+    attributes 'Automatic-Module-Name': project.ext.moduleName
+    attributes 'Implementation-Title': project.name
+    attributes 'Implementation-Version': project.ext.version
+    attributes 'Main-Class': project.ext.mainClassName
+  }
+  archiveBaseName = project.ext.archiveBaseName
+  archiveFileName = project.ext.archiveBaseName + "-" + project.ext.version + "-no-logback.jar";
 }
 
 tasks.withType(Javadoc).configureEach {
