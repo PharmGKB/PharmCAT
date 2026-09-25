@@ -133,8 +133,8 @@ Syntax:
   may not be experimentally determined in routine clinical testing, they should be displayed in their most likely order
   (the order found in PharmVar’s "Structural Variation for CYP2D6" document referred to above) for consistency.
   Examples:
-    * CYP2D6 `*68+*4/*10`
-    * CYP2D6 `*2/*36+*10`
+    * CYP2D6 `*68 + *4/*10`
+    * CYP2D6 `*2/*36 + *10`
 
 In addition to only recognizing gene duplications defined in PharmVar, PharmCAT also only recognizes copy number
 variations that have a function assignment from CPIC.
