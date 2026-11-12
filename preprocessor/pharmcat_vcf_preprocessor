@@ -168,7 +168,7 @@ if __name__ == "__main__":
                     if not pcat.is_vcf_or_bcf_file(file):
                         raise ReportableException('Error: %s is not a VCF/BCF file' % str(file))
                     m_vcf_files.append(pcat.validate_file(line))
-        m_input_basename = vcf_path.stem
+            m_input_basename = vcf_path.stem
 
         if not m_vcf_files:
             raise ReportableException("Error: no VCF input")
