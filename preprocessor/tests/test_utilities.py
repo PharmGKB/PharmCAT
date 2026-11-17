@@ -636,3 +636,24 @@ def test_check_max_memory():
         utils.check_max_memory('87gb')
     with pytest.raises(ReportableException):
         utils.check_max_memory('9.7G')
+
+
+def test_fill_reference():
+    assert ['0/0', '0/0'] == utils._fill_reference(2, 'chr6', is_phased=False)
+    assert ['0|0', '0|0'] == utils._fill_reference(2, 'chr6')
+    assert ['0', '0/0'] == utils._fill_reference(2, 'chrX', [True, False], is_phased=False)
+
+
+def test_fill_reference_keeps_missing_alleles_missing():
+    assert ['./.', '0/0', '0/0', './0', '0/.', '0/0'] == utils._fill_reference(
+        6, 'chr6', is_phased=False, sample_gts=['./.', '0/0', '0/1', './1', '1/.', '1/1'])
+    assert ['.|.', '0|0', '0|0', '.|0', '0|.', '0|0'] == utils._fill_reference(
+        6, 'chr6', sample_gts=['.|.', '0|0', '0|1', '.|1', '1|.', '1|1'])
+    assert ['.', '0', '0', './.'] == utils._fill_reference(
+        4, 'chrX', [True, True, True, False], is_phased=False, sample_gts=['.', '0', '1', './.'])
+
+
+def test_combine_genotypes():
+    assert ['./.', '0/1'] == utils._combine_genotypes(None, ['./.', '0/1:12'])
+    assert ['0/1', '0/1', './.', '.|1', '.'] == utils._combine_genotypes(
+        ['./.', '0/1', './.', '.|.', '.'], ['0/1', './.', './.', '.|1', '1/1'])

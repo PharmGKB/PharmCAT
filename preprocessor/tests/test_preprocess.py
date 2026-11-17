@@ -195,6 +195,54 @@ def test_221():
         helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
 
 
+def _test_240(vcf_name: str, expected_name: str):
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    pgx_regions = get_pgx_regions(helpers.pharmcat_positions_file)
+    vcf_file = helpers.test_dir / vcf_name
+    preprocessed_file = helpers.test_dir / expected_name
+
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        basename = '240'
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, pgx_regions, False,
+                             [tmp_vcf], None, basename, tmp_dir, basename, verbose=1)
+        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
+
+
+def test_240():
+    """
+    Test for issue #240: a missing genotype (./.) must not become 0/0 when the missing ALT alleles of a position are
+    filled in.  Only the PGx position present in the input is expected in the output (absent positions are not added).
+    """
+    _test_240('240.vcf', '240.preprocessed.vcf')
+
+
+def test_240_multi_sample():
+    """
+    Test for issue #240: missing and half-missing genotypes, unphased, in a multi-sample VCF with haploid chrX calls.
+    The second position of each gene has an input ALT that sorts after the ALT that is filled in.
+    """
+    _test_240('240.multi.vcf', '240.multi.preprocessed.vcf')
+
+
+def test_240_phased():
+    """
+    Test for issue #240: missing and half-missing genotypes, phased.
+    """
+    _test_240('240.phased.vcf', '240.phased.preprocessed.vcf')
+
+
+def test_240_split():
+    """
+    Test for issue #240: a multi-allelic position split over two records, with samples missing in one record and
+    called in the other.
+    """
+    _test_240('240.split.vcf', '240.split.preprocessed.vcf')
+
+
 def test_preprocess_structural_variations():
     """
     The name of this test is not quite accurate.
