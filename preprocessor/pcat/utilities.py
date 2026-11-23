@@ -936,7 +936,15 @@ def _is_haploid(gt_field) -> bool:
 
 
 def _fill_reference(n: int, chromosome: str,
-                    sample_haploidy: list[bool] = None, is_phased: bool = True) -> list[str]:
+                    sample_haploidy: list[bool] = None, is_phased: bool = True,
+                    sample_gts: list[str] = None) -> list[str]:
+    """
+    Generates reference genotypes for n samples, e.g. for the ALT alleles of a position that are missing from the
+    input VCF.
+
+    :param sample_gts: the genotype each sample has at this position in the input VCF (if known).
+        Missing alleles (".") stay missing instead of being turned into reference.
+    """
     # check whether haploid counts are present for chromosome X
     if chromosome == 'chrX' and sample_haploidy is None:
         raise ReportableException('Cannot find sample haploid counts for the input sex chromosome')
@@ -947,7 +955,32 @@ def _fill_reference(n: int, chromosome: str,
     else:
         updated_genotypes = [g] * n
 
+    if sample_gts is not None:
+        sep = '|' if is_phased else '/'
+        for i, gt in enumerate(sample_gts):
+            alleles = re.split('[/|]', gt)
+            if '.' in alleles:
+                updated_genotypes[i] = sep.join('.' if a == '.' else '0' for a in alleles)
+
     return updated_genotypes
+
+
+def _combine_genotypes(gts: list[str] | None, sample_fields: list[str]) -> list[str]:
+    """
+    Combines the genotypes of the input records at one position, so that an allele is only missing if it is missing in
+    every record (e.g. a multi-allelic site split over several lines).
+    """
+    new_gts = [x.split(':')[0] for x in sample_fields]
+    if gts is None:
+        return new_gts
+    combined = []
+    for old, new in zip(gts, new_gts):
+        old_parts = re.split('([/|])', old)
+        new_parts = re.split('([/|])', new)
+        if len(old_parts) == len(new_parts):
+            old = ''.join(n if o == '.' else o for o, n in zip(old_parts, new_parts))
+        combined.append(old)
+    return combined
 
 
 def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_file: Path,
@@ -1008,6 +1041,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         # record PGx positions in the input VCF
         input_pos = []  # positions present in the input VCF
         input_pos_phased = {}  # phasing status of positions
+        input_pos_gts = {}
         # this dictionary saves genetic variants concurrent at PGx positions
         dict_non_pgx_records = {}
         if verbose:
@@ -1116,6 +1150,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                     # determine the phasing status of a position
                                     # the (position is unphased if any sample is unphased)
                                     input_pos_phased[input_chr_pos] = _is_phased(fields[9:])
+                                input_pos_gts[input_chr_pos] = _combine_genotypes(input_pos_gts.get(input_chr_pos),
+                                                                                  fields[9:])
 
                                 # update id
                                 fields[2] = updated_id
@@ -1160,6 +1196,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 if input_chr_pos not in input_pos:
                                     input_pos.append(input_chr_pos)
                                     input_pos_phased[input_chr_pos] = _is_phased(fields[9:])
+                                input_pos_gts[input_chr_pos] = _combine_genotypes(input_pos_gts.get(input_chr_pos),
+                                                                                  fields[9:])
                                 # update info
                                 fields[7] = updated_info
                                 # write to output
@@ -1210,7 +1248,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                     # complete multi-allelic loci
                     if key_chr_pos in input_pos:
                         updated_reference = _fill_reference(n_sample, key_chr_pos[0],
-                                                            sample_is_chrx_haploid, input_pos_phased[key_chr_pos])
+                                                            sample_is_chrx_haploid, input_pos_phased[key_chr_pos],
+                                                            input_pos_gts[key_chr_pos])
                         line = '\t'.join(val + updated_reference)
                         out_f.write(line + '\n')
                     # add absent positions back in as homozygous reference
