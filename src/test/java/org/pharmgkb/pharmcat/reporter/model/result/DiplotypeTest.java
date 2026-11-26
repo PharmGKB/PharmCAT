@@ -1,5 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -11,8 +13,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -224,6 +229,32 @@ public class DiplotypeTest {
     assertThat(dip.getLookupKeys(), contains("4.0"));
     assertNull(dip.getOutsidePhenotypeMismatch());
     assertNotNull(dip.getOutsideActivityScoreMismatch());
+  }
+
+  @Test
+  void testOutsideCallDiplotypeKeyAndGuidanceMatching() throws IOException {
+    OutsideCall cyp2c9Call = new OutsideCall(s_env, "CYP2C9\t*3/*3", 1);
+    Diplotype cyp2c9Dip = new Diplotype(cyp2c9Call, s_env);
+    assertEquals(Map.of("*3", 2.0), cyp2c9Dip.getDiplotypeKey());
+
+    OutsideCall ugt1a1Call = new OutsideCall(s_env, "UGT1A1\t*1/*28", 1);
+    Diplotype ugt1a1Dip = new Diplotype(ugt1a1Call, s_env);
+    assertEquals(Map.of("*1", 1.0, "*28", 1.0), ugt1a1Dip.getDiplotypeKey());
+
+    OutsideCall mtrnr1Call = new OutsideCall(s_env, "MT-RNR1\t1555A>G", 1);
+    Diplotype mtrnr1Dip = new Diplotype(mtrnr1Call, s_env);
+    assertEquals(Map.of("1555A>G", 1.0), mtrnr1Dip.getDiplotypeKey());
+
+    OutsideCall phenoOnlyCall = new OutsideCall(s_env, "CYP2C9\t\tPM", 1);
+    Diplotype phenoOnlyDip = new Diplotype(phenoOnlyCall, s_env);
+    assertTrue(phenoOnlyDip.getDiplotypeKey().isEmpty());
+
+    // FDA label for siponimod matches CYP2C9 by diplotypeKey only
+    Phenotyper phenotyper = new Phenotyper(s_env, null, List.of(), Set.of(cyp2c9Call), Map.of());
+    ReportContext reportContext = new ReportContext(s_env, phenotyper, null);
+    DrugReport siponimod = reportContext.getDrugReport(PrescribingGuidanceSource.FDA_LABEL, "siponimod");
+    assertNotNull(siponimod);
+    assertTrue(siponimod.isMatched(), "Expected FDA label siponimod guidance to match CYP2C9 *3/*3 outside call");
   }
 
   private void logDiplotype(Diplotype dip) {
