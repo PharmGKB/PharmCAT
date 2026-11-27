@@ -155,6 +155,10 @@ public class Diplotype implements Comparable<Diplotype> {
       String[] alleles = DiplotypeFactory.splitDiplotype(m_gene, outsideCall.getDiplotype());
       m_allele1 = env.makeHaplotype(m_gene, alleles[0]);
       m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1]) : null;
+      addAlleleToDiplotypeKey(m_allele1.getName());
+      if (m_allele2 != null) {
+        addAlleleToDiplotypeKey(m_allele2.getName());
+      }
     }
 
     // must set an activity score before phenotype because phenotype calculation may depend on the activity score
